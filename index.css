@@ -113,7 +113,7 @@ in the center of the homepage. Set color to blue. */
 }
 
 /*Set button color, font size, cursor, etc */
-.hero-btm{
+.hero-btn{
     display: inline-block;
     text-decoration: none;
     color: #209CEE;
@@ -125,8 +125,25 @@ in the center of the homepage. Set color to blue. */
     cursor: pointer;
 }
 
-/*Created hover  */
-.hero-btm:hover{   
-    transition: 1s;
+/* footer */
 
+.footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 30 px 0;
+}
+
+.footer h4{
+    margin-bottom: 25px;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+.icons .fa{
+    color: #209CEE;
+    margin: 0 13px;
+    cursor: pointer;
+    padding: 18px 0;
 }
