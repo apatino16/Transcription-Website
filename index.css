@@ -48,28 +48,43 @@ table {
 }
 
 
-/* */
+/*Website pages loads in full screen */
 *{
     margin: 0;
     padding: 0;
 }
 
-/* */
+/*------Header: Logo and Navigation tabs ------*/
+
+header{
+    position: sticky;
+    top: 0px;
+    left: 0px;
+    background: transparent;
+    z-index: 1501;
+    height: 60px;
+}
+
+/*NavBar Section */
 nav{
-    display: flex;
-    padding: 2% 6%;
-    justify-content: space-between;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px 10px;
     align-items: center;
+    justify-content: space-between;
 }
 
 /*Logo*/
 nav img{
-    width: 100px;
+    width: 50px;
+    filter: drop-shadow(1px 1px 1px black);
+    position: fixed;
 }
 
-/* */
+/*NavBar Links*/
 .nav-links{
-    flex: 1;
     text-align: right;
 }
 
@@ -88,27 +103,63 @@ nav img{
     font-size: 13px;
 }
 
+.SpaceRow-SpaceContainer{
+    height: 3em;
+    width: 100%;
+    background-color: lightgrey;
+}
+
 /*Centered the Title, description, and button
 in the center of the homepage. Set color to blue. */
-.text-box{
-    width: 90%;
-    color:#209CEE;
-    position: absolute;
+.HomepageBody-OuterContainer{
+    position: relative;
+    min-height: 600px;
+    overflow: hidden;
+}
+
+.HomepageBody-InnerContainer{
+    max-width: 1140px;
+    padding: 0px 4rem;
+    margin: 0px auto 52px;
+    position: relative;
+}
+
+.text-box-container{
+    position: relative;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 100%;
+    
+
+   /* 
+   color: #209CEE;
+    background-color: lightgray;
+   width: 90%;
+   padding: 1em;
+   height: 1000px;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    text-align: center;
+    */
 }
 
 /*Set the font size of the Title */
-.text-box h1{
-    font-size: 62px;
+.text-box{
+    font-size: 64px;
+    line-height: 28px;
+    letter-spacing: 0px;
+    color: #209CEE;
+    margin-bottom: 2rem;
 }
 
 /*Set the font size and color of the description*/
 .text-box p{
-    margin: 10px 0 40px;
-    font-size: 14px;
+    margin-bottom: 2rem;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0px;
     color: #209CEE;
 }
 
@@ -127,23 +178,25 @@ in the center of the homepage. Set color to blue. */
 
 /* footer */
 
-.footer{
-    position: absolute;
+footer{
+    position: relative;
     bottom: 0;
     width: 100%;
     text-align: center;
-    padding: 30 px 0;
+    padding: 20px 0;
+    background-color: #209CEE;
+    color: white;
 }
 
-.footer h4{
-    margin-bottom: 25px;
-    margin-top: 20px;
+.footer-tittle{
+    margin-bottom: 10px;
+    margin-top: 10px;
     font-weight: 600;
 }
 
 .icons .fa{
-    color: #209CEE;
-    margin: 0 13px;
+    color: white;
+    margin: 0 5px;
     cursor: pointer;
-    padding: 18px 0;
+    padding: 1em;
 }
