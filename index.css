@@ -112,16 +112,26 @@ nav img{
 /*Centered the Title, description, and button
 in the center of the homepage. Set color to blue. */
 .HomepageBody-OuterContainer{
-    position: relative;
-    min-height: 600px;
-    overflow: hidden;
+    display: flex;
+    flex-flow: row wrap;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    background: lightgrey;
+    box-align: center;
+    margin: 0.5rem;
 }
 
 .HomepageBody-InnerContainer{
-    max-width: 1140px;
-    padding: 0px 4rem;
-    margin: 0px auto 52px;
-    position: relative;
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    -wedkit-box-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+    background: #b2cddf;
+    padding: 1em;
+    margin: 1rem;
+    border-radius: 0.5rem;
 }
 
 .text-box-container{
@@ -131,45 +141,38 @@ in the center of the homepage. Set color to blue. */
     margin-right: auto;
     text-align: center;
     width: 100%;
-    
-
-   /* 
-   color: #209CEE;
-    background-color: lightgray;
-   width: 90%;
-   padding: 1em;
-   height: 1000px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    */
 }
 
 /*Set the font size of the Title */
 .text-box{
     font-size: 64px;
+    font-weight: bold;
     line-height: 28px;
     letter-spacing: 0px;
-    color: #209CEE;
+    color: white;
     margin-bottom: 2rem;
+    padding: 1em;
+    text-align: center;
 }
 
 /*Set the font size and color of the description*/
 .text-box p{
     margin-bottom: 2rem;
     font-size: 16px;
-    line-height: 24px;
+    line-height: 100px;
     letter-spacing: 0px;
-    color: #209CEE;
+    color: black;
+    padding: 1em;
+    text-align: center;
 }
 
 /*Set button color, font size, cursor, etc */
 .hero-btn{
     display: inline-block;
     text-decoration: none;
-    color: #209CEE;
-    border: 1px solid #209CEE;
-    padding: 12px 34px;
+    color: black;
+    border: 5px solid white;
+    padding: 15px 40px;
     font-size: 13px;
     background: transparent;
     position: relative;
@@ -200,3 +203,290 @@ footer{
     cursor: pointer;
     padding: 1em;
 }
+
+/* Review */
+
+.main{
+    display: block;
+    box-align: center;
+    position: relative;
+    left: 20%;
+    height: 150vh;
+    width: 70vw;
+}
+
+.Layout-Container{
+    display: flex;
+    flex-flow: row wrap;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    background: lightgrey;
+    box-align: center;
+    margin: 0.5rem;
+}
+
+.waveform-player{
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: 100%;
+    background: #b2cddf;
+    border-radius: 1rem;
+    margin: 1rem;
+    padding: 1em;
+    box-align: center;
+}
+
+/* This is where the voice frequency shows*/
+.waveform{
+    position: relative;
+    box-align: center;
+}
+
+.cursor{
+    position: absolute;
+    z-index: 4;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    width: 0px;
+    display: none;
+    border-right:1px solid black;
+    opacity: 1;
+    pointer-events: none;
+}
+
+/* This is the wave*/ 
+.wave{
+    display: block;
+    position: relative;
+    user-select: none;
+    height: 300px;
+    overflow: auto hidden;
+    box-align: center;
+}
+
+/* This is the area where the time and controls show */
+.waveform-controls{
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    height: 6em;
+    padding: 2em;
+    box-align: center;
+    color: black;
+}
+
+.waveform-controls .time{
+    display: flex;
+    font-size: 20px;
+    font-weight: bold;
+    -webkit-box-align: center;
+    align-items: center;
+    padding-left: 1em;
+    width: 15em;
+    box-align: center;
+}
+
+.waveform-controls .time-label{
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    width: 400px;
+}
+
+.waveform-controls .time-value{
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    padding: 1em;
+}
+
+.waveform-controls .button-group{
+    width: 8em;
+    display: flex;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+/* Recording Prompt */
+.Prompt-Container{
+    display: flex;
+    flex-flow: row wrap;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    background: lightgrey;
+    box-align: center;
+    margin: 0.5rem;
+}
+
+.Prompt-Label{
+    font-size: 25px;
+    font-weight: bold;
+    margin: 1em;
+}
+
+.Prompt-Textbox{
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: 100%;
+    background: #b2cddf;
+    border-radius: 1rem;
+    margin: 1rem;
+    padding: 1em;
+    box-align: center;
+}
+
+q{
+    display: inline;
+}
+
+/* Form Submission Controls */
+
+.Form-style{
+    display: flex;
+    flex-flow: row wrap;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    background: lightgrey;
+    box-align: center;
+    margin: 0.5rem;
+}
+
+.Flag{
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    -wedkit-box-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+    background: #b2cddf;
+    padding: 1em;
+    margin: 1rem;
+    border-radius: 0.5rem;
+}
+
+.Transcription-box{
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    -wedkit-box-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+    background: #b2cddf;
+    padding: 1em;
+    margin: 1rem;
+    border-radius: 0.5rem;
+}
+
+.Tags{
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    -wedkit-box-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+    background: #b2cddf;
+    padding: 1em;
+    margin: 1rem;
+    border-radius: 0.5rem;
+}
+
+.Notes{
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    -wedkit-box-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+    background: #b2cddf;
+    padding: 1em;
+    margin: 1rem;
+    border-radius: 0.5rem;
+}
+
+/* Log-In */
+
+.Log-in-form{
+    display: flex;
+    flex-flow: column;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    background: lightgrey;
+    box-align: center;
+    margin: 0.5rem;  
+    box-align: center;
+}
+
+/*About Us*/
+.About-Us-Layout{
+    display: flex;
+    flex-flow: row wrap;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    background: lightgrey;
+    box-align: center;
+    margin: 0.5rem;
+}
+
+.Title{
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: 100%;
+    background: #b2cddf;
+    border-radius: 1rem;
+    margin: 1rem;
+    padding: 1em;
+    box-align: center;
+}
+
+.History{
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: 100%;
+    background: #b2cddf;
+    border-radius: 1rem;
+    margin: 1rem;
+    padding: 1em;
+    box-align: center;
+}
+
+.Values{
+    display: flex;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    justify-content: space-evenly;
+    width: 100%;
+    background: #b2cddf;
+    border-radius: 1rem;
+    margin: 1rem;
+    padding: 1em;
+    box-align: center;
+}
+
+.Location{
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: 100%;
+    background: #b2cddf;
+    border-radius: 1rem;
+    margin: 1rem;
+    padding: 1em;
+    box-align: center;
+}
+
+
