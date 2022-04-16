@@ -204,7 +204,7 @@ footer{
     padding: 1em;
 }
 
-/* Review */
+/* ------------------ Review -----------------------*/
 
 .main{
     display: block;
@@ -387,6 +387,13 @@ q{
     border-radius: 0.5rem;
 }
 
+/* Transcription Text area*/
+.Text-area{
+    width:100%;
+    padding: 1em;
+    height: 100px;;
+}
+
 .Tags{
     width: 100%;
     display: flex;
@@ -413,7 +420,14 @@ q{
     border-radius: 0.5rem;
 }
 
-/* Log-In */
+/* Notes Text area*/
+.Notes-text-area{
+    width:100%;
+    padding: 1em;
+    height: 50px;;
+}
+
+/* ---------------------Log-In-------------------- --------------*/
 
 .Log-in-form{
     display: flex;
@@ -426,7 +440,7 @@ q{
     box-align: center;
 }
 
-/*About Us*/
+/*---------------------About Us--------------------------------*/
 .About-Us-Layout{
     display: flex;
     flex-flow: row wrap;
@@ -488,5 +502,6 @@ q{
     padding: 1em;
     box-align: center;
 }
+
 
 
