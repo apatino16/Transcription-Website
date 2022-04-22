@@ -5,9 +5,9 @@ function viewPassword(){
     const passwordInput = document.getElementById("password-field");
     const passStatus = document.getElementById("pass-status");
 
-    if (passwordInput.type == "password"){
+    if (passwordInput.type = "password"){
         passwordInput.type = "text";
-        passStatus?.className = 'fa fa-eye-slash';
+        passStatus.className = 'fa fa-eye-slash';
     }
     else{
         passwordInput.type = "password";
@@ -17,7 +17,7 @@ function viewPassword(){
 
 //Checking for Password Strength (Not working)
 
-function validate(){
+/*function validate(){
     const validationField = document.getElementById("validation-txt");
     const password = document.getElementById("password-field")
 
@@ -58,5 +58,4 @@ function SubmitTranscription(){
         alert("Flag for Review: "+NoFlag.value );
     else
         alert("Nothing was selected");
-}
-
+} */
