@@ -9,6 +9,7 @@
         <link rel="shortcut icon" type="image/png" href="favicon_io/favicon-32x32.png">
         <link rel="stylesheet" href="index.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script type="text/javascript" src="index.js"></script>
     </head>
     <body>
 <!--Header-->
@@ -83,15 +84,15 @@
                         Flag For Review
                     </p>
                     <label>Yes</label>
-                    <input type="radio" value="True">
+                    <input type="radio" name="Flag" id="YesFlag" value="True">
                     <label>No</label>
-                    <input type="radio" value="False">
-                    <button type="Submit">Next in Queue</button>
+                    <input type="radio" name="Flag" id="NoFlag" value="False">
+                    <button id="NextInQueue" onclick="SubmitTranscription()" type="Submit">Next in Queue</button>
                 </div>
                 <!--Transcription Box-->
                 <div class="Transcription-box">
                     <p>
-                        Transcript
+                        Transcription
                     </p>
                     <textarea class="Text-area" tittle="Transcript"></textarea>
                 </div>
@@ -107,25 +108,25 @@
                                 Contains Speech
                             </p>
                             <label>Yes</label>
-                            <input type="radio" value="True">
+                            <input type="radio" name="ContainsSpeech" value="True">
                              <label>No</label>
-                            <input type="radio" value="False">
+                            <input type="radio" name="ContainsSpeech" value="False">
                         </div>
                             <p>
                                 Non-Task Speech
                             </p>
                             <label>Yes</label>
-                            <input type="radio" value="True">
+                            <input type="radio" name="NonTaskSpeech" value="True">
                              <label>No</label>
-                            <input type="radio" value="False">
+                            <input type="radio" name="NonTaskSpeech" value="False">
                         <div>
                             <p>
                                 Filler Speech
                             </p>
                             <label>Yes</label>
-                            <input type="radio" value="True">
+                            <input type="radio" name="FillerSpeech" value="True">
                              <label>No</label>
-                            <input type="radio" value="False">
+                            <input type="radio" name="FillerSpeech" value="False">
                         </div>
                     </div>
                     <!--Technical Problems-->
@@ -138,27 +139,27 @@
                                 Cut Off
                             </p>
                             <label>Yes</label>
-                            <input type="radio" value="True">
+                            <input type="radio" name="CutOff" value="True">
                              <label>No</label>
-                            <input type="radio" value="False">
+                            <input type="radio" name="CutOff" value="False">
                         </div>
                         <div>
                             <p>
                                 Background Noise 
                             </p>
                             <label>Yes</label>
-                            <input type="radio" value="True">
+                            <input type="radio" name="BackgroundNoise" value="True">
                              <label>No</label>
-                            <input type="radio" value="False">
+                            <input type="radio" name="BackgroundNoise" value="False">
                         </div>
                         <div>
                             <p>
                                Invalid Audio File 
                             </p>
                             <label>Yes</label>
-                            <input type="radio" value="True">
+                            <input type="radio" name="Invalid" value="True">
                             <label>No</label>
-                            <input type="radio" value="False">
+                            <input type="radio" name="Invalid" value="False">
                         </div>
                     </div>
                     <!--Vocal Problems-->
@@ -171,27 +172,27 @@
                                 Unintelligible Words
                             </p>
                             <label>Yes</label>
-                            <input type="radio" value="True">
+                            <input type="radio" name="Unintelligible" value="True">
                             <label>No</label>
-                            <input type="radio" value="False">
+                            <input type="radio" name="Unintelligible" value="False">
                         </div>
                         <div>
                             <p>
                                 Other Throat Sounds
                             </p>
                             <label>Yes</label>
-                            <input type="radio" value="True">
+                            <input type="radio" name="ThroatSounds" value="True">
                             <label>No</label>
-                            <input type="radio" value="False">
+                            <input type="radio" name="ThroatSounds" value="False">
                         </div>
                         <div>
                             <p>
                                 Other Speakers
                             </p>
                             <label>Yes</label>
-                            <input type="radio" value="True">
+                            <input type="radio" name="OtherSpeakers" value="True">
                             <label>No</label>
-                            <input type="radio" value="False">
+                            <input type="radio" name="OtherSpeakers" value="False">
                         </div>
                     </div>
                 </div>
@@ -203,7 +204,9 @@
                     <textarea class="Notes-text-area" tittle="Notes"></textarea>
                 </div>
             </form>
+            <pre id="log">
 
+            </pre>
             
         </main>
          
