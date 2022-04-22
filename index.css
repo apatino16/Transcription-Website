@@ -440,6 +440,12 @@ q{
     box-align: center;
 }
 
+#validation-txt{
+    color: red;
+    font-size: 18px;
+    width: 300px;
+}
+
 /*---------------------About Us--------------------------------*/
 .About-Us-Layout{
     display: flex;
