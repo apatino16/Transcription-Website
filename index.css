@@ -486,14 +486,19 @@ q{
     font-size: 16px; 
 }
 
+/*Email Container line turns blue when typing on it */
+.Email-container input:is(:focus, :valid){
+    border-bottom: 2px solid #209CEE;
+}
+
 /*Email Icon */
 .Email-container i{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    color: #ccc;
     font-size: 23px;
     left: 0;
+    color: #ccc;
 }
 
 /*Password Container  */
@@ -522,6 +527,11 @@ q{
     font-size: 16px; 
 }
 
+/*Password Container line turns blue when typing on it */
+.Password-container input:is(:focus, :valid){
+    border-bottom: 2px solid #209CEE;
+}
+
 /*Password Icon  */
 .Password-container i{
     position: absolute;
@@ -531,12 +541,19 @@ q{
     font-size: 23px;
 }
 
+/*Places the lock icon on the left of the password input  */
 .Password-container i.icon{
     left: 0;
 }
 
+/*Places the eye icon on the right of the password input  */
 .Password-container i.showHidePw{
     right: 0;
+}
+
+/*When you hover over the eye icon it turns blue */
+.Password-container i.showHidePw:hover{
+    color: #209CEE;
 }
 
 /*---------------------About Us--------------------------------*/
