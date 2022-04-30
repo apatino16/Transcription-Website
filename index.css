@@ -429,7 +429,7 @@ q{
 
 /* ---------------------Log-In-------------------- --------------*/
 
-
+/*  */
 .container{
     display: flex;
     flex-flow:column;
@@ -442,6 +442,7 @@ q{
     box-sizing: border-box;
 }
 
+/*  */
 .forms{
     position: relative;
     max-width: 430px;
@@ -451,6 +452,7 @@ q{
     border-radius: 10px;
 }
 
+/*  */
 .forms .formlogin{
     padding: 30px;
 }
@@ -460,33 +462,51 @@ q{
     position: relative;
     font-size: 27px;
     font-weight: 600;
+    color: #209CEE;
 }
 
+/*  */
 .formlogin .Email-container{
     position: relative;
     height: 50px;
     width: 100%;
     margin-top: 30px;
+    font-size: 23px;
+    color: #209CEE;
 }
 
+/*  */
 .Email-container input{
     height: 100%;
     width: 100%;
-    padding: 0 3px ;
+    padding: 0 5px ;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #209CEE;
+    border-top: 2px solid transparent;
+    font-size: 16px;
 }
 
+/*  */
 .formlogin .Password-container{
     position: relative;
     height: 50px;
     width: 100%;
-    margin-top: 30px;
+    margin-top: 50px;
+    font-size: 23px;
+    color: #209CEE;
 }
 
+/*  */
 .Password-container input{
     height: 100%;
     width: 100%;
-    padding: 0 3px;
-
+    padding: 0 5px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #209CEE;
+    border-top: 2px solid transparent;
+    font-size: 16px;
 }
 
 /*---------------------About Us--------------------------------*/

@@ -6,11 +6,11 @@ function viewPassword(){
 
     if (passwordInput.type === 'password'){
         passwordInput.type = 'text';
-        passStatus.className = 'fa fa-eye-slash';
+        passStatus.className = 'fa fa-unlock';
     }
     else{
         passwordInput.type = 'password';
-        passStatus.className = 'fa fa-eye';
+        passStatus.className = 'fa fa-lock';
     }
 }
 

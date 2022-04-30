@@ -6,18 +6,12 @@ function viewPassword() {
     const passStatus = document.getElementById('pass-status');
     if (passwordInput.type === 'password') {
         passwordInput.type = 'text';
-        passStatus.className = 'fa fa-eye-slash';
+        passStatus.className = 'fa fa-unlock';
     }
     else {
         passwordInput.type = 'password';
-        passStatus.className = 'fa fa-eye';
+        passStatus.className = 'fa fa-lock';
     }
-}
-// Create an event listener for login
-document.getElementById('logInForm').addEventListener('submit', login);
-function login(e) {
-    e.preventDefault();
-    console.log('Event Listener Working');
 }
 //------------------Transcribe.html-------------//
 // Checking if the radio button is selected or not
