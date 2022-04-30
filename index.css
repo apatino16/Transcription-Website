@@ -429,30 +429,28 @@ q{
 
 /* ---------------------Log-In-------------------- --------------*/
 
-/*  */
+/* Grey Container Where the login form shows up */
 .container{
     display: flex;
-    flex-flow:column;
     height:100vh;
     align-items: center;
     justify-content: center;
     background: lightgrey;
     margin: 5rem; 
     padding: 0;
-    box-sizing: border-box;
 }
 
-/*  */
+/*White Login Form*/
 .forms{
     position: relative;
-    max-width: 500px;
+    max-width: 425px;
     width: 100%;
     background: white;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
 
-/*  */
+/*Padding for the login form  */
 .forms .formlogin{
     padding: 50px;
 }
@@ -465,68 +463,80 @@ q{
     color: #209CEE;
 }
 
-/*  */
+/*Email Container  */
 .formlogin .Email-container{
     position: relative;
     height: 50px;
-    width: 350px;
+    width: 255px;
     margin-top: 30px;
     font-size: 23px;
     color: #209CEE;
 }
 
-/*  */
+/*Email Input  */
 .Email-container input{
-    position: absolute;
+    position: static;
     height: 100%;
     width: 100%;
     padding: 0 35px;
     border: none;
     outline: none;
-    border-bottom: 2px solid #209CEE;
+    border-bottom: 2px solid #ccc;
     border-top: 2px solid transparent;
     font-size: 16px; 
 }
 
+/*Email Icon */
 .Email-container i{
     position: absolute;
     top: 50%;
-    left: 0;
     transform: translateY(-50%);
-    color: #209CEE;
+    color: #ccc;
     font-size: 23px;
+    left: 0;
 }
 
-/*  */
+/*Password Container  */
 .formlogin .Password-container{
     position: relative;
     height: 50px;
-    width: 350px;
+    width: 300px;
     margin-top: 30px;
     font-size: 23px;
     color: #209CEE;
 }
 
-/*  */
+/*Password Input */
 .Password-container input{
-    position: absolute;
+    position:static;
     height: 100%;
     width: 100%;
-    padding: 0 35px;
+    padding-top: 5px;
+    padding-right: 0px;
+    padding-bottom: 10px;
+    padding-left: 25px;
     border: none;
     outline: none;
-    border-bottom: 2px solid #209CEE;
+    border-bottom: 2px solid #ccc;
     border-top: 2px solid transparent;
     font-size: 16px; 
 }
 
+/*Password Icon  */
 .Password-container i{
     position: absolute;
-    top: 50%;
-    left: 0;
+    top: 30%;
     transform: translateY(-50%);
-    color: #209CEE;
+    color: #ccc;
     font-size: 23px;
+}
+
+.Password-container i.icon{
+    left: 0;
+}
+
+.Password-container i.showHidePw{
+    right: 0;
 }
 
 /*---------------------About Us--------------------------------*/
