@@ -586,12 +586,39 @@ q{
     text-decoration: none;
 }
 
-/* Forgot Password? is underlined when you hover over it*/
+/* Forgot Password? is underlined and turn blue when you hover over it*/
 .formlogin a:hover{
     text-decoration: underline;
     color:#209CEE;
 }
 
+/*Added some space to the top and bottom of the login button */
+.Log-in-button{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/*Styled the log in button */
+.Log-in-button input{
+    width: 325px;
+    border: none;
+    background-color: lightgrey;
+    color: white;
+    letter-spacing: 1pxs;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 6px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+
+/*Log In button turns blue when you hover over it */
+.Log-in-button input:hover{
+    background-color: #209CEE;
+}
 /*---------------------About Us--------------------------------*/
 .About-Us-Layout{
     display: flex;
