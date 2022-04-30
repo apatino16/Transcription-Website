@@ -445,7 +445,7 @@ q{
 /*  */
 .forms{
     position: relative;
-    max-width: 430px;
+    max-width: 500px;
     width: 100%;
     background: white;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
@@ -454,7 +454,7 @@ q{
 
 /*  */
 .forms .formlogin{
-    padding: 30px;
+    padding: 50px;
 }
 
 /*Transcription Inc. Title in Log In Form */
@@ -469,7 +469,7 @@ q{
 .formlogin .Email-container{
     position: relative;
     height: 50px;
-    width: 100%;
+    width: 350px;
     margin-top: 30px;
     font-size: 23px;
     color: #209CEE;
@@ -477,36 +477,56 @@ q{
 
 /*  */
 .Email-container input{
+    position: absolute;
     height: 100%;
     width: 100%;
-    padding: 0 5px ;
+    padding: 0 35px;
     border: none;
     outline: none;
     border-bottom: 2px solid #209CEE;
     border-top: 2px solid transparent;
-    font-size: 16px;
+    font-size: 16px; 
+}
+
+.Email-container i{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    color: #209CEE;
+    font-size: 23px;
 }
 
 /*  */
 .formlogin .Password-container{
     position: relative;
     height: 50px;
-    width: 100%;
-    margin-top: 50px;
+    width: 350px;
+    margin-top: 30px;
     font-size: 23px;
     color: #209CEE;
 }
 
 /*  */
 .Password-container input{
+    position: absolute;
     height: 100%;
     width: 100%;
-    padding: 0 5px;
+    padding: 0 35px;
     border: none;
     outline: none;
     border-bottom: 2px solid #209CEE;
     border-top: 2px solid transparent;
-    font-size: 16px;
+    font-size: 16px; 
+}
+
+.Password-container i{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    color: #209CEE;
+    font-size: 23px;
 }
 
 /*---------------------About Us--------------------------------*/
