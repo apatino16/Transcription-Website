@@ -556,6 +556,42 @@ q{
     color: #209CEE;
 }
 
+/*Remember me and forgot password are displayed side by side with space in between */
+.formlogin .checkbox-text{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+/* */
+.checkbox-text .checkbox-content{
+    display: flex;
+    align-items: center;
+}
+
+/*Checkbox and label are spaced out */
+.checkbox-content input{
+    margin: 0 10px 0px 0px; 
+}
+
+/* Remember me and forgot password color and size*/
+.formlogin .text{
+    color: grey;
+    font-size: 16px;
+}
+
+/* Forgot Password? is plain*/
+.formlogin a{
+    text-decoration: none;
+}
+
+/* Forgot Password? is underlined when you hover over it*/
+.formlogin a:hover{
+    text-decoration: underline;
+    color:#209CEE;
+}
+
 /*---------------------About Us--------------------------------*/
 .About-Us-Layout{
     display: flex;
