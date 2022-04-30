@@ -455,9 +455,35 @@ q{
     padding: 30px;
 }
 
+/*Transcription Inc. Title in Log In Form */
 .forms .formlogin .title{
+    position: relative;
     font-size: 27px;
     font-weight: 600;
+}
+
+.formlogin .Email-container{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.Email-container input{
+    height: 100%;
+    width: 100%;
+}
+
+.formlogin .Password-container{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.Password-container input{
+    height: 100%;
+    width: 100%;
 }
 
 /*---------------------About Us--------------------------------*/
