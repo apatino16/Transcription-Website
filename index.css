@@ -429,21 +429,35 @@ q{
 
 /* ---------------------Log-In-------------------- --------------*/
 
-.Log-in-form{
+
+.container{
     display: flex;
-    flex-flow: column;
-    -webkit-box-pack: start;
-    justify-content: flex-start;
+    flex-flow:column;
+    height:100vh;
+    align-items: center;
+    justify-content: center;
     background: lightgrey;
-    box-align: center;
-    margin: 0.5rem;  
-    box-align: center;
+    margin: 5rem; 
+    padding: 0;
+    box-sizing: border-box;
 }
 
-#validation-txt{
-    color: red;
-    font-size: 18px;
-    width: 300px;
+.forms{
+    position: relative;
+    max-width: 430px;
+    width: 100%;
+    background: white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.forms .formlogin{
+    padding: 30px;
+}
+
+.forms .formlogin .title{
+    font-size: 27px;
+    font-weight: 600;
 }
 
 /*---------------------About Us--------------------------------*/
