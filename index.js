@@ -1,5 +1,5 @@
 "use strict";
-//Log-In.html
+// ------------------Log-In.html------------------//
 //Show/Hide Password Mask
 function viewPassword() {
     const passwordInput = document.getElementById('password-field');
@@ -13,7 +13,13 @@ function viewPassword() {
         passStatus.className = 'fa fa-eye';
     }
 }
-//Transcribe.html
+// Create an event listener for login
+document.getElementById('logInForm').addEventListener('submit', login);
+function login(e) {
+    e.preventDefault();
+    console.log('Event Listener Working');
+}
+//------------------Transcribe.html-------------//
 // Checking if the radio button is selected or not
 // Flag for Review
 function SubmitTranscription() {

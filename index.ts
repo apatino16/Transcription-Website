@@ -1,4 +1,4 @@
-//Log-In.html
+// ------------------Log-In.html------------------//
 //Show/Hide Password Mask
 function viewPassword(){
     const passwordInput = document.getElementById('password-field');
@@ -14,7 +14,8 @@ function viewPassword(){
     }
 }
 
-//Transcribe.html
+
+//------------------Transcribe.html-------------//
 // Checking if the radio button is selected or not
 // Flag for Review
 function SubmitTranscription(){
