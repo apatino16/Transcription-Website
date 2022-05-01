@@ -75,8 +75,13 @@
         <div class="container">
             <div class="forms">
                 <div class="formlogin">
-                    <span class="title">Registration</span>
+                    <span class="title">Transcription Inc.</span>
                     <form action="#" class="Log-in-form" id="logInForm">
+                        <!--Name-->
+                        <div class="Email-container">
+                            <i class="fa fa-user"></i>
+                            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                        </div>
                         <!--Email-->
                         <div class="Email-container">
                             <i class="fa fa-envelope"></i>
@@ -84,30 +89,30 @@
                         </div>
 
                         <!--Password-->
-                        <div class="Password-container">
+                        <div class="Password-container2">
                             <div> 
                                 <i class="fa fa-lock icon"></i>
-                                <i id="pass-status" class="fa fa-eye-slash showHidePw" aria-hidden="true" onClick="viewPassword()"></i>
-                                <input type="password" name="password" id="password-field" placeholder="Enter your password" required  autocomplete="current-password">
+                                <i id="pass-status2" class="fa fa-eye-slash showHidePw" aria-hidden="true" onClick="viewPassword2()"></i>
+                                <input type="password" name="password2" id="password-field2" placeholder="Enter your password" required>
                             </div>
                         </div>
-                        <!--Remember Me Checkbox--> 
+                        
+                        <!--I accept the terms and conditions Checkbox--> 
                         <div class="checkbox-text">
                             <div class="checkbox-content">
                                 <input type="checkbox" id="logCheck">
-                                <label for="logCheck" class="text">Remember me</label>
+                                <label for="logCheck" class="text">I accept the terms & conditions</label>
                             </div>
-                            <a href="#" class="text">Forgot Password?</a>
                         </div>
-                        <!--Log-In Button-->
+                        <!--Register Button-->
                         <div class="Log-in-button">
-                            <input type="button" value="Log In">
+                            <input type="button" value="Sign Up">
                         </div>
                     </form>
-                    <!--Not a member? Signup Now-->
+                    <!--A member? Log In-->
                     <div class="login-signup">
-                        <span class="text">Don't have an account?
-                            <a href="#" class="text-signup-text">Sign up</a>
+                        <span class="text">Have an account?
+                            <a href="#" class="text-signup-text">Log In</a>
                         </span>
                     </div>
                 </div>

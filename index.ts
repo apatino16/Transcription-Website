@@ -38,7 +38,7 @@
 // });
 
 // ------------------Log-In.html------------------//
-//Show/Hide Password Mask
+//Show/Hide Password Mask on Log In
 function viewPassword(){
     const passwordInput = document.getElementById('password-field');
     const passStatus = document.getElementById('pass-status');
@@ -53,6 +53,20 @@ function viewPassword(){
     }
 }
 
+//Show/Hide Password Mask on Registration
+function viewPassword2(){
+    const passwordInput = document.getElementById('password-field2');
+    const passStatus = document.getElementById('pass-status2');
+
+    if (passwordInput.type === 'password'){
+        passwordInput.type = 'text';
+        passStatus.className = 'fa fa-eye showHidePw';
+    }
+    else{
+        passwordInput.type = 'password';
+        passStatus.className = 'fa fa-eye-slash showHidePw';
+    }
+}
 
 //------------------Transcribe.html-------------//
 // Checking if the radio button is selected or not

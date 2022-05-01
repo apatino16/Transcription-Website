@@ -457,7 +457,7 @@ q{
 
 /*Transcription Inc. Title in Log In Form */
 .forms .formlogin .title{
-    position: relative;
+    position: relative; 
     font-size: 27px;
     font-weight: 600;
     color: #209CEE;
@@ -549,6 +549,7 @@ q{
 /*Places the eye icon on the right of the password input  */
 .Password-container i.showHidePw{
     right: 0;
+    cursor: pointer;
 }
 
 /*When you hover over the eye icon it turns blue */
@@ -626,6 +627,62 @@ q{
     text-align: center;
 }
 
+/*-----------Registration-------------- */
+/*Password Container for Registration */
+.formlogin .Password-container2{
+    position: relative;
+    height: 50px;
+    width: 300px;
+    margin-top: 30px;
+    font-size: 23px;
+    color: #209CEE;
+}
+
+/*Password Input */
+.Password-container2 input{
+    position:static;
+    height: 100%;
+    width: 100%;
+    padding-top: 5px;
+    padding-right: 0px;
+    padding-bottom: 10px;
+    padding-left: 25px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #ccc;
+    border-top: 2px solid transparent;
+    font-size: 16px; 
+}
+
+/*Password Container line turns blue when typing on it */
+.Password-container2 input:is(:focus, :valid){
+    border-bottom: 2px solid #209CEE;
+}
+
+/*Password Icon  */
+.Password-container2 i{
+    position: absolute;
+    top: 30%;
+    transform: translateY(-50%);
+    color: #ccc;
+    font-size: 23px;
+}
+
+/*Places the lock icon on the left of the password input  */
+.Password-container2 i.icon{
+    left: 0;
+}
+
+/*Places the eye icon on the right of the password input  */
+.Password-container2 i.showHidePw{
+    right: 0;
+    cursor: pointer;
+}
+
+/*When you hover over the eye icon it turns blue */
+.Password-container2 i.showHidePw:hover{
+    color: #209CEE;
+}
 
 
 /*---------------------About Us--------------------------------*/
