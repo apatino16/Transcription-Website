@@ -28,7 +28,7 @@
             </nav>
         </header>
 
-        <!--Log-in Box-->
+<!--Log-in Box-->
         <div class="container">
             <div class="forms">
                 <div class="formlogin">
@@ -70,7 +70,51 @@
                 </div>
             </div> 
         </div> 
-         <!-- Footer-->
+
+<!--Registraton Box-->
+        <div class="container">
+            <div class="forms">
+                <div class="formlogin">
+                    <span class="title">Registration</span>
+                    <form action="#" class="Log-in-form" id="logInForm">
+                        <!--Email-->
+                        <div class="Email-container">
+                            <i class="fa fa-envelope"></i>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required  autocomplete="username">
+                        </div>
+
+                        <!--Password-->
+                        <div class="Password-container">
+                            <div> 
+                                <i class="fa fa-lock icon"></i>
+                                <i id="pass-status" class="fa fa-eye-slash showHidePw" aria-hidden="true" onClick="viewPassword()"></i>
+                                <input type="password" name="password" id="password-field" placeholder="Enter your password" required  autocomplete="current-password">
+                            </div>
+                        </div>
+                        <!--Remember Me Checkbox--> 
+                        <div class="checkbox-text">
+                            <div class="checkbox-content">
+                                <input type="checkbox" id="logCheck">
+                                <label for="logCheck" class="text">Remember me</label>
+                            </div>
+                            <a href="#" class="text">Forgot Password?</a>
+                        </div>
+                        <!--Log-In Button-->
+                        <div class="Log-in-button">
+                            <input type="button" value="Log In">
+                        </div>
+                    </form>
+                    <!--Not a member? Signup Now-->
+                    <div class="login-signup">
+                        <span class="text">Don't have an account?
+                            <a href="#" class="text-signup-text">Sign up</a>
+                        </span>
+                    </div>
+                </div>
+            </div> 
+        </div> 
+
+<!-- Footer-->
         <footer>
             <h4 class="footer-tittle">2022 Transcription Inc.</h4>
             <div class="icons">

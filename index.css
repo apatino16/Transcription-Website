@@ -619,6 +619,15 @@ q{
 .Log-in-button input:hover{
     background-color: #209CEE;
 }
+
+/*Don't have an account? Sign up centered*/
+.formlogin .login-signup{
+    margin: 30px;
+    text-align: center;
+}
+
+
+
 /*---------------------About Us--------------------------------*/
 .About-Us-Layout{
     display: flex;
