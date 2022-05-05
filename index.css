@@ -455,6 +455,11 @@ q{
     padding: 50px;
 }
 
+.container.active .forms{
+    height: 425px;
+    background-color: red;
+}
+
 /*Transcription Inc. Title in Log In Form */
 .forms .formlogin .title{
     position: relative; 
@@ -484,6 +489,11 @@ q{
     border-bottom: 2px solid #ccc;
     border-top: 2px solid transparent;
     font-size: 16px; 
+}
+
+.forms{
+    display: flex;
+    align-items: center;
 }
 
 /*Email Container line turns blue when typing on it */
@@ -547,13 +557,38 @@ q{
 }
 
 /*Places the eye icon on the right of the password input  */
-.Password-container i.showHidePw{
+.Password-container i.SIshowHidePw{
     right: 0;
     cursor: pointer;
 }
 
 /*When you hover over the eye icon it turns blue */
-.Password-container i.showHidePw:hover{
+.Password-container i.SIshowHidePw:hover{
+    color: #209CEE;
+}
+
+/*Registration Password Icon  */
+.Password-container2 i{
+    position: absolute;
+    top: 30%;
+    transform: translateY(-50%);
+    color: #ccc;
+    font-size: 23px;
+}
+
+/*Places the lock icon on the left of the password input  */
+.Password-container2 i.icon{
+    left: 0;
+}
+
+/*Places the eye icon on the right of the password input  */
+.Password-container2 i.SUshowHidePw{
+    right: 0;
+    cursor: pointer;
+}
+
+/*When you hover over the eye icon it turns blue */
+.Password-container2 i.SUshowHidePw:hover{
     color: #209CEE;
 }
 
@@ -628,6 +663,18 @@ q{
 }
 
 /*-----------Registration-------------- */
+
+/* Grey Container Where the login form shows up */
+.container2{
+    display: flex;
+    height:100vh;
+    align-items: center;
+    justify-content: center;
+    background: lightgrey;
+    margin: 5rem; 
+    padding: 0;
+}
+
 /*Password Container for Registration */
 .formlogin .Password-container2{
     position: relative;
@@ -683,7 +730,6 @@ q{
 .Password-container2 i.showHidePw:hover{
     color: #209CEE;
 }
-
 
 /*---------------------About Us--------------------------------*/
 .About-Us-Layout{

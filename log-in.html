@@ -44,8 +44,8 @@
                         <div class="Password-container">
                             <div> 
                                 <i class="fa fa-lock icon"></i>
-                                <i id="pass-status" class="fa fa-eye-slash showHidePw" aria-hidden="true" onClick="viewPassword()"></i>
-                                <input type="password" name="password" id="password-field" placeholder="Enter your password" required  autocomplete="current-password">
+                                <i id="login-pass-status" class="fa fa-eye-slash SIshowHidePw" aria-hidden="true" onClick="viewPassword()"></i>
+                                <input type="password" name="password" id="login-password" placeholder="Enter your password" required  autocomplete="current-password">
                             </div>
                         </div>
                         <!--Remember Me Checkbox--> 
@@ -58,13 +58,13 @@
                         </div>
                         <!--Log-In Button-->
                         <div class="Log-in-button">
-                            <input type="button" value="Log In">
+                            <input type="button" value="Log In" id="login-bt">
                         </div>
                     </form>
                     <!--Not a member? Signup Now-->
                     <div class="login-signup">
                         <span class="text">Don't have an account?
-                            <a href="#" class="text-signup-text">Sign up</a>
+                            <a href="#" class="text signup-link" id="signup">Sign up</a>
                         </span>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
         </div> 
 
 <!--Registraton Box-->
-        <div class="container">
+        <div class="container2">
             <div class="forms">
                 <div class="formlogin">
                     <span class="title">Transcription Inc.</span>
@@ -92,8 +92,8 @@
                         <div class="Password-container2">
                             <div> 
                                 <i class="fa fa-lock icon"></i>
-                                <i id="pass-status2" class="fa fa-eye-slash showHidePw" aria-hidden="true" onClick="viewPassword2()"></i>
-                                <input type="password" name="password2" id="password-field2" placeholder="Enter your password" required>
+                                <i id="signup-pass-status" class="fa fa-eye-slash SUshowHidePw" aria-hidden="true" onClick="viewPassword2()"></i>
+                                <input type="password" name="password2" id="signup-password" placeholder="  Create a password" required autocomplete="new-password">
                             </div>
                         </div>
                         
@@ -112,7 +112,7 @@
                     <!--A member? Log In-->
                     <div class="login-signup">
                         <span class="text">Have an account?
-                            <a href="#" class="text-signup-text">Log In</a>
+                            <a href="#" class="text login-link">Log In</a>
                         </span>
                     </div>
                 </div>
