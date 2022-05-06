@@ -1,42 +1,4 @@
 "use strict";
-// //  // ---------------------- Firebase --------------//
-// import { initializeApp } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-app.js";
-// import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-analytics.js";
-// import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-auth.js";
-// // Create a password based account
-// import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-auth.js";
-//    // Your web app's Firebase configuration
-//   const firebaseConfig = {
-//     apiKey: "AIzaSyD4ziKkzq2Bv2VjLeg7LvBNC1eZUB0yQh0",
-//     authDomain: "transcription-website-55f1b.firebaseapp.com",
-//     databaseURL: "https://transcription-website-55f1b-default-rtdb.firebaseio.com",
-//     projectId: "transcription-website-55f1b",
-//     storageBucket: "transcription-website-55f1b.appspot.com",
-//     messagingSenderId: "357514451132",
-//     appId: "1:357514451132:web:13a0af8d3f9569eb6d18b9",
-//     measurementId: "G-07Q0DWGX8G"
-//   };
-// //   // Initialize Firebase
-//     const app = initializeApp(firebaseConfig);
-//     const auth = getAuth(app);
-//     // Create a Password based account
-//     submitData.addEventListener('click', (e) => {
-//         const email = document.getElementById('signup-mail').value;
-//         const password = document.getElementById('signup-password').value;
-//         createUserWithEmailAndPassword(auth, email, password)
-//             .then((userCredential) => {
-//         // Signed in 
-//                 const user = userCredential.user;
-//         // ...
-//                     alert('User created sucessfully');
-//             })
-//             .catch((error) => {
-//                 const errorCode = error.code;
-//                 const errorMessage = error.message;
-//         // ..
-//                 alert(errorMessage);
-//             });
-//     });
 // ------------------Log-In.html------------------//
 //Show/Hide Password Mask on Log In
 /*
