@@ -51,8 +51,8 @@
                         <!--Remember Me Checkbox--> 
                         <div class="checkbox-text">
                             <div class="checkbox-content">
-                                <input type="checkbox" id="logCheck">
-                                <label for="logCheck" class="text">Remember me</label>
+                                <input type="checkbox" id="RememberMe">
+                                <label for="RememberMe" class="text">Remember me</label>
                             </div>
                             <a href="#" class="text">Forgot Password?</a>
                         </div>
@@ -76,7 +76,7 @@
             <div class="forms">
                 <div class="formlogin">
                     <span class="title">Transcription Inc.</span>
-                    <form action="#" class="Log-in-form" id="logInForm">
+                    <form action="#" class="Log-in-form" id="SignupForm">
                         <!--Name-->
                         <div class="Email-container">
                             <i class="fa fa-user"></i>
@@ -100,13 +100,13 @@
                         <!--I accept the terms and conditions Checkbox--> 
                         <div class="checkbox-text">
                             <div class="checkbox-content">
-                                <input type="checkbox" id="logCheck">
-                                <label for="logCheck" class="text">I accept the terms & conditions</label>
+                                <input type="checkbox" id="terms">
+                                <label for="terms" class="text">I accept the terms & conditions</label>
                             </div>
                         </div>
                         <!--Register Button-->
                         <div class="Log-in-button">
-                            <input type="button" value="Sign Up" id="submitData">
+                            <input type="button" value="Sign Up" id="signup">
                         </div>
                     </form>
                     <!--A member? Log In-->
@@ -134,8 +134,6 @@
         //  // ---------------------- Firebase --------------//
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-analytics.js";
-        import { auth } from 'https://www.gstatic.com/firebasejs/9.7.0/firebase-auth.js'
-        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-auth.js";
         // Create a password based account
         import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-auth.js";
            // Your web app's Firebase configuration
@@ -155,9 +153,9 @@
             const auth = getAuth(app);
         
             // Create a Password based account
-            submitData.addEventListener('click', (e) => {
+            document.getElementById("signup").addEventListener('click', function(){
         
-                const email = document.getElementById('signup-mail').value;
+                const email = document.getElementById('signup-email').value;
                 const password = document.getElementById('signup-password').value;
             
                 createUserWithEmailAndPassword(auth, email, password)
@@ -165,15 +163,14 @@
                 // Signed in 
                         const user = userCredential.user;
                 // ...
-                            alert('User created sucessfully');
+                            console.log('User created sucessfully');
                     })
                     .catch((error) => {
                         const errorCode = error.code;
                         const errorMessage = error.message;
                 // ..
-                        alert(errorMessage);
+                        console.log(errorMessage);
                     });
-        
             });
         </script>
     </body>
