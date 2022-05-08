@@ -455,11 +455,6 @@ q{
     padding: 50px;
 }
 
-.container.active .forms{
-    height: 425px;
-    background-color: red;
-}
-
 /*Transcription Inc. Title in Log In Form */
 .forms .formlogin .title{
     position: relative; 
@@ -675,8 +670,31 @@ q{
     padding: 0;
 }
 
+/*Padding for the signup form  */
+.forms .formsignup{
+    padding: 50px;
+}
+
+/*Transcription Inc. Title in Sign Up Form */
+.forms .formsignup .title{
+    position: relative; 
+    font-size: 27px;
+    font-weight: 600;
+    color: #209CEE;
+}
+
+/*Email Container in Registration */
+.formsignup .Email-container{
+    position: relative;
+    height: 50px;
+    width: 255px;
+    margin-top: 30px;
+    font-size: 23px;
+    color: #209CEE;
+}
+
 /*Password Container for Registration */
-.formlogin .Password-container2{
+.formsignup .Password-container2{
     position: relative;
     height: 50px;
     width: 300px;
@@ -730,6 +748,69 @@ q{
 .Password-container2 i.showHidePw:hover{
     color: #209CEE;
 }
+
+/*Added some space to the top and bottom of the registration button */
+.signup-button{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/*Styled the registration button */
+.signup-button input{
+    width: 325px;
+    border: none;
+    background-color: lightgrey;
+    color: white;
+    letter-spacing: 1pxs;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 6px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+
+/*Registration button turns blue when you hover over it */
+.signup-button input:hover{
+    background-color: #209CEE;
+}
+
+/*Have an account? Sign in centered*/
+.formsignup .login-signup{
+    margin: 30px;
+    text-align: center;
+}
+
+/* */
+.checkbox-text .checkbox-content{
+    display: flex;
+    align-items: center;
+}
+
+/*Checkbox and terms and conditions label are spaced out */
+.checkbox-content input{
+    margin: 0 10px 0px 0px; 
+}
+
+/* Terms and conditions color and size*/
+.formsignup .text{
+    color: grey;
+    font-size: 16px;
+}
+
+/* Have an account? is plain*/
+.formsignup a{
+    text-decoration: none;
+}
+
+/* Have an account? is underlined and turn blue when you hover over it*/
+.formsignup a:hover{
+    text-decoration: underline;
+    color:#209CEE;
+}
+
 
 /*---------------------About Us--------------------------------*/
 .About-Us-Layout{

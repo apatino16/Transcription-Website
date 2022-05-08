@@ -33,7 +33,7 @@
             <div class="forms">
                 <div class="formlogin">
                     <span class="title">Transcription Inc.</span>
-                    <form action="#" class="Log-in-form" id="logInForm">
+                    <form action="#login" class="Log-in-form" id="logInForm">
                         <!--Email-->
                         <div class="Email-container">
                             <i class="fa fa-envelope"></i>
@@ -64,7 +64,7 @@
                     <!--Not a member? Signup Now-->
                     <div class="login-signup">
                         <span class="text">Don't have an account?
-                            <a href="#" class="text signup-link" id="signup">Sign up</a>
+                            <a href="#signup" class="text signup-link" id="signup">Sign up</a>
                         </span>
                     </div>
                 </div>
@@ -74,9 +74,9 @@
 <!--Registraton Box-->
         <div class="container2">
             <div class="forms">
-                <div class="formlogin">
+                <div class="formsignup">
                     <span class="title">Transcription Inc.</span>
-                    <form action="#" class="Log-in-form" id="SignupForm">
+                    <form action="#signup" class="Log-in-form" id="SignupForm">
                         <!--Name-->
                         <div class="Email-container">
                             <i class="fa fa-user"></i>
@@ -105,14 +105,14 @@
                             </div>
                         </div>
                         <!--Register Button-->
-                        <div class="Log-in-button">
-                            <input type="button" value="Sign Up" id="signup">
+                        <div class="signup-button">
+                            <input type="button" value="Sign Up" id="signup" onClick="createUserWithEmailAndPassword()">
                         </div>
                     </form>
                     <!--A member? Log In-->
                     <div class="login-signup">
                         <span class="text">Have an account?
-                            <a href="#" class="text login-link">Log In</a>
+                            <a href="#login" class="text login-link">Log In</a>
                         </span>
                     </div>
                 </div>
@@ -132,10 +132,10 @@
         </footer>  
         <script type="module">
         //  // ---------------------- Firebase --------------//
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-analytics.js";
-        // Create a password based account
-        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-auth.js";
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.0/firebase-analytics.js";
+        // Create a password based account and Sign in a user with an email address and password
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.8.0/firebase-auth.js";
            // Your web app's Firebase configuration
           const firebaseConfig = {
             apiKey: "AIzaSyD4ziKkzq2Bv2VjLeg7LvBNC1eZUB0yQh0",
@@ -148,30 +148,54 @@
             measurementId: "G-07Q0DWGX8G"
           };
         
-        //   // Initialize Firebase
+        //  Initialize Firebase
             const app = initializeApp(firebaseConfig);
+            const analytics = getAnalytics(app);
             const auth = getAuth(app);
         
             // Create a Password based account
-            document.getElementById("signup").addEventListener('click', function(){
-        
-                const email = document.getElementById('signup-email').value;
-                const password = document.getElementById('signup-password').value;
-            
-                createUserWithEmailAndPassword(auth, email, password)
+                const signupEmail = document.getElementById('signup-email').value;
+                const signupPassword = document.getElementById('signup-password').value;
+
+                createUserWithEmailAndPassword(auth, signupEmail, signupPassword)
                     .then((userCredential) => {
-                // Signed in 
+                        // Signed in 
                         const user = userCredential.user;
-                // ...
-                            console.log('User created sucessfully');
+                        // ...
+                        console.log(user)
                     })
                     .catch((error) => {
                         const errorCode = error.code;
                         const errorMessage = error.message;
-                // ..
-                        console.log(errorMessage);
-                    });
-            });
+                        // ..
+                        console.log(errorMessage)
+                        console.log(error.code)
+                        });
+
+            document.getElementById("signup").addEventListener('click', createUserWithEmailAndPassword());
+        
+            // Sign in a user with an email address and password
+            const signinEmail = document.getElementById('loginEmail').value;
+            const signinPassword = document.getElementById('login-password').value;
+            signInWithEmailAndPassword(auth, signinEmail, signinPassword)
+                .then((userCredential) => {
+                    // Signed in 
+                    const user = userCredential.user;
+                    // ...
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                });
+
+            document.getElementById("login-bt").addEventListener('click', signInWithEmailAndPassword);
+
+                // Sign Out User
+                signOut(auth).then(() => {
+                // Sign-out successful.
+                }).catch((error) => {
+                // An error happened.
+                });
         </script>
     </body>
 </html>
