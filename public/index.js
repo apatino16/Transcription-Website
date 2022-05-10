@@ -44,6 +44,14 @@ function viewPassword2() {
 //     document.getElementById("container")?.style.display="inline";
 // });
 //------------------Transcribe.html-------------//
+//Waveform 
+//wavesurfer.js
+/* Creating an instance of the global WaveSurfer object. */
+//waveform scrollable
+var wavesurfer = WaveSurfer.create({
+    container: '#waveform',
+    scrollParent: true,
+});
 // Flag for Review
 /*
   The function checks to see if the YesFlag or NoFlag radio buttons are checked, and if so, it alerts

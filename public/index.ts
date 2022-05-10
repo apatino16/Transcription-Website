@@ -57,6 +57,21 @@ function viewPassword2(){
 
 //------------------Transcribe.html-------------//
 
+//Waveform 
+//wavesurfer.js
+
+/* Creating an instance of the global WaveSurfer object. */
+//waveform scrollable
+var wavesurfer = WaveSurfer.create({
+    container: '#waveform',
+    scrollParent: true,  
+    //backgroundColor: ' ',
+    //cursorColor: #333,     
+    //progressColor: #555,
+    //waveColor: #999,
+});
+
+
 // Flag for Review
 
 /*

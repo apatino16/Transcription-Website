@@ -106,7 +106,7 @@
                         </div>
                         <!--Register Button-->
                         <div class="signup-button">
-                            <input type="button" value="Sign Up" id="signup" onClick="createUserWithEmailAndPassword()">
+                            <input type="button" value="Sign Up" id="signup" >
                         </div>
                     </form>
                     <!--A member? Log In-->
@@ -154,25 +154,25 @@
             const auth = getAuth(app);
         
             // Create a Password based account
-                const signupEmail = document.getElementById('signup-email').value;
-                const signupPassword = document.getElementById('signup-password').value;
+            const signupEmail = document.getElementById('signup-email').value;
+            const signupPassword = document.getElementById('signup-password').value;
 
-                createUserWithEmailAndPassword(auth, signupEmail, signupPassword)
-                    .then((userCredential) => {
-                        // Signed in 
-                        const user = userCredential.user;
-                        // ...
-                        console.log(user)
+            createUserWithEmailAndPassword(auth, signupEmail, signupPassword)
+                .then((userCredential) => {
+                    // Signed in 
+                    const user = userCredential.user;
+                    // ...
+                    console.log(user) 
                     })
-                    .catch((error) => {
-                        const errorCode = error.code;
-                        const errorMessage = error.message;
-                        // ..
-                        console.log(errorMessage)
-                        console.log(error.code)
-                        });
-
-            document.getElementById("signup").addEventListener('click', createUserWithEmailAndPassword());
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    // ..
+                    console.log(errorMessage) //auth/invalid-email
+                    console.log(error.code)  
+                    });
+                    
+            document.getElementById("signup").addEventListener("click", createUserWithEmailAndPassword);
         
             // Sign in a user with an email address and password
             const signinEmail = document.getElementById('loginEmail').value;
@@ -188,7 +188,7 @@
                     const errorMessage = error.message;
                 });
 
-            document.getElementById("login-bt").addEventListener('click', signInWithEmailAndPassword);
+            document.getElementById("login-bt").addEventListener("click", signInWithEmailAndPassword);
 
                 // Sign Out User
                 signOut(auth).then(() => {
