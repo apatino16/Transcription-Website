@@ -48,9 +48,19 @@ function viewPassword2() {
 //wavesurfer.js
 /* Creating an instance of the global WaveSurfer object. */
 //waveform scrollable
-var wavesurfer = WaveSurfer.create({
-    container: '#waveform',
-    scrollParent: true,
+window.addEventListener('DOMContentLoaded', () => {
+    var wavesurfer = WaveSurfer.create({
+        container: '#waveform',
+        scrollParent: true,
+        backgroundColor: 'black',
+        cursorColor: '#333',
+        progressColor: '#555',
+        waveColor: '#999',
+    });
+    wavesurfer.load('audioSample/LJ001-0001.wav');
+    wavesurfer.on('ready', function () {
+        wavesurfer.play();
+    });
 });
 // Flag for Review
 /*

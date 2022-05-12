@@ -57,19 +57,28 @@ function viewPassword2(){
 
 //------------------Transcribe.html-------------//
 
-//Waveform 
 //wavesurfer.js
 
-/* Creating an instance of the global WaveSurfer object. */
-//waveform scrollable
-var wavesurfer = WaveSurfer.create({
-    container: '#waveform',
-    scrollParent: true,  
-    //backgroundColor: ' ',
-    //cursorColor: #333,     
-    //progressColor: #555,
-    //waveColor: #999,
-});
+/* This is a function that is called when the DOM is loaded. It creates a new instance of the
+WaveSurfer object and loads the audio file. */
+
+window.addEventListener('DOMContentLoaded', ()=> {
+    var wavesurfer = WaveSurfer.create({
+        container: '#waveform',
+        scrollParent: true,  
+        backgroundColor: 'black',
+        cursorColor: '#333',     
+        progressColor: '#555',
+        waveColor: '#999',
+    });
+    
+    wavesurfer.load('audioSample/LJ001-0001.wav');
+    
+    wavesurfer.on('ready', function () {
+        wavesurfer.play();
+    });
+}) 
+
 
 
 // Flag for Review
