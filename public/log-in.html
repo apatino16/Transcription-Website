@@ -153,42 +153,46 @@
             const analytics = getAnalytics(app);
             const auth = getAuth(app);
         
-            // Create a Password based account
-            const signupEmail = document.getElementById('signup-email').value;
-            const signupPassword = document.getElementById('signup-password').value;
+            // Create a Password based account         
+            document.getElementById("signup").addEventListener("click", () => {
+                const signupEmail = document.getElementById('signup-email').value;
+                const signupPassword = document.getElementById('signup-password').value;
 
-            createUserWithEmailAndPassword(auth, signupEmail, signupPassword)
-                .then((userCredential) => {
-                    // Signed in 
-                    const user = userCredential.user;
-                    // ...
-                    console.log(user) 
-                    })
-                .catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                    // ..
-                    console.log(errorMessage) //auth/invalid-email
-                    console.log(error.code)  
-                    });
-                    
-            document.getElementById("signup").addEventListener("click", createUserWithEmailAndPassword);
+                createUserWithEmailAndPassword(auth, signupEmail, signupPassword)
+                    .then((userCredential) => {
+                        // Signed in 
+                        const user = userCredential.user;
+                        // ...
+                        console.log(user) 
+                        })
+                    .catch((error) => {
+                        const errorCode = error.code;
+                        const errorMessage = error.message;
+                        // ..
+                        console.log(errorMessage) //auth/invalid-email
+                        console.log(error.code)  
+                        });
+            });
         
             // Sign in a user with an email address and password
-            const signinEmail = document.getElementById('loginEmail').value;
-            const signinPassword = document.getElementById('login-password').value;
-            signInWithEmailAndPassword(auth, signinEmail, signinPassword)
-                .then((userCredential) => {
-                    // Signed in 
-                    const user = userCredential.user;
-                    // ...
-                })
-                .catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                });
+            
 
-            document.getElementById("login-bt").addEventListener("click", signInWithEmailAndPassword);
+            document.getElementById("login-bt").addEventListener("click", () => {
+                const signinEmail = document.getElementById('loginEmail').value;
+                const signinPassword = document.getElementById('login-password').value;
+                signInWithEmailAndPassword(auth, signinEmail, signinPassword)
+                 .then((userCredential) => {
+                     // Signed in 
+                        const user = userCredential.user;
+                        console.log(user)
+                        // ...
+                    })
+                    .catch((error) => {
+                        const errorCode = error.code;
+                        const errorMessage = error.message;
+                    });
+                }
+            );
 
                 // Sign Out User
                 signOut(auth).then(() => {

@@ -239,12 +239,13 @@ footer{
 }
 
 /* This is where the voice frequency shows*/
-.waveform{
+#waveform{
     position: relative;
     box-align: center;
+    background-color: red;
 }
 
-.cursor{
+#waveform .cursor{
     position: absolute;
     z-index: 4;
     left: 0px;
@@ -265,6 +266,7 @@ footer{
     height: 300px;
     overflow: auto hidden;
     box-align: center;
+    background-color: red;
 }
 
 /* This is the area where the time and controls show */
