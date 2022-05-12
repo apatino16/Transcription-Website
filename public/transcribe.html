@@ -33,32 +33,28 @@
 <!--Voice Recording Panel-->
             <div class="Layout-Container">
                 <div class="waveform-player">
-                    <div id="waveform">
-                        <cursor>
-                            <wave>
-                                <span>Voice Recording Wave</span>
-                            </wave>
-                        </cursor>
-                        <canvas>
-                        <audio></audio> 
-                        </canvas>
-                    </div>
+                    <div id="waveform"></div>
                     <div class="waveform-controls">
-                        <span class="time">
+                        <span class="controls">
                             <span class="time-label">
-                                <span>Current time:</span>
+                                <span>Current Time:</span>
                                 <span>Total Time:</span>
                             </span>
                             <span class="time-value">
                                 <span>00:00.000</span>
                                 <span>00:00.000</span>
                             </span>
-                            <span class="button-group">
+                            <span id='playPause' class="button-group">
                                 <i class="fa fa-play-circle-o"></i>
                                 <i class="fa fa-pause-circle-o"></i>
+                            </span>
+                            <span id='stop' class="button-group">
                                 <i class="fa fa-stop-circle-o"></i>
                             </span>
-
+                            <span id='mute' class="button-group">
+                                <i class="fa fa-volume-up"></i>
+                                <i class="fa fa-volume-off"></i>
+                            </span>
                         </span>
                     </div>
                 </div>
@@ -70,7 +66,16 @@
                 </h2>
                 <dd class="Prompt-Textbox">
                     <q class="Prompt-quote">
-                        "Some Prompt Quote"
+                        Welcome to Transcription.Inc!<br>
+                        <br>
+                        In the Transcribe page you can play any of the sample audios 
+                        and transcribe it's content in the Transcription box. Please feel free 
+                        to annotate the file with any of the tags you see fit whether there was any technical or vocal problems. 
+                        At the bottom you will find a text box field to take notes.
+                        <br>
+                        If there's a bug or the audio doesn't work please Flag it for review. <br>
+                        <br>
+                        I hope you find it useful!
                     </q>
 
                 </dd>

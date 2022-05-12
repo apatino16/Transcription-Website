@@ -44,22 +44,32 @@ function viewPassword2() {
 //     document.getElementById("container")?.style.display="inline";
 // });
 //------------------Transcribe.html-------------//
-//Waveform 
 //wavesurfer.js
-/* Creating an instance of the global WaveSurfer object. */
-//waveform scrollable
+/* This is a function that is called when the DOM is loaded. It creates a new instance of the
+WaveSurfer object and loads the audio file. */
 window.addEventListener('DOMContentLoaded', () => {
     var wavesurfer = WaveSurfer.create({
         container: '#waveform',
         scrollParent: true,
-        backgroundColor: 'black',
+        backgroundColor: 'white',
         cursorColor: '#333',
-        progressColor: '#555',
-        waveColor: '#999',
+        progressColor: 'lightblue',
+        waveColor: 'lightgrey',
+        barWidth: 3,
+        barRadius: 3,
     });
     wavesurfer.load('audioSample/LJ001-0001.wav');
-    wavesurfer.on('ready', function () {
-        wavesurfer.play();
+    const playPause = document.getElementById('playPause');
+    const stop = document.getElementById('stop');
+    const mute = document.getElementById('mute');
+    playPause === null || playPause === void 0 ? void 0 : playPause.addEventListener('click', () => {
+        wavesurfer.playPause();
+        if (wavesurfer.isPlaying()) {
+            playPause.classList.add("playing");
+        }
+        else {
+            playPause.classList.remove("playing");
+        }
     });
 });
 // Flag for Review

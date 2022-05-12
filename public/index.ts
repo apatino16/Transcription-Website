@@ -22,7 +22,6 @@ function viewPassword(){
 }
 
 //Show/Hide Password Mask on Registration
-
 /*
   If the password input field is a password, change it to text and change the icon to an eye. If the
   password input field is text, change it to password and change the icon to an eye slash
@@ -58,7 +57,6 @@ function viewPassword2(){
 //------------------Transcribe.html-------------//
 
 //wavesurfer.js
-
 /* This is a function that is called when the DOM is loaded. It creates a new instance of the
 WaveSurfer object and loads the audio file. */
 
@@ -66,18 +64,33 @@ window.addEventListener('DOMContentLoaded', ()=> {
     var wavesurfer = WaveSurfer.create({
         container: '#waveform',
         scrollParent: true,  
-        backgroundColor: 'black',
+        backgroundColor: 'white',
         cursorColor: '#333',     
-        progressColor: '#555',
-        waveColor: '#999',
+        progressColor: 'lightblue',
+        waveColor: 'lightgrey',
+        barWidth: 3,
+        barRadius: 3,
     });
     
     wavesurfer.load('audioSample/LJ001-0001.wav');
-    
-    wavesurfer.on('ready', function () {
-        wavesurfer.play();
-    });
-}) 
+        
+    const playPause = document.getElementById('playPause');
+    const stop = document.getElementById('stop');
+    const mute = document.getElementById('mute');
+
+    playPause?.addEventListener('click', () => {
+        wavesurfer.playPause();
+
+        if (wavesurfer.isPlaying()){
+            playPause.classList.add("playing");
+        } else{
+            playPause.classList.remove("playing");
+        }
+        });
+    }) 
+
+
+
 
 
 
