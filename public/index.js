@@ -58,10 +58,18 @@ window.addEventListener('DOMContentLoaded', () => {
         barWidth: 3,
         barRadius: 3,
     });
+    /* Loading the audio file into the waveform. */
     wavesurfer.load('audioSample/LJ001-0001.wav');
     const playPause = document.getElementById('playPause');
     const stop = document.getElementById('stop');
     const mute = document.getElementById('mute');
+    /* This is an event listener that listens for a click on the playPause button. When the button is
+    clicked, the playPause function is called. If the audio is playing, the playPause button is
+    given the class "playing". If the audio is not playing, the playPause button is given the class
+    "playing". In other words, I can click play to start listening to the audio, and symoultanously
+    the icon will change into the pause button allowing me to click pause at anytime. If pause is clicked,
+    the icon will chenge into the play button for when the user is ready to continue playing
+    the audio. This will hopefully help with an intuitive use of the audio controls.*/
     playPause === null || playPause === void 0 ? void 0 : playPause.addEventListener('click', () => {
         wavesurfer.playPause();
         if (wavesurfer.isPlaying()) {
@@ -70,6 +78,10 @@ window.addEventListener('DOMContentLoaded', () => {
         else {
             playPause.classList.remove("playing");
         }
+    });
+    stop === null || stop === void 0 ? void 0 : stop.addEventListener('click', () => {
+        wavesurfer.stop();
+        playPause.classList.remove("playing");
     });
 });
 // Flag for Review
