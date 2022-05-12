@@ -321,8 +321,18 @@ footer{
     display: none;
 }
 
-/*Volume Off*/
+/*Mute*/
 .button-group .fa-volume-off{
+    display: none;
+}
+
+/*Mute*/
+.button-group.muted .fa-volume-off{
+    display: inline-block;
+}
+
+/*Mute*/
+.button-group.muted .fa-volume-up{
     display: none;
 }
 

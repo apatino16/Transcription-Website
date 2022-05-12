@@ -78,7 +78,7 @@ window.addEventListener('DOMContentLoaded', ()=> {
     const playPause = document.getElementById('playPause');
     const stop = document.getElementById('stop');
     const mute = document.getElementById('mute');
-
+    const volumeSlider = document.getElementById('volume-Slider');
     /* This is an event listener that listens for a click on the playPause button. When the button is
     clicked, the playPause function is called. If the audio is playing, the playPause button is
     given the class "playing". If the audio is not playing, the playPause button is given the class
@@ -100,6 +100,32 @@ window.addEventListener('DOMContentLoaded', ()=> {
     stop?.addEventListener('click', () => {
         wavesurfer.stop();
         playPause.classList.remove("playing");
+    });
+
+    volumeSlider.addEventListener('mouseup', () => {
+        changeVolume(volumeSlider.value);
+    });
+
+    const changeVolume = (volume) => {
+        if (volume = 0){
+            mute?.classList.add("muted");
+        }else{
+            mute?.classList.remove("muted");
+        }
+
+        wavesurfer.setVolume(volume);
+    }
+
+    mute?.addEventListener('click', () => {
+       if (mute.classList.contains("muted")){
+           mute.classList.remove("muted");
+           wavesurfer.setVolume(0.5);
+           volumeSlider.value = 0.5;
+       } else{
+           wavesurfer.setVolume(0);
+           mute.classList.add("muted");
+           volumeSlider.value = 0;
+       }
     })
 
     }) 
