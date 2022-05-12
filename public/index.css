@@ -205,7 +205,7 @@ footer{
 }
 
 /* ------------------ TRANSCRIBE -----------------------*/
-
+/* */
 .main{
     display: block;
     box-align: center;
@@ -215,6 +215,7 @@ footer{
     width: 70vw;
 }
 
+/* Audio player container*/
 .Layout-Container{
     display: flex;
     flex-flow: row wrap;
@@ -225,6 +226,7 @@ footer{
     margin: 0.5rem;
 }
 
+/*Audio Player main background*/
 .waveform-player{
     display: flex;
     flex-direction: column;
@@ -242,31 +244,7 @@ footer{
 #waveform{
     position: relative;
     box-align: center;
-    background-color: red;
-}
-
-#waveform .cursor{
-    position: absolute;
-    z-index: 4;
-    left: 0px;
-    top: 0px;
-    bottom: 0px;
-    width: 0px;
-    display: none;
-    border-right:1px solid black;
-    opacity: 1;
-    pointer-events: none;
-}
-
-/* This is the wave*/ 
-.wave{
-    display: block;
-    position: relative;
-    user-select: none;
-    height: 300px;
-    overflow: auto hidden;
-    box-align: center;
-    background-color: red;
+    height: auto;
 }
 
 /* This is the area where the time and controls show */
@@ -278,9 +256,13 @@ footer{
     padding: 2em;
     box-align: center;
     color: black;
+    box-shadow: -1px 1px 4px 2px black;
+    border-radius: 200px;
+    margin-top: 15px;
 }
 
-.waveform-controls .time{
+/*Time and Controls */
+.waveform-controls .controls{
     display: flex;
     font-size: 20px;
     font-weight: bold;
@@ -289,33 +271,61 @@ footer{
     padding-left: 1em;
     width: 15em;
     box-align: center;
+    width: 100%;
 }
 
+/*Current Time and Total Time */
 .waveform-controls .time-label{
     display: flex;
     flex-direction: column;
     -webkit-box-pack: start;
     justify-content: flex-start;
-    width: 400px;
+    margin: 10px;
+    width: auto;
 }
 
+/*Time */
 .waveform-controls .time-value{
     display: flex;
     flex-direction: column;
     -webkit-box-pack: start;
     justify-content: flex-start;
-    padding: 1em;
+    padding: 0px 100px 2px 10px;
 }
 
+/*Play/Pause/Stop/ Voulem Up and off */
 .waveform-controls .button-group{
-    width: 8em;
-    display: flex;
+    padding: 16px;
+    display: inline-block;
     flex-direction: row;
     -webkit-box-pack: justify;
     justify-content: space-between;
     -webkit-box-align: center;
     align-items: center;
+    cursor: pointer;
+    width: 24px;
 }
+
+/*Pause Button*/
+.button-group .fa-pause-circle-o{
+    display: none;
+}
+
+/*Pause Button appears when audio is playing*/
+.button-group.playing .fa-pause-circle-o{
+    display: inline-block;
+}
+
+/*Play Button*/
+.button-group.playing .fa-play-circle-o{
+    display: none;
+}
+
+/*Volume Off*/
+.button-group .fa-volume-off{
+    display: none;
+}
+
 
 /* Recording Prompt */
 .Prompt-Container{
