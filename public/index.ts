@@ -102,19 +102,19 @@ window.addEventListener('DOMContentLoaded', ()=> {
         playPause.classList.remove("playing");
     });
 
-    volumeSlider.addEventListener('mouseup', () => {
+    volumeSlider.addEventListener("mouseup", () => {
         changeVolume(volumeSlider.value);
     });
 
     const changeVolume = (volume) => {
-        if (volume = 0){
+        if (volume == 0){
             mute?.classList.add("muted");
         }else{
             mute?.classList.remove("muted");
         }
 
         wavesurfer.setVolume(volume);
-    }
+    };
 
     mute?.addEventListener('click', () => {
        if (mute.classList.contains("muted")){
@@ -128,7 +128,7 @@ window.addEventListener('DOMContentLoaded', ()=> {
        }
     })
 
-    }) 
+    });
 
 
 

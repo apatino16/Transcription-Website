@@ -84,11 +84,11 @@ window.addEventListener('DOMContentLoaded', () => {
         wavesurfer.stop();
         playPause.classList.remove("playing");
     });
-    volumeSlider.addEventListener('mouseup', () => {
+    volumeSlider.addEventListener("mouseup", () => {
         changeVolume(volumeSlider.value);
     });
     const changeVolume = (volume) => {
-        if (volume = 0) {
+        if (volume == 0) {
             mute === null || mute === void 0 ? void 0 : mute.classList.add("muted");
         }
         else {
