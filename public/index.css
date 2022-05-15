@@ -321,17 +321,17 @@ footer{
     display: none;
 }
 
-/*Mute*/
+/*Hide the mute icon*/
 .button-group .fa-volume-off{
     display: none;
 }
 
-/*Mute*/
+/*Will now show that it's muted*/
 .button-group.muted .fa-volume-off{
     display: inline-block;
 }
 
-/*Mute*/
+/*Hide the volume icon*/
 .button-group.muted .fa-volume-up{
     display: none;
 }
@@ -454,6 +454,17 @@ q{
 /* Grey Container Where the login form shows up */
 .container{
     display: flex;
+    height:100vh;
+    align-items: center;
+    justify-content: center;
+    background: lightgrey;
+    margin: 5rem; 
+    padding: 0;
+}
+
+/*Hides the login form */
+.container.hide {
+    display:none;
     height:100vh;
     align-items: center;
     justify-content: center;
@@ -683,7 +694,18 @@ q{
 
 /* Grey Container Where the login form shows up */
 .container2{
-    display: flex;
+    display:flex;
+    height:100vh;
+    align-items: center;
+    justify-content: center;
+    background: lightgrey;
+    margin: 5rem; 
+    padding: 0;
+}
+
+/*Shows the registration form  */
+.container2.hide{
+    display: none;
     height:100vh;
     align-items: center;
     justify-content: center;

@@ -23,6 +23,7 @@
                         <li><a href="./log-in.html">LOG-IN</a></li>
                         <li><a href="./about.html">ABOUT</a></li>
                         <li><a href="./transcribe.html">TRANSCRIBE</a></li>
+                        <li> <input type="button" value="Log Out" id="signout-bt"> </li>
                     </ul>
                 </div>
             </nav>
@@ -64,7 +65,7 @@
                     <!--Not a member? Signup Now-->
                     <div class="login-signup">
                         <span class="text">Don't have an account?
-                            <a href="#signup" class="text signup-link" id="signup">Sign up</a>
+                            <a href="#signup" class="text signup-link" id="showSignup">Sign up</a>
                         </span>
                     </div>
                 </div>
@@ -112,7 +113,7 @@
                     <!--A member? Log In-->
                     <div class="login-signup">
                         <span class="text">Have an account?
-                            <a href="#login" class="text login-link">Log In</a>
+                            <a href="#login" class="text login-link" id="showLogin">Log In</a>
                         </span>
                     </div>
                 </div>
@@ -175,8 +176,6 @@
             });
         
             // Sign in a user with an email address and password
-            
-
             document.getElementById("login-bt").addEventListener("click", () => {
                 const signinEmail = document.getElementById('loginEmail').value;
                 const signinPassword = document.getElementById('login-password').value;
@@ -194,12 +193,15 @@
                 }
             );
 
-                // Sign Out User
+            // Sign Out User
+            document.getElementById('signout-bt').addEventListener("click", () => {
                 signOut(auth).then(() => {
                 // Sign-out successful.
+                console.log("Sign-out successful.")
                 }).catch((error) => {
                 // An error happened.
                 });
+            });
         </script>
     </body>
 </html>

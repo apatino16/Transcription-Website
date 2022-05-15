@@ -8,7 +8,7 @@
 function viewPassword() {
     const passwordInput = document.getElementById('login-password');
     const passStatus = document.getElementById('login-pass-status');
-    if (passwordInput.type === 'password') {
+    if ((passwordInput === null || passwordInput === void 0 ? void 0 : passwordInput.type) === 'password') {
         passwordInput.type = 'text';
         passStatus.className = 'fa fa-eye SIshowHidePw';
     }
@@ -16,7 +16,9 @@ function viewPassword() {
         passwordInput.type = 'password';
         passStatus.className = 'fa fa-eye-slash SIshowHidePw';
     }
+    ;
 }
+;
 //Show/Hide Password Mask on Registration
 /*
   If the password input field is a password, change it to text and change the icon to an eye. If the
@@ -25,7 +27,7 @@ function viewPassword() {
 function viewPassword2() {
     const signupPasswordInput = document.getElementById('signup-password');
     const signupPassStatus = document.getElementById('signup-pass-status');
-    if (signupPasswordInput.type === 'password') {
+    if ((signupPasswordInput === null || signupPasswordInput === void 0 ? void 0 : signupPasswordInput.type) === 'password') {
         signupPasswordInput.type = 'text';
         signupPassStatus.className = 'fa fa-eye SUshowHidePw';
     }
@@ -34,15 +36,22 @@ function viewPassword2() {
         signupPassStatus.className = 'fa fa-eye-slash SUshowHidePw';
     }
 }
+;
 // Make the signup and login form appear//
-// document.getElementById("signup")?.addEventListener('click', function(){
-//     document.getElementById("container2")?.style.display="inline";
-//     document.getElementById("container")?.style.display="none";
-// });
-// document.getElementById("signup")?.addEventListener('click', function(){
-//     document.getElementById("container2")?.style.display="none";
-//     document.getElementById("container")?.style.display="inline";
-// });
+document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementsByClassName("container");
+    const container2 = document.getElementsByClassName("container2 hide");
+    document.getElementById('showSignup').addEventListener("click", () => {
+        // e.preventDefault();
+        container.classList.add("hide");
+        container2.classList.remove("hide");
+    });
+    document.getElementById('showLogin').addEventListener("click", () => {
+        // e.preventDefault();
+        container.classList.remove("hide");
+        container2.classList.add("hide");
+    });
+});
 //------------------Transcribe.html-------------//
 //wavesurfer.js
 /* This is a function that is called when the DOM is loaded. It creates a new instance of the
@@ -82,9 +91,9 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     stop === null || stop === void 0 ? void 0 : stop.addEventListener('click', () => {
         wavesurfer.stop();
-        playPause.classList.remove("playing");
+        playPause === null || playPause === void 0 ? void 0 : playPause.classList.remove("playing");
     });
-    volumeSlider.addEventListener("mouseup", () => {
+    volumeSlider === null || volumeSlider === void 0 ? void 0 : volumeSlider.addEventListener("mouseup", () => {
         changeVolume(volumeSlider.value);
     });
     const changeVolume = (volume) => {
@@ -117,9 +126,9 @@ window.addEventListener('DOMContentLoaded', () => {
 function SubmitTranscription() {
     const YesFlag = document.getElementById("YesFlag");
     const NoFlag = document.getElementById("NoFlag");
-    if (YesFlag.checked == true)
+    if ((YesFlag === null || YesFlag === void 0 ? void 0 : YesFlag.checked) == true)
         alert("Flag for Review: " + YesFlag.value);
-    else if (NoFlag.checked == true)
+    else if ((NoFlag === null || NoFlag === void 0 ? void 0 : NoFlag.checked) == true)
         alert("Flag for Review: " + NoFlag.value);
     else
         alert("Nothing was selected");
