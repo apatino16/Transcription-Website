@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 .idea
-=======
 # Logs
 logs
 *.log
@@ -67,4 +65,3 @@ node_modules/
 
 # dotenv environment variables file
 .env
->>>>>>> 8fcb142 (Added untracked files)
