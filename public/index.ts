@@ -1,3 +1,76 @@
+
+//---------------------- Firebase --------------//
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.0/firebase-analytics.js";
+// Create a password based account and Sign in a user with an email address and password
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.8.0/firebase-auth.js";
+   // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyD4ziKkzq2Bv2VjLeg7LvBNC1eZUB0yQh0",
+    authDomain: "transcription-website-55f1b.firebaseapp.com",
+    databaseURL: "https://transcription-website-55f1b-default-rtdb.firebaseio.com",
+    projectId: "transcription-website-55f1b",
+    storageBucket: "transcription-website-55f1b.appspot.com",
+    messagingSenderId: "357514451132",
+    appId: "1:357514451132:web:13a0af8d3f9569eb6d18b9",
+    measurementId: "G-07Q0DWGX8G"
+  };
+
+//  Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth = getAuth(app);
+
+    // Create a Password based account         
+    document.getElementById("signup").addEventListener("click", () => {
+        const signupEmail = document.getElementById('signup-email').value;
+        const signupPassword = document.getElementById('signup-password').value;
+
+        createUserWithEmailAndPassword(auth, signupEmail, signupPassword)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                // ...
+                console.log(user) 
+                })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // ..
+                console.log(errorMessage) //auth/invalid-email
+                console.log(error.code)  
+                });
+    });
+
+    // Sign in a user with an email address and password
+    document.getElementById("login-bt").addEventListener("click", () => {
+        const signinEmail = document.getElementById('loginEmail').value;
+        const signinPassword = document.getElementById('login-password').value;
+        signInWithEmailAndPassword(auth, signinEmail, signinPassword)
+         .then((userCredential) => {
+             // Signed in 
+                const user = userCredential.user;
+                console.log(user)
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+            });
+        }
+    );
+
+    // Sign Out User
+    document.getElementById('signout-bt').addEventListener("click", () => {
+        signOut(auth).then(() => {
+        // Sign-out successful.
+        console.log("Sign-out successful.")
+        }).catch((error) => {
+        // An error happened.
+        });
+    });
+
+
 // ------------------Log-In.html------------------//
 
 //Show/Hide Password Mask on Log In
@@ -21,6 +94,7 @@ function viewPassword(){
     };
 };
 
+// ------------------Registration.html------------------//
 //Show/Hide Password Mask on Registration
 /*
   If the password input field is a password, change it to text and change the icon to an eye. If the
@@ -41,99 +115,7 @@ function viewPassword2(){
     }
 };
 
-// Make the signup and login form appear//
-
-document.addEventListener("DOMContentLoaded", () => {
-    const container = document.getElementsByClassName("container");
-    const container2 = document.getElementsByClassName("container2");
-
-    document.getElementById('showSignup').addEventListener("click", e => {
-        e.preventDefault();
-        container.classList.add("hide");
-        container2.classList.remove("hide");
-    });
-
-    document.getElementById('showLogin').addEventListener("click", e => {
-        e.preventDefault();
-        container.classList.remove("hide");
-        container2.classList.add("hide");
-    });
-});
-
 //------------------Transcribe.html-------------//
-
-// //wavesurfer.js
-// /* This is a function that is called when the DOM is loaded. It creates a new instance of the
-// WaveSurfer object and loads the audio file. */
-
-// window.addEventListener('DOMContentLoaded', ()=> {
-//     var wavesurfer = WaveSurfer.create({
-//         container: '#waveform',
-//         scrollParent: true,  
-//         backgroundColor: 'white',
-//         cursorColor: '#333',     
-//         progressColor: 'lightblue',
-//         waveColor: 'lightgrey',
-//         barWidth: 3,
-//         barRadius: 3,
-//     });
-    
-//     /* Loading the audio file into the waveform. */
-//     wavesurfer.load('audioSample/LJ001-0001.wav');
-        
-//     const playPause = document.getElementById('playPause');
-//     const stop = document.getElementById('stop');
-//     const mute = document.getElementById('mute');
-//     const volumeSlider = document.getElementById('volume-Slider');
-//     /* This is an event listener that listens for a click on the playPause button. When the button is
-//     clicked, the playPause function is called. If the audio is playing, the playPause button is
-//     given the class "playing". If the audio is not playing, the playPause button is given the class
-//     "playing". In other words, I can click play to start listening to the audio, and symoultanously 
-//     the icon will change into the pause button allowing me to click pause at anytime. If pause is clicked, 
-//     the icon will chenge into the play button for when the user is ready to continue playing
-//     the audio. This will hopefully help with an intuitive use of the audio controls.*/
-//     playPause?.addEventListener('click', () => {
-//         wavesurfer.playPause();
-
-//         if (wavesurfer.isPlaying()){
-//             playPause.classList.add("playing");
-//         } else{
-//             playPause.classList.remove("playing");
-//         }
-//         });
-
-//     stop?.addEventListener('click', () => {
-//         wavesurfer.stop();
-//         playPause?.classList.remove("playing");
-//     });
-
-//     volumeSlider?.addEventListener("mouseup", () => {
-//         changeVolume(volumeSlider.value);
-//     });
-
-//     const changeVolume = (volume: any) => {
-//         if (volume == 0){
-//             mute?.classList.add("muted");
-//         }else{
-//             mute?.classList.remove("muted");
-//         }
-
-//         wavesurfer.setVolume(volume);
-//     };
-
-//     mute?.addEventListener('click', () => {
-//        if (mute.classList.contains("muted")){
-//            mute.classList.remove("muted");
-//            wavesurfer.setVolume(0.5);
-//            volumeSlider.value = 0.5;
-//        } else{
-//            wavesurfer.setVolume(0);
-//            mute.classList.add("muted");
-//            volumeSlider.value = 0;
-//        }
-//     })
-
-//     });
 
 // Flag for Review
 
