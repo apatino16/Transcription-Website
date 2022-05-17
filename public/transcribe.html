@@ -12,6 +12,7 @@
         <script src="https://unpkg.com/wavesurfer.js"></script>
         <script type="text/javascript" src="index.js"></script>
     </head>
+
     <body>
 <!--Header-->
         <header>
@@ -22,9 +23,10 @@
                     <ul>
                         <li><a href="./index.html">HOME</a></li>
                         <li><a href="./log-in.html">LOG-IN</a></li>
+                        <li><a ref="./registration.html"> SIGN UP</a></li>
                         <li><a href="./about.html">ABOUT</a></li>
                         <li><a href="./transcribe.html">TRANSCRIBE</a></li>
-                        <li> <input type="button" value="Log Out" id="signout-bt"> </li>
+                        <li> <input type="button" value="LOG OUT" id="signout-bt"> </li>
                     </ul>
                 </div>
             </nav>
@@ -79,13 +81,12 @@
                         <br>
                         I hope you find it useful!
                     </q>
-
                 </dd>
-
-
             </div>
+
 <!--Form Panel-->
             <form action="#" class="Form-style">
+
                 <!--Submission Controls-->
                 <div class="Flag">
                     <p>
@@ -97,6 +98,7 @@
                     <input type="radio" name="Flag" id="NoFlag" value="False">
                     <button id="NextInQueue" onclick="SubmitTranscription()" type="Submit">Next in Queue</button>
                 </div>
+
                 <!--Transcription Box-->
                 <div class="Transcription-box">
                     <p>
@@ -104,8 +106,10 @@
                     </p>
                     <textarea class="Text-area" tittle="Transcript"></textarea>
                 </div>
+
                 <!--Task Tags-->
                 <div class="Tags">
+
                     <!--Task Completion-->
                     <div>
                         <p>
@@ -121,12 +125,12 @@
                             <input type="radio" name="ContainsSpeech" value="False">
                         </div>
                             <p>
-                                Non-Task Speech
+                                Background Speech
                             </p>
                             <label>Yes</label>
-                            <input type="radio" name="NonTaskSpeech" value="True">
+                            <input type="radio" name="BackgroundSpeech" value="True">
                              <label>No</label>
-                            <input type="radio" name="NonTaskSpeech" value="False">
+                            <input type="radio" name="BackgroundSpeech" value="False">
                         <div>
                             <p>
                                 Filler Speech
@@ -137,6 +141,7 @@
                             <input type="radio" name="FillerSpeech" value="False">
                         </div>
                     </div>
+
                     <!--Technical Problems-->
                     <div>
                         <p>
@@ -170,6 +175,7 @@
                             <input type="radio" name="Invalid" value="False">
                         </div>
                     </div>
+
                     <!--Vocal Problems-->
                     <div>
                         <p>
@@ -204,6 +210,7 @@
                         </div>
                     </div>
                 </div>
+
                 <!--Notes --->
                 <div class="Notes">
                     <p>
@@ -215,13 +222,12 @@
             <pre id="log">
 
             </pre>
-            
         </main>
          
 
 <!-- Footer-->
         <footer>
-            <h4 class="footer-tittle">2022 Transcription Inc.</h4>
+            <h4 class="footer-title">2022 Transcription Inc.</h4>
             <div class="icons">
                 <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a> 
                 <a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
@@ -230,7 +236,9 @@
             </div>
             <p>Made by Anny Patino</p>
         </footer>
+
     </body>
+
 </html>
 
 
