@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <script type="text/javascript" src="index.js"></script>
     </head>
+
     <body class="loginBody">
 <!--Header-->
         <header>
@@ -20,11 +21,11 @@
                 <div class="nav-links">
                     <ul>
                         <li><a href="./index.html">HOME</a></li>
-                        <li><a href="./log-in.html">LOG-IN</a></li>
-                        <li><a ref="./registration.html"> Log Out</a></li>
+                        <li><a href="./log-in.html">LOG IN</a></li>
+                        <li><a ref="./registration.html">SING UP </a></li>
                         <li><a href="./about.html">ABOUT</a></li>
                         <li><a href="./transcribe.html">TRANSCRIBE</a></li>
-                        <li> <input type="button" value="Log Out" id="signout-bt"> </li>
+                        <li> <input type="button" value="LOG OUT" id="signout-bt"> </li>
                     </ul>
                 </div>
             </nav>
@@ -36,11 +37,13 @@
                 <div class="formsignup">
                     <span class="title">Transcription Inc.</span>
                     <form action="#signup" class="Log-in-form" id="SignupForm">
+
                         <!--Name-->
                         <div class="Email-container">
                             <i class="fa fa-user"></i>
                             <input type="text" id="name" name="name" placeholder="Enter your name" required>
                         </div>
+
                         <!--Email-->
                         <div class="Email-container">
                             <i class="fa fa-envelope"></i>
@@ -63,15 +66,17 @@
                                 <label for="terms" class="text">I accept the terms & conditions</label>
                             </div>
                         </div>
+
                         <!--Register Button-->
                         <div class="signup-button">
                             <input type="button" value="Sign Up" id="signup" >
                         </div>
                     </form>
+
                     <!--A member? Log In-->
                     <div class="login-signup">
                         <span class="text">Have an account?
-                            <a href="#login" class="text login-link" id="showLogin">Log In</a>
+                            <a href="./log-in.html" class="text login-link" id="showLogin">Log In</a>
                         </span>
                     </div>
                 </div>
@@ -80,7 +85,7 @@
 
 <!-- Footer-->
         <footer>
-            <h4 class="footer-tittle">2022 Transcription Inc.</h4>
+            <h4 class="footer-title">2022 Transcription Inc.</h4>
             <div class="icons">
                 <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a> 
                 <a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
@@ -89,77 +94,7 @@
             </div>
             <p>Made by Anny Patino</p>
         </footer>  
-        <script type="module">
-        //  // ---------------------- Firebase --------------//
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.0/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.0/firebase-analytics.js";
-        // Create a password based account and Sign in a user with an email address and password
-        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.8.0/firebase-auth.js";
-           // Your web app's Firebase configuration
-          const firebaseConfig = {
-            apiKey: "AIzaSyD4ziKkzq2Bv2VjLeg7LvBNC1eZUB0yQh0",
-            authDomain: "transcription-website-55f1b.firebaseapp.com",
-            databaseURL: "https://transcription-website-55f1b-default-rtdb.firebaseio.com",
-            projectId: "transcription-website-55f1b",
-            storageBucket: "transcription-website-55f1b.appspot.com",
-            messagingSenderId: "357514451132",
-            appId: "1:357514451132:web:13a0af8d3f9569eb6d18b9",
-            measurementId: "G-07Q0DWGX8G"
-          };
-        
-        //  Initialize Firebase
-            const app = initializeApp(firebaseConfig);
-            const analytics = getAnalytics(app);
-            const auth = getAuth(app);
-        
-            // Create a Password based account         
-            document.getElementById("signup").addEventListener("click", () => {
-                const signupEmail = document.getElementById('signup-email').value;
-                const signupPassword = document.getElementById('signup-password').value;
 
-                createUserWithEmailAndPassword(auth, signupEmail, signupPassword)
-                    .then((userCredential) => {
-                        // Signed in 
-                        const user = userCredential.user;
-                        // ...
-                        console.log(user) 
-                        })
-                    .catch((error) => {
-                        const errorCode = error.code;
-                        const errorMessage = error.message;
-                        // ..
-                        console.log(errorMessage) //auth/invalid-email
-                        console.log(error.code)  
-                        });
-            });
-        
-            // Sign in a user with an email address and password
-            document.getElementById("login-bt").addEventListener("click", () => {
-                const signinEmail = document.getElementById('loginEmail').value;
-                const signinPassword = document.getElementById('login-password').value;
-                signInWithEmailAndPassword(auth, signinEmail, signinPassword)
-                 .then((userCredential) => {
-                     // Signed in 
-                        const user = userCredential.user;
-                        console.log(user)
-                        // ...
-                    })
-                    .catch((error) => {
-                        const errorCode = error.code;
-                        const errorMessage = error.message;
-                    });
-                }
-            );
-
-            // Sign Out User
-            document.getElementById('signout-bt').addEventListener("click", () => {
-                signOut(auth).then(() => {
-                // Sign-out successful.
-                console.log("Sign-out successful.")
-                }).catch((error) => {
-                // An error happened.
-                });
-            });
-        </script>
     </body>
+
 </html>
