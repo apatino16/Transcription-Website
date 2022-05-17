@@ -20,11 +20,11 @@
                 <div class="nav-links">
                     <ul>
                         <li><a href="./index.html">HOME</a></li>
-                        <li><a href="./log-in.html">LOG-IN</a></li>
-                        <li><a ref="./registration.html"> Log Out</a></li>
+                        <li><a href="./log-in.html">LOG IN</a></li>
+                        <li><a ref="./registration.html"> SIGN UP</a></li>
                         <li><a href="./about.html">ABOUT</a></li>
                         <li><a href="./transcribe.html">TRANSCRIBE</a></li>
-                        <li> <input type="button" value="Log Out" id="signout-bt"> </li>
+                        <li> <input type="button" value="LOG OUT" id="signout-bt"> </li>
                     </ul>
                 </div>
             </nav>
@@ -36,6 +36,7 @@
                 <div class="formlogin">
                     <span class="title">Transcription Inc.</span>
                     <form action="#login" class="Log-in-form" id="logInForm">
+
                         <!--Email-->
                         <div class="Email-container">
                             <i class="fa fa-envelope"></i>
@@ -50,6 +51,7 @@
                                 <input type="password" name="password" id="login-password" placeholder="Enter your password" required  autocomplete="current-password">
                             </div>
                         </div>
+
                         <!--Remember Me Checkbox--> 
                         <div class="checkbox-text">
                             <div class="checkbox-content">
@@ -58,15 +60,17 @@
                             </div>
                             <a href="#" class="text">Forgot Password?</a>
                         </div>
+
                         <!--Log-In Button-->
                         <div class="Log-in-button">
                             <input type="button" value="Log In" id="login-bt">
                         </div>
                     </form>
+
                     <!--Not a member? Signup Now-->
                     <div class="login-signup">
                         <span class="text">Don't have an account?
-                            <a href="#signup" class="text signup-link" id="showSignup">Sign up</a>
+                            <a href="./registration.html" class="text signup-link" id="showSignup">Sign up</a>
                         </span>
                     </div>
                 </div>
@@ -75,7 +79,7 @@
 
 <!-- Footer-->
         <footer>
-            <h4 class="footer-tittle">2022 Transcription Inc.</h4>
+            <h4 class="footer-title">2022 Transcription Inc.</h4>
             <div class="icons">
                 <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a> 
                 <a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
@@ -84,6 +88,7 @@
             </div>
             <p>Made by Anny Patino</p>
         </footer>  
+
         <script type="module">
         //  // ---------------------- Firebase --------------//
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.0/firebase-app.js";
@@ -157,4 +162,5 @@
             });
         </script>
     </body>
+    
 </html>
