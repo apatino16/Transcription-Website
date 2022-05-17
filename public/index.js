@@ -40,84 +40,81 @@ function viewPassword2() {
 // Make the signup and login form appear//
 document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementsByClassName("container");
-    const container2 = document.getElementsByClassName("container2 hide");
-    document.getElementById('showSignup').addEventListener("click", () => {
-        // e.preventDefault();
+    const container2 = document.getElementsByClassName("container2");
+    document.getElementById('showSignup').addEventListener("click", e => {
+        e.preventDefault();
         container.classList.add("hide");
         container2.classList.remove("hide");
     });
-    document.getElementById('showLogin').addEventListener("click", () => {
-        // e.preventDefault();
+    document.getElementById('showLogin').addEventListener("click", e => {
+        e.preventDefault();
         container.classList.remove("hide");
         container2.classList.add("hide");
     });
 });
 //------------------Transcribe.html-------------//
-//wavesurfer.js
-/* This is a function that is called when the DOM is loaded. It creates a new instance of the
-WaveSurfer object and loads the audio file. */
-window.addEventListener('DOMContentLoaded', () => {
-    var wavesurfer = WaveSurfer.create({
-        container: '#waveform',
-        scrollParent: true,
-        backgroundColor: 'white',
-        cursorColor: '#333',
-        progressColor: 'lightblue',
-        waveColor: 'lightgrey',
-        barWidth: 3,
-        barRadius: 3,
-    });
-    /* Loading the audio file into the waveform. */
-    wavesurfer.load('audioSample/LJ001-0001.wav');
-    const playPause = document.getElementById('playPause');
-    const stop = document.getElementById('stop');
-    const mute = document.getElementById('mute');
-    const volumeSlider = document.getElementById('volume-Slider');
-    /* This is an event listener that listens for a click on the playPause button. When the button is
-    clicked, the playPause function is called. If the audio is playing, the playPause button is
-    given the class "playing". If the audio is not playing, the playPause button is given the class
-    "playing". In other words, I can click play to start listening to the audio, and symoultanously
-    the icon will change into the pause button allowing me to click pause at anytime. If pause is clicked,
-    the icon will chenge into the play button for when the user is ready to continue playing
-    the audio. This will hopefully help with an intuitive use of the audio controls.*/
-    playPause === null || playPause === void 0 ? void 0 : playPause.addEventListener('click', () => {
-        wavesurfer.playPause();
-        if (wavesurfer.isPlaying()) {
-            playPause.classList.add("playing");
-        }
-        else {
-            playPause.classList.remove("playing");
-        }
-    });
-    stop === null || stop === void 0 ? void 0 : stop.addEventListener('click', () => {
-        wavesurfer.stop();
-        playPause === null || playPause === void 0 ? void 0 : playPause.classList.remove("playing");
-    });
-    volumeSlider === null || volumeSlider === void 0 ? void 0 : volumeSlider.addEventListener("mouseup", () => {
-        changeVolume(volumeSlider.value);
-    });
-    const changeVolume = (volume) => {
-        if (volume == 0) {
-            mute === null || mute === void 0 ? void 0 : mute.classList.add("muted");
-        }
-        else {
-            mute === null || mute === void 0 ? void 0 : mute.classList.remove("muted");
-        }
-        wavesurfer.setVolume(volume);
-    };
-    mute === null || mute === void 0 ? void 0 : mute.addEventListener('click', () => {
-        if (mute.classList.contains("muted")) {
-            mute.classList.remove("muted");
-            wavesurfer.setVolume(0.5);
-            volumeSlider.value = 0.5;
-        }
-        else {
-            wavesurfer.setVolume(0);
-            mute.classList.add("muted");
-            volumeSlider.value = 0;
-        }
-    });
-});
+// //wavesurfer.js
+// /* This is a function that is called when the DOM is loaded. It creates a new instance of the
+// WaveSurfer object and loads the audio file. */
+// window.addEventListener('DOMContentLoaded', ()=> {
+//     var wavesurfer = WaveSurfer.create({
+//         container: '#waveform',
+//         scrollParent: true,  
+//         backgroundColor: 'white',
+//         cursorColor: '#333',     
+//         progressColor: 'lightblue',
+//         waveColor: 'lightgrey',
+//         barWidth: 3,
+//         barRadius: 3,
+//     });
+//     /* Loading the audio file into the waveform. */
+//     wavesurfer.load('audioSample/LJ001-0001.wav');
+//     const playPause = document.getElementById('playPause');
+//     const stop = document.getElementById('stop');
+//     const mute = document.getElementById('mute');
+//     const volumeSlider = document.getElementById('volume-Slider');
+//     /* This is an event listener that listens for a click on the playPause button. When the button is
+//     clicked, the playPause function is called. If the audio is playing, the playPause button is
+//     given the class "playing". If the audio is not playing, the playPause button is given the class
+//     "playing". In other words, I can click play to start listening to the audio, and symoultanously 
+//     the icon will change into the pause button allowing me to click pause at anytime. If pause is clicked, 
+//     the icon will chenge into the play button for when the user is ready to continue playing
+//     the audio. This will hopefully help with an intuitive use of the audio controls.*/
+//     playPause?.addEventListener('click', () => {
+//         wavesurfer.playPause();
+//         if (wavesurfer.isPlaying()){
+//             playPause.classList.add("playing");
+//         } else{
+//             playPause.classList.remove("playing");
+//         }
+//         });
+//     stop?.addEventListener('click', () => {
+//         wavesurfer.stop();
+//         playPause?.classList.remove("playing");
+//     });
+//     volumeSlider?.addEventListener("mouseup", () => {
+//         changeVolume(volumeSlider.value);
+//     });
+//     const changeVolume = (volume: any) => {
+//         if (volume == 0){
+//             mute?.classList.add("muted");
+//         }else{
+//             mute?.classList.remove("muted");
+//         }
+//         wavesurfer.setVolume(volume);
+//     };
+//     mute?.addEventListener('click', () => {
+//        if (mute.classList.contains("muted")){
+//            mute.classList.remove("muted");
+//            wavesurfer.setVolume(0.5);
+//            volumeSlider.value = 0.5;
+//        } else{
+//            wavesurfer.setVolume(0);
+//            mute.classList.add("muted");
+//            volumeSlider.value = 0;
+//        }
+//     })
+//     });
 // Flag for Review
 /*
   The function checks to see if the YesFlag or NoFlag radio buttons are checked, and if so, it alerts
