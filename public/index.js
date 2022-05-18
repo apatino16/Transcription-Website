@@ -1,10 +1,9 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 //---------------------- Firebase --------------//
-const firebase_app_js_1 = require("https://www.gstatic.com/firebasejs/9.8.0/firebase-app.js");
-const firebase_analytics_js_1 = require("https://www.gstatic.com/firebasejs/9.8.0/firebase-analytics.js");
+const app_1 = require("firebase/app");
+const analytics_1 = require("firebase/analytics");
 // Create a password based account and Sign in a user with an email address and password
-const firebase_auth_js_1 = require("https://www.gstatic.com/firebasejs/9.8.0/firebase-auth.js");
+const auth_1 = require("firebase/auth");
 // Your web app's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyD4ziKkzq2Bv2VjLeg7LvBNC1eZUB0yQh0",
@@ -17,14 +16,14 @@ const firebaseConfig = {
     measurementId: "G-07Q0DWGX8G"
 };
 //  Initialize Firebase
-const app = firebase_app_js_1.initializeApp(firebaseConfig);
-const analytics = firebase_analytics_js_1.getAnalytics(app);
-const auth = firebase_auth_js_1.getAuth(app);
+const app = app_1.initializeApp(firebaseConfig);
+const analytics = analytics_1.getAnalytics(app);
+const auth = auth_1.getAuth(app);
 // Create a Password based account         
 document.getElementById("signup").addEventListener("click", () => {
     const signupEmail = document.getElementById('signup-email').value;
     const signupPassword = document.getElementById('signup-password').value;
-    firebase_auth_js_1.createUserWithEmailAndPassword(auth, signupEmail, signupPassword)
+    auth_1.createUserWithEmailAndPassword(auth, signupEmail, signupPassword)
         .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
@@ -43,7 +42,7 @@ document.getElementById("signup").addEventListener("click", () => {
 document.getElementById("login-bt").addEventListener("click", () => {
     const signinEmail = document.getElementById('loginEmail').value;
     const signinPassword = document.getElementById('login-password').value;
-    firebase_auth_js_1.signInWithEmailAndPassword(auth, signinEmail, signinPassword)
+    auth_1.signInWithEmailAndPassword(auth, signinEmail, signinPassword)
         .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
@@ -57,7 +56,7 @@ document.getElementById("login-bt").addEventListener("click", () => {
 });
 // Sign Out User
 document.getElementById('signout-bt').addEventListener("click", () => {
-    firebase_auth_js_1.signOut(auth).then(() => {
+    auth_1.signOut(auth).then(() => {
         // Sign-out successful.
         console.log("Sign-out successful.");
     }).catch((error) => {
@@ -119,3 +118,4 @@ function SubmitTranscription() {
     else
         alert("Nothing was selected");
 }
+module.exports = 0;
