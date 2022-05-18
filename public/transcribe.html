@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="index.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://unpkg.com/wavesurfer.js"></script>
-        <script type="module" src="index.js"></script>
+        <script type="application/javascript" defer async src="app.js"></script>
     </head>
 
     <body>
@@ -72,9 +72,9 @@
                     <q class="Prompt-quote">
                         Welcome to Transcription.Inc!<br>
                         <br>
-                        In the Transcribe page you can play any of the sample audios 
-                        and transcribe it's content in the Transcription box. Please feel free 
-                        to annotate the file with any of the tags you see fit whether there was any technical or vocal problems. 
+                        In the Transcribe page you can play any of the sample audios
+                        and transcribe it's content in the Transcription box. Please feel free
+                        to annotate the file with any of the tags you see fit whether there was any technical or vocal problems.
                         At the bottom you will find a text box field to take notes.
                         <br>
                         If there's a bug or the audio doesn't work please Flag it for review. <br>
@@ -158,7 +158,7 @@
                         </div>
                         <div>
                             <p>
-                                Background Noise 
+                                Background Noise
                             </p>
                             <label>Yes</label>
                             <input type="radio" name="BackgroundNoise" value="True">
@@ -167,7 +167,7 @@
                         </div>
                         <div>
                             <p>
-                               Invalid Audio File 
+                               Invalid Audio File
                             </p>
                             <label>Yes</label>
                             <input type="radio" name="Invalid" value="True">
@@ -223,13 +223,13 @@
 
             </pre>
         </main>
-         
+
 
 <!-- Footer-->
         <footer>
             <h4 class="footer-title">2022 Transcription Inc.</h4>
             <div class="icons">
-                <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a> 
+                <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
                 <a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
                 <a href="https://www.instagram.com/"><i class="fa fa-instagram" ></i></a>
                 <a href="https://www.linkedin.com/"><i class="fa fa-linkedin" ></i></a>
@@ -246,18 +246,18 @@
         window.addEventListener('DOMContentLoaded', ()=> {
             var wavesurfer = WaveSurfer.create({
                 container: '#waveform',
-                scrollParent: true,  
+                scrollParent: true,
                 backgroundColor: 'white',
-                cursorColor: '#333',     
+                cursorColor: '#333',
                 progressColor: 'lightblue',
                 waveColor: 'lightgrey',
                 barWidth: 3,
                 barRadius: 3,
             });
-            
+
             /* Loading the audio file into the waveform. */
             wavesurfer.load('audioSample/LJ001-0001.wav');
-                
+
             const playPause = document.getElementById('playPause');
             const stop = document.getElementById('stop');
             const mute = document.getElementById('mute');
@@ -266,8 +266,8 @@
             /* This is an event listener that listens for a click on the playPause button. When the button is
             clicked, the playPause function is called. If the audio is playing, the playPause button is
             given the class "playing". If the audio is not playing, the playPause button is given the class
-            "playing". In other words, I can click play to start listening to the audio, and symoultanously 
-            the icon will change into the pause button allowing me to click pause at anytime. If pause is clicked, 
+            "playing". In other words, I can click play to start listening to the audio, and symoultanously
+            the icon will change into the pause button allowing me to click pause at anytime. If pause is clicked,
             the icon will chenge into the play button for when the user is ready to continue playing
             the audio. This will hopefully help with an intuitive use of the audio controls.*/
 
