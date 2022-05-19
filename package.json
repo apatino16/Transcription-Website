@@ -1,7 +1,7 @@
 {
   "scripts": {
     "webpack:develop": "webpack --watch --mode development",
-    "webpack:build": "webpack --build --mode production --env production"
+    "webpack:build": "webpack --mode production --env production"
   },
   "dependencies": {
     "firebase": "^9.8.0"
