@@ -4,7 +4,8 @@
     "webpack:build": "webpack --progress --mode production"
   },
   "dependencies": {
-    "firebase": "^9.8.0"
+    "firebase": "^9.8.0",
+    "requirejs": "^2.3.6"
   },
   "devDependencies": {
     "ts-loader": "^9.3.0",

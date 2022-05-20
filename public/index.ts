@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+// Had this error: Object.defineProperty(exports, "__esModule", { value: true }); Solved by Append the 'export =' statement if provided
+// addExportEqualsIfNeeded(statements, /*emitAsReturn*/ true);
+export = 0;
+>>>>>>> 43fce81 (commiting changes to do a pull request)
 //---------------------- Firebase --------------//
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
