@@ -24,8 +24,8 @@ window.addEventListener('DOMContentLoaded', ()=> {
 
         // Create a Password based account
         document?.getElementById("signup")?.addEventListener("click", () => {
-            const signupEmail = document.getElementById('signup-email').value;
-            const signupPassword = document.getElementById('signup-password').value;
+            const signupEmail = document.getElementById('signup-email')?.value;
+            const signupPassword = document.getElementById('signup-password')?.value;
 
             createUserWithEmailAndPassword(auth, signupEmail, signupPassword)
                 .then((userCredential) => {
@@ -44,9 +44,9 @@ window.addEventListener('DOMContentLoaded', ()=> {
         });
 
         // Sign in a user with an email address and password
-        document.getElementById("login-bt").addEventListener("click", () => {
-            const signinEmail = document.getElementById('loginEmail').value;
-            const signinPassword = document.getElementById('login-password').value;
+        document.getElementById("login-bt")?.addEventListener("click", () => {
+            const signinEmail = document.getElementById('loginEmail')?.value;
+            const signinPassword = document.getElementById('login-password')?.value;
             signInWithEmailAndPassword(auth, signinEmail, signinPassword)
              .then((userCredential) => {
                  // Signed in
@@ -62,7 +62,7 @@ window.addEventListener('DOMContentLoaded', ()=> {
         );
 
         // Sign Out User
-        document.getElementById('signout-bt').addEventListener("click", () => {
+        document.getElementById('signout-bt')?.addEventListener("click", () => {
             signOut(auth).then(() => {
             // Sign-out successful.
             console.log("Sign-out successful.")
@@ -87,11 +87,11 @@ window.addEventListener('DOMContentLoaded', ()=> {
 
         if (passwordInput?.type === 'password'){
             passwordInput.type = 'text';
-            passStatus.className = 'fa fa-eye SIshowHidePw';
+            passStatus!.className = 'fa fa-eye SIshowHidePw';
         }
         else{
-            passwordInput.type = 'password';
-            passStatus.className = 'fa fa-eye-slash SIshowHidePw';
+            passwordInput!.type = 'password';
+            passStatus!.className = 'fa fa-eye-slash SIshowHidePw';
         };
     };
 
@@ -108,11 +108,11 @@ window.addEventListener('DOMContentLoaded', ()=> {
 
         if (signupPasswordInput?.type === 'password'){
             signupPasswordInput.type = 'text';
-            signupPassStatus.className = 'fa fa-eye SUshowHidePw';
+            signupPassStatus!.className = 'fa fa-eye SUshowHidePw';
         }
         else{
-            signupPasswordInput.type = 'password';
-            signupPassStatus.className = 'fa fa-eye-slash SUshowHidePw';
+            signupPasswordInput!.type = 'password';
+            signupPassStatus!.className = 'fa fa-eye-slash SUshowHidePw';
         }
     };
 
