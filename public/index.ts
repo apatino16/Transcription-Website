@@ -24,10 +24,10 @@ window.addEventListener('DOMContentLoaded', ()=> {
 
         // Create a Password based account
         document?.getElementById("signup")?.addEventListener("click", () => {
-            const signupEmail = document.getElementById('signup-email')?.value;
-            const signupPassword = document.getElementById('signup-password')?.value;
+            const signupEmail = document.getElementById('signup-email') as HTMLInputElement | null;
+            const signupPassword = document.getElementById('signup-password')as HTMLInputElement | null;
 
-            createUserWithEmailAndPassword(auth, signupEmail, signupPassword)
+            createUserWithEmailAndPassword(auth, signupEmail!.value, signupPassword!.value)
                 .then((userCredential) => {
                     // Signed in
                     const user = userCredential.user;
@@ -45,9 +45,9 @@ window.addEventListener('DOMContentLoaded', ()=> {
 
         // Sign in a user with an email address and password
         document.getElementById("login-bt")?.addEventListener("click", () => {
-            const signinEmail = document.getElementById('loginEmail')?.value;
-            const signinPassword = document.getElementById('login-password')?.value;
-            signInWithEmailAndPassword(auth, signinEmail, signinPassword)
+            const signinEmail = document.getElementById('loginEmail') as HTMLInputElement | null;
+            const signinPassword = document.getElementById('login-password') as HTMLInputElement | null;
+            signInWithEmailAndPassword(auth, signinEmail!.value, signinPassword!.value)
              .then((userCredential) => {
                  // Signed in
                     const user = userCredential.user;
@@ -82,8 +82,8 @@ window.addEventListener('DOMContentLoaded', ()=> {
     */
 
     function viewPassword(){
-        const passwordInput = document.getElementById('login-password');
-        const passStatus = document.getElementById('login-pass-status');
+        const passwordInput = document.getElementById('login-password') as HTMLInputElement | null;
+        const passStatus = document.getElementById('login-pass-status') as HTMLInputElement | null;
 
         if (passwordInput?.type === 'password'){
             passwordInput.type = 'text';
@@ -103,8 +103,8 @@ window.addEventListener('DOMContentLoaded', ()=> {
     */
 
     function viewPassword2(){
-        const signupPasswordInput = document.getElementById('signup-password');
-        const signupPassStatus = document.getElementById('signup-pass-status');
+        const signupPasswordInput = document.getElementById('signup-password') as HTMLInputElement | null;
+        const signupPassStatus = document.getElementById('signup-pass-status') as HTMLInputElement | null;
 
         if (signupPasswordInput?.type === 'password'){
             signupPasswordInput.type = 'text';
@@ -125,8 +125,8 @@ window.addEventListener('DOMContentLoaded', ()=> {
       the user with the value of the radio button that was checked
      */
     function SubmitTranscription(){
-        const YesFlag = document.getElementById("YesFlag");
-        const NoFlag = document.getElementById("NoFlag");
+        const YesFlag = document.getElementById("YesFlag") as HTMLInputElement | null;
+        const NoFlag = document.getElementById("NoFlag") as HTMLInputElement | null;
 
         if(YesFlag?.checked==true)
             alert("Flag for Review: "+YesFlag.value);

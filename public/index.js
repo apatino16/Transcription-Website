@@ -23,10 +23,9 @@ window.addEventListener('DOMContentLoaded', () => {
     const auth = auth_1.getAuth(app);
     // Create a Password based account
     (_a = document === null || document === void 0 ? void 0 : document.getElementById("signup")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
-        var _a, _b;
-        const signupEmail = (_a = document.getElementById('signup-email')) === null || _a === void 0 ? void 0 : _a.value;
-        const signupPassword = (_b = document.getElementById('signup-password')) === null || _b === void 0 ? void 0 : _b.value;
-        auth_1.createUserWithEmailAndPassword(auth, signupEmail, signupPassword)
+        const signupEmail = document.getElementById('signup-email');
+        const signupPassword = document.getElementById('signup-password');
+        auth_1.createUserWithEmailAndPassword(auth, signupEmail.value, signupPassword.value)
             .then((userCredential) => {
             // Signed in
             const user = userCredential.user;
@@ -43,10 +42,9 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     // Sign in a user with an email address and password
     (_b = document.getElementById("login-bt")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
-        var _a, _b;
-        const signinEmail = (_a = document.getElementById('loginEmail')) === null || _a === void 0 ? void 0 : _a.value;
-        const signinPassword = (_b = document.getElementById('login-password')) === null || _b === void 0 ? void 0 : _b.value;
-        auth_1.signInWithEmailAndPassword(auth, signinEmail, signinPassword)
+        const signinEmail = document.getElementById('loginEmail');
+        const signinPassword = document.getElementById('login-password');
+        auth_1.signInWithEmailAndPassword(auth, signinEmail.value, signinPassword.value)
             .then((userCredential) => {
             // Signed in
             const user = userCredential.user;
