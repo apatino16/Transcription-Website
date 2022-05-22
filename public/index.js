@@ -56,6 +56,20 @@ window.addEventListener('DOMContentLoaded', () => {
             const errorMessage = error.message;
         });
     });
+    //Auth State Persistance 
+    //QUESTION: Do I need to add an event listener?
+    const signinEmail = document.getElementById('loginEmail');
+    const signinPassword = document.getElementById('login-password');
+    auth_1.setPersistence(auth, auth_1.browserSessionPersistence)
+        .then(() => {
+        // New sign-in will be persisted with session persistence.
+        return auth_1.signInWithEmailAndPassword(auth, signinEmail.value, signinPassword.value);
+    })
+        .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+    });
     // Sign Out User
     (_c = document.getElementById('signout-bt')) === null || _c === void 0 ? void 0 : _c.addEventListener("click", () => {
         auth_1.signOut(auth).then(() => {
@@ -67,44 +81,6 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 });
 // ------------------Log-In.html------------------//
-//Show/Hide Password Mask on Log In
-/*
- If the password input type is password, change it to text and change the icon to an eye. If the
- password input type is text, change it to password and change the icon to an eye-slash
-*/
-function viewPassword() {
-    const passwordInput = document.getElementById('login-password');
-    const passStatus = document.getElementById('login-pass-status');
-    if ((passwordInput === null || passwordInput === void 0 ? void 0 : passwordInput.type) === 'password') {
-        passwordInput.type = 'text';
-        passStatus.className = 'fa fa-eye SIshowHidePw';
-    }
-    else {
-        passwordInput.type = 'password';
-        passStatus.className = 'fa fa-eye-slash SIshowHidePw';
-    }
-    ;
-}
-;
-// ------------------Registration.html------------------//
-//Show/Hide Password Mask on Registration
-/*
-  If the password input field is a password, change it to text and change the icon to an eye. If the
-  password input field is text, change it to password and change the icon to an eye slash
-*/
-function viewPassword2() {
-    const signupPasswordInput = document.getElementById('signup-password');
-    const signupPassStatus = document.getElementById('signup-pass-status');
-    if ((signupPasswordInput === null || signupPasswordInput === void 0 ? void 0 : signupPasswordInput.type) === 'password') {
-        signupPasswordInput.type = 'text';
-        signupPassStatus.className = 'fa fa-eye SUshowHidePw';
-    }
-    else {
-        signupPasswordInput.type = 'password';
-        signupPassStatus.className = 'fa fa-eye-slash SUshowHidePw';
-    }
-}
-;
 //------------------Transcribe.html-------------//
 // Flag for Review
 /*

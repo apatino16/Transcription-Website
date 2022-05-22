@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 // Create a password based account and Sign in a user with an email address and password
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, setPersistence, browserSessionPersistence} from "firebase/auth";
 const firebaseConfig = {
 apiKey: "AIzaSyD4ziKkzq2Bv2VjLeg7LvBNC1eZUB0yQh0",
 authDomain: "transcription-website-55f1b.firebaseapp.com",
@@ -60,6 +60,21 @@ window.addEventListener('DOMContentLoaded', ()=> {
                 });
             }
         );
+
+    //Auth State Persistance 
+    //QUESTION: Do I need to add an event listener?
+        const signinEmail = document.getElementById('loginEmail') as HTMLInputElement | null;
+        const signinPassword = document.getElementById('login-password') as HTMLInputElement | null;
+            setPersistence(auth, browserSessionPersistence)
+                .then(() => {
+        // New sign-in will be persisted with session persistence.
+                return signInWithEmailAndPassword(auth, signinEmail!.value, signinPassword!.value);
+                })
+                .catch((error) => {
+        // Handle Errors here.
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+            });
 
         // Sign Out User
         document.getElementById('signout-bt')?.addEventListener("click", () => {
