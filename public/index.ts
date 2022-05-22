@@ -14,7 +14,7 @@ appId: "1:357514451132:web:13a0af8d3f9569eb6d18b9",
 measurementId: "G-07Q0DWGX8G"
 };
 
-window.addEventListener('DOMContentLoaded', ()=> {
+window.addEventListener('DOMContentLoaded', ()=> { 
 
 
     //  Initialize Firebase
@@ -71,50 +71,11 @@ window.addEventListener('DOMContentLoaded', ()=> {
             });
         });
 
+    });
+
 
     // ------------------Log-In.html------------------//
 
-    //Show/Hide Password Mask on Log In
-
-    /*
-     If the password input type is password, change it to text and change the icon to an eye. If the
-     password input type is text, change it to password and change the icon to an eye-slash
-    */
-
-    function viewPassword(){
-        const passwordInput = document.getElementById('login-password') as HTMLInputElement | null;
-        const passStatus = document.getElementById('login-pass-status') as HTMLInputElement | null;
-
-        if (passwordInput?.type === 'password'){
-            passwordInput.type = 'text';
-            passStatus!.className = 'fa fa-eye SIshowHidePw';
-        }
-        else{
-            passwordInput!.type = 'password';
-            passStatus!.className = 'fa fa-eye-slash SIshowHidePw';
-        };
-    };
-
-    // ------------------Registration.html------------------//
-    //Show/Hide Password Mask on Registration
-    /*
-      If the password input field is a password, change it to text and change the icon to an eye. If the
-      password input field is text, change it to password and change the icon to an eye slash
-    */
-
-    function viewPassword2(){
-        const signupPasswordInput = document.getElementById('signup-password') as HTMLInputElement | null;
-        const signupPassStatus = document.getElementById('signup-pass-status') as HTMLInputElement | null;
-
-        if (signupPasswordInput?.type === 'password'){
-            signupPasswordInput.type = 'text';
-            signupPassStatus!.className = 'fa fa-eye SUshowHidePw';
-        }
-        else{
-            signupPasswordInput!.type = 'password';
-            signupPassStatus!.className = 'fa fa-eye-slash SUshowHidePw';
-        }
-    };
 
     //------------------Transcribe.html-------------//
 
@@ -134,5 +95,4 @@ window.addEventListener('DOMContentLoaded', ()=> {
             alert("Flag for Review: "+NoFlag.value );
         else
             alert("Nothing was selected");
-    }
-})
+    };

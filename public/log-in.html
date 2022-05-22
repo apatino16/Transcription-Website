@@ -52,6 +52,28 @@
                             </div>
                         </div>
 
+                        <script>
+                            //Show/Hide Password Mask on Log In
+                            /*
+                            If the password input type is password, change it to text and change the icon to an eye. If the
+                            password input type is text, change it to password and change the icon to an eye-slash
+                            */
+
+                            function viewPassword(){
+                                const passwordInput = document.getElementById('login-password');
+                                const passStatus = document.getElementById('login-pass-status');
+
+                                if (passwordInput.type === 'password'){
+                                    passwordInput.type = 'text';
+                                    passStatus.className = 'fa fa-eye SIshowHidePw';
+                                    }
+                                else{
+                                    passwordInput.type = 'password';
+                                    passStatus.className = 'fa fa-eye-slash SIshowHidePw';
+                                    };
+                                };
+                        </script>
+
                         <!--Remember Me Checkbox-->
                         <div class="checkbox-text">
                             <div class="checkbox-content">
