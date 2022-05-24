@@ -595,31 +595,6 @@ q{
     color: #209CEE;
 }
 
-/*Registration Password Icon  */
-.Password-container2 i{
-    position: absolute;
-    top: 30%;
-    transform: translateY(-50%);
-    color: #ccc;
-    font-size: 23px;
-}
-
-/*Places the lock icon on the left of the password input  */
-.Password-container2 i.icon{
-    left: 0;
-}
-
-/*Places the eye icon on the right of the password input  */
-.Password-container2 i.SUshowHidePw{
-    right: 0;
-    cursor: pointer;
-}
-
-/*When you hover over the eye icon it turns blue */
-.Password-container2 i.SUshowHidePw:hover{
-    color: #209CEE;
-}
-
 /*Remember me and forgot password are displayed side by side with space in between */
 .formlogin .checkbox-text{
     display: flex;
@@ -703,17 +678,6 @@ q{
     padding: 0;
 }
 
-/*Shows the registration form  */
-.container2.hide{
-    display: none;
-    height:100vh;
-    align-items: center;
-    justify-content: center;
-    background: lightgrey;
-    margin: 5rem; 
-    padding: 0;
-}
-
 /*Padding for the signup form  */
 .forms .formsignup{
     padding: 50px;
@@ -768,7 +732,7 @@ q{
     border-bottom: 2px solid #209CEE;
 }
 
-/*Password Icon  */
+/*Registration Password Icon  */
 .Password-container2 i{
     position: absolute;
     top: 30%;
@@ -783,13 +747,13 @@ q{
 }
 
 /*Places the eye icon on the right of the password input  */
-.Password-container2 i.showHidePw{
+.Password-container2 i.SUshowHidePw{
     right: 0;
     cursor: pointer;
 }
 
 /*When you hover over the eye icon it turns blue */
-.Password-container2 i.showHidePw:hover{
+.Password-container2 i.SUshowHidePw:hover{
     color: #209CEE;
 }
 
