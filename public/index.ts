@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 // Create a password based account and Sign in a user with an email address and password
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, setPersistence, browserSessionPersistence} from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, setPersistence, browserSessionPersistence, onAuthStateChanged} from "firebase/auth";
 const firebaseConfig = {
 apiKey: "AIzaSyD4ziKkzq2Bv2VjLeg7LvBNC1eZUB0yQh0",
 authDomain: "transcription-website-55f1b.firebaseapp.com",
@@ -15,7 +15,7 @@ measurementId: "G-07Q0DWGX8G"
 };
 
 window.addEventListener('DOMContentLoaded', ()=> { 
-
+    console.log("i'm going crazy")
 
     //  Initialize Firebase
         const app = initializeApp(firebaseConfig);
@@ -43,26 +43,10 @@ window.addEventListener('DOMContentLoaded', ()=> {
                     });
         });
 
-        // Sign in a user with an email address and password
-        document.getElementById("login-bt")?.addEventListener("click", () => {
-            const signinEmail = document.getElementById('loginEmail') as HTMLInputElement | null;
-            const signinPassword = document.getElementById('login-password') as HTMLInputElement | null;
-            signInWithEmailAndPassword(auth, signinEmail!.value, signinPassword!.value)
-             .then((userCredential) => {
-                 // Signed in
-                    const user = userCredential.user;
-                    console.log(user)
-                    // ...
-                })
-                .catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                });
-            }
-        );
-
+    // Sign in a user with an email address and password
     //Auth State Persistance 
-    //QUESTION: Do I need to add an event listener?
+    document.getElementById("login-bt")?.addEventListener("click", () => {
+        console.log("clickled on login button")
         const signinEmail = document.getElementById('loginEmail') as HTMLInputElement | null;
         const signinPassword = document.getElementById('login-password') as HTMLInputElement | null;
             setPersistence(auth, browserSessionPersistence)
@@ -74,7 +58,15 @@ window.addEventListener('DOMContentLoaded', ()=> {
         // Handle Errors here.
                     const errorCode = error.code;
                     const errorMessage = error.message;
+                    //index.ts:61 Uncaught error from Firebase.signInWithEmailAndPassword error code: auth/wrong-password and error message: Firebase: Error (auth/wrong-password).
+                    if (errorCode === "auth/wrong-password") {
+                        alert("Wrong Password")
+                    }else{
+                        console.error(`Uncaught error from Firebase.signInWithEmailAndPassword error code: ${errorCode} and error message: ${errorMessage}`)
+                    }
+                    //index.ts:65 Uncaught error from Firebase.signInWithEmailAndPassword error code: auth/too-many-requests and error message: Firebase: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. (auth/too-many-requests).
             });
+    });
 
         // Sign Out User
         document.getElementById('signout-bt')?.addEventListener("click", () => {
@@ -85,6 +77,22 @@ window.addEventListener('DOMContentLoaded', ()=> {
             // An error happened.
             });
         });
+
+        //Get Current User
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+              // User is signed in, see docs for a list of available properties
+              // https://firebase.google.com/docs/reference/js/firebase.User
+              const uid = user.uid;
+              // ...
+                console.dir(user)
+            } else {
+              // User is signed out
+              // ...
+              console.log("No user is logged in")
+            }
+          });
 
     });
 
