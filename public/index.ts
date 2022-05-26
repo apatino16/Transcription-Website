@@ -26,6 +26,7 @@ window.addEventListener('DOMContentLoaded', ()=> {
         // Get a reference to the database service
         const database = getDatabase(app);
 
+// ------------------registration.html------------------//
     // Create a Password based account
         document?.getElementById("signup")?.addEventListener("click", () => {
             const signupEmail = document.getElementById('signup-email') as HTMLInputElement | null;
@@ -54,9 +55,9 @@ window.addEventListener('DOMContentLoaded', ()=> {
                 //     email: signupEmail?.value,
                 //     password: signupPassword?.value
                 // });
-
         });
 
+ // ------------------log-in.html------------------//
     // Sign in a user with an email address and password
     //Auth State Persistance 
         document.getElementById("login-bt")?.addEventListener("click", () => {
@@ -107,30 +108,66 @@ window.addEventListener('DOMContentLoaded', ()=> {
             }
           });
 
-    
+//------------------Transcribe.html-------------//
+        //User transcribes and labels the audio file. User submits the transcriptions and expects the data to be saved in the database. 
+
+
+        // Flag for Review
+        /*
+        The function checks to see if the YesFlag or NoFlag radio buttons are checked, and if so, it alerts
+        the user with the value of the radio button that was checked
+        */
+        // function SubmitTranscription(){
+        //     const YesFlag = document.getElementById("YesFlag") as HTMLInputElement | null;
+        //     const NoFlag = document.getElementById("NoFlag") as HTMLInputElement | null;
+
+        //     if(YesFlag?.checked==true)
+        //         alert("Flag for Review: "+YesFlag.value);
+        //     else if (NoFlag?.checked==true)
+        //         alert("Flag for Review: "+NoFlag.value );
+        //     else
+        //         alert("Nothing was selected");
+        // };
+
+        //Submit Transcription
+        /* const NextInQueue = document.getElementById('NextInQueue') as HTMLInputElement | null;
+        const transcription = 
+        const flag = 
+        const containsSpeech = 
+        const backgroundSpeech =
+        const fillerSpeech =
+        const cutOff =
+        const backgroundNoise = 
+        const invalidAudio =
+        const unintelligibleWords =
+        const throatSounds =
+        const otherSpeakers =
+        const Notes = 
+
+        NextInQueue?.addEventListener('click', () => {
+            set({
+            audio = , //get name of the audio file
+            
+            transcription = .value
+
+            flagForReview = flag.value
+            
+            containsSpeech = .value
+            backgroundSpeech =
+            fillerSpeech =
+            
+            cutOff =
+            backgroundNoise = 
+            invalidAudio =
+
+            unintelligibleWords =
+            throatSounds =
+            otherSpeakers =
+
+            Notes = 
+            });
+
+        }); */
+
 
     });
-
-
-    // ------------------Log-In.html------------------//
-
-
-    //------------------Transcribe.html-------------//
-
-    // Flag for Review
-
-    /*
-      The function checks to see if the YesFlag or NoFlag radio buttons are checked, and if so, it alerts
-      the user with the value of the radio button that was checked
-     */
-    function SubmitTranscription(){
-        const YesFlag = document.getElementById("YesFlag") as HTMLInputElement | null;
-        const NoFlag = document.getElementById("NoFlag") as HTMLInputElement | null;
-
-        if(YesFlag?.checked==true)
-            alert("Flag for Review: "+YesFlag.value);
-        else if (NoFlag?.checked==true)
-            alert("Flag for Review: "+NoFlag.value );
-        else
-            alert("Nothing was selected");
-    };
