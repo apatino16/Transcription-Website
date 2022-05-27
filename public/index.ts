@@ -4,7 +4,7 @@ import { getAnalytics } from "firebase/analytics";
 // Authentication 
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, setPersistence, browserSessionPersistence, onAuthStateChanged} from "firebase/auth";
 // Realtime Database
-import { getDatabase, ref, set, child} from "firebase/database";
+import { getDatabase, ref, set} from "firebase/database";
 const firebaseConfig = {
 apiKey: "AIzaSyD4ziKkzq2Bv2VjLeg7LvBNC1eZUB0yQh0",
 authDomain: "transcription-website-55f1b.firebaseapp.com",
@@ -24,7 +24,9 @@ window.addEventListener('DOMContentLoaded', ()=> {
         const analytics = getAnalytics(app);
         const auth = getAuth(app);
         // Get a reference to the database service
-        const database = getDatabase(app);
+        const db = getDatabase(app);
+        const userId = auth.currentUser?.uid;
+        const reference = ref(db, 'users/' + userId);
 
 // ------------------registration.html------------------//
     // Create a Password based account
@@ -104,16 +106,18 @@ window.addEventListener('DOMContentLoaded', ()=> {
 
 // ----------------- Realtime Dabase ---------------//
         // User registers; saves id, name, and email on a user profile database 
-        // const signupEmail = document.getElementById('signup-email') as HTMLInputElement | null;
-        // const signupPassword = document.getElementById('signup-password')as HTMLInputElement | null; 
-        // const name = document.getElementById('name') as HTMLInputElement | null;;
+        document.getElementById("register-bt")?.addEventListener("click", () => {
+            const email = document.getElementById('signup-email') as HTMLInputElement | null;
+            const name = document.getElementById('name') as HTMLInputElement | null;;
 
-        // function writeUserData(userID, name, signupEmail) {
-        //     set(ref(database, 'users/' + userID), {
-        //         username: name.value,
-        //         email: signupEmail.value
-        //     })
-        // }
+            function writeUserData(userId: any, name: any , email:any) {
+                set(reference, {
+                    username: name.value,
+                    email: email.value
+                })
+            };
+            writeUserData(userId, name, email);
+        });
     
 
 
@@ -126,7 +130,7 @@ window.addEventListener('DOMContentLoaded', ()=> {
         The function checks to see if the YesFlag or NoFlag radio buttons are checked, and if so, it alerts
         the user with the value of the radio button that was checked
         */
-        // function SubmitTranscription(){
+        //function SubmitTranscription(){
         //     const YesFlag = document.getElementById("YesFlag") as HTMLInputElement | null;
         //     const NoFlag = document.getElementById("NoFlag") as HTMLInputElement | null;
 
