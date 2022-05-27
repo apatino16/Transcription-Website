@@ -46,15 +46,6 @@ window.addEventListener('DOMContentLoaded', ()=> {
                     console.log(errorMessage)
                     console.log(error.code)
                     });
-                // Realtime Dabase
-                // User registers; saves name, email, and password on a user profile database 
-                // const name = document.getElementById('name') as HTMLInputElement | null;;
-                // const userID = database.ref('users').push().key;
-                // database.ref('users').child(userID).set({
-                //     username: name?.value,
-                //     email: signupEmail?.value,
-                //     password: signupPassword?.value
-                // });
         });
 
  // ------------------log-in.html------------------//
@@ -76,10 +67,13 @@ window.addEventListener('DOMContentLoaded', ()=> {
                         //index.ts:61 Uncaught error from Firebase.signInWithEmailAndPassword error code: auth/wrong-password and error message: Firebase: Error (auth/wrong-password).
                         if (errorCode === "auth/wrong-password") {
                             alert("Wrong Password")
+                        }                                              
+                        //index.ts:65 Uncaught error from Firebase.signInWithEmailAndPassword error code: auth/too-many-requests and error message: Firebase: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. (auth/too-many-requests).
+                        else if (errorCode === "auth/too-many-requests") {
+                            alert("Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later")
                         }else{
                             console.error(`Uncaught error from Firebase.signInWithEmailAndPassword error code: ${errorCode} and error message: ${errorMessage}`)
                         }
-                        //index.ts:65 Uncaught error from Firebase.signInWithEmailAndPassword error code: auth/too-many-requests and error message: Firebase: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. (auth/too-many-requests).
                 });
         });
 
@@ -108,6 +102,21 @@ window.addEventListener('DOMContentLoaded', ()=> {
             }
           });
 
+// ----------------- Realtime Dabase ---------------//
+        // User registers; saves id, name, and email on a user profile database 
+        // const signupEmail = document.getElementById('signup-email') as HTMLInputElement | null;
+        // const signupPassword = document.getElementById('signup-password')as HTMLInputElement | null; 
+        // const name = document.getElementById('name') as HTMLInputElement | null;;
+
+        // function writeUserData(userID, name, signupEmail) {
+        //     set(ref(database, 'users/' + userID), {
+        //         username: name.value,
+        //         email: signupEmail.value
+        //     })
+        // }
+    
+
+
 //------------------Transcribe.html-------------//
         //User transcribes and labels the audio file. User submits the transcriptions and expects the data to be saved in the database. 
 
@@ -131,18 +140,18 @@ window.addEventListener('DOMContentLoaded', ()=> {
 
         //Submit Transcription
         /* const NextInQueue = document.getElementById('NextInQueue') as HTMLInputElement | null;
-        const transcription = 
-        const flag = 
-        const containsSpeech = 
-        const backgroundSpeech =
-        const fillerSpeech =
-        const cutOff =
-        const backgroundNoise = 
-        const invalidAudio =
-        const unintelligibleWords =
-        const throatSounds =
-        const otherSpeakers =
-        const Notes = 
+        const transcription = document.getElementByID('transcription') as HTMLInputElement | null;
+        const flag = document.getElementByID('') as HTMLInputElement | null;
+        const containsSpeech = document.getElementByID('') as HTMLInputElement | null;
+        const backgroundSpeech = document.getElementByID('') as HTMLInputElement | null;
+        const fillerSpeech = document.getElementByID('') as HTMLInputElement | null;
+        const cutOff = document.getElementByID('') as HTMLInputElement | null;
+        const backgroundNoise = document.getElementByID('') as HTMLInputElement | null;
+        const invalidAudio = document.getElementByID('') as HTMLInputElement | null;
+        const unintelligibleWords = document.getElementByID('') as HTMLInputElement | null;
+        const throatSounds = document.getElementByID('') as HTMLInputElement | null;
+        const otherSpeakers = document.getElementByID('') as HTMLInputElement | null;
+        const Notes = document.getElementByID('') as HTMLInputElement | null;
 
         NextInQueue?.addEventListener('click', () => {
             set({
