@@ -140,25 +140,29 @@ window.addEventListener('DOMContentLoaded', ()=> {
         
         submitCheck.addEventListener('click', () => {
             if (flag.checked == false) {
-                alert("You must check the box to submit your transcription")
+                alert("Please make sure to mark whether this transcription has to be flagged for review before submitting.")
             }else if (containsSpeech.checked == false) {
-                alert("You must check the box to submit your transcription")
+                alert("Please make sure to mark whether this transcription has to speech before submitting.")
+            }else if (backgroundSpeech.checked == false) {
+                alert ("Please make sure to mark wether this transcription has background speech before submitting.")
+            }else if(fillerSpeech.checked == false) {
+                alert ("Please make sure to mark whether this transcription has filler speech before submitting.")
+            }else if(cutOff.checked == false) {
+                alert ("Please make sure to mark whether this transcription has cut off speech before submitting.")
+            }else if(backgroundNoise.checked == false) {
+                alert ("Please make sure to mark whether this transcription has background noise before submitting.")
+            }else if(invalidAudio.checked == false) {
+                alert ("Please make sure to mark whether this transcription has invalid audio before submitting.")
+            }else if(unintelligibleWords.checked == false) {
+                alert ("Please make sure to mark whether this transcription has unintelligible words before submitting.")
+            }else if(throatSounds.checked == false) {
+                alert ("Please make sure to mark whether this transcription has throat sounds before submitting.")
+            }else if(otherSpeakers.checked == false) {
+                alert ("Please make sure to mark whether this transcription has other speakers before submitting.")
+            }else{
+                alert("Your transcription has been submitted")
             }
-
-
-         } );
-        function SubmitTranscription   
-
-        //     const YesFlag = document.getElementById("YesFlag") as HTMLInputElement | null;
-        //     const NoFlag = document.getElementById("NoFlag") as HTMLInputElement | null;
-
-        //     if(YesFlag?.checked==true)
-        //         alert("Flag for Review: "+YesFlag.value);
-        //     else if (NoFlag?.checked==true)
-        //         alert("Flag for Review: "+NoFlag.value );
-        //     else
-        //         alert("Nothing was selected");
-        // };
+        });
 
         //Submit Transcription
         //User transcribes and labels the audio file. User submits the transcriptions and expects the data to be saved in the database. 
