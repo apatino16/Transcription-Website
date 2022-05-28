@@ -105,7 +105,9 @@ window.addEventListener('DOMContentLoaded', ()=> {
           });
 
 // ----------------- Realtime Dabase ---------------//
-        // User registers; saves id, name, and email on a user profile database 
+        // Story: User registers; saves id, name, and email on a user profile database 
+        /* This is the code that is supposed to save the user's name and email to the database. */
+        //Doesnt work yet
         document.getElementById("register-bt")?.addEventListener("click", () => {
             const email = document.getElementById('signup-email') as HTMLInputElement | null;
             const name = document.getElementById('name') as HTMLInputElement | null;;
@@ -119,18 +121,34 @@ window.addEventListener('DOMContentLoaded', ()=> {
             writeUserData(userId, name, email);
         });
     
-
-
 //------------------Transcribe.html-------------//
-        //User transcribes and labels the audio file. User submits the transcriptions and expects the data to be saved in the database. 
+        //Story: User wants to be notified if they miss labeling a transcription upon clickling submit and wants to be alerted so they can cancel
+        //the submission and go back and label it properly before submitting it again.
+        const submitCheck: any = document.getElementById('NextInQueue') as HTMLInputElement | null;
+        const transcription: any = document.getElementById('transcription') as HTMLInputElement | null;
+        const flag:any = document.querySelector('input[name="Flag"]:checked') as HTMLInputElement | null;
+        const containsSpeech: any = document.querySelector('input[name="ContainsSpeech"]:checked') as HTMLInputElement | null;
+        const backgroundSpeech: any = document.querySelector('input[name="BackgroundSpeech"]:checked') as HTMLInputElement | null;
+        const fillerSpeech: any = document.querySelector('input[name="FillerSpeech"]:checked') as HTMLInputElement | null;
+        const cutOff: any = document.querySelector('input[name="CutOff"]:checked') as HTMLInputElement | null;
+        const backgroundNoise: any = document.querySelector('input[name="BackgroundNoise"]:checked') as HTMLInputElement | null;
+        const invalidAudio: any = document.querySelector('input[name="Invalid"]:checked') as HTMLInputElement | null;
+        const unintelligibleWords: any = document.querySelector('input[name="Unintelligible"]:checked') as HTMLInputElement | null;
+        const throatSounds: any = document.querySelector('input[name="ThroatSounds"]:checked') as HTMLInputElement | null;
+        const otherSpeakers: any = document.querySelector('input[name="OtherSpeakers"]:checked') as HTMLInputElement | null;
+        const Notes: any = document.getElementsByClassName('Notes-text-area') as HTMLCollectionOf<Element> | null;
+        
+        submitCheck.addEventListener('click', () => {
+            if (flag.checked == false) {
+                alert("You must check the box to submit your transcription")
+            }else if (containsSpeech.checked == false) {
+                alert("You must check the box to submit your transcription")
+            }
 
 
-        // Flag for Review
-        /*
-        The function checks to see if the YesFlag or NoFlag radio buttons are checked, and if so, it alerts
-        the user with the value of the radio button that was checked
-        */
-        //function SubmitTranscription(){
+         } );
+        function SubmitTranscription   
+
         //     const YesFlag = document.getElementById("YesFlag") as HTMLInputElement | null;
         //     const NoFlag = document.getElementById("NoFlag") as HTMLInputElement | null;
 
@@ -143,44 +161,26 @@ window.addEventListener('DOMContentLoaded', ()=> {
         // };
 
         //Submit Transcription
-        /* const NextInQueue = document.getElementById('NextInQueue') as HTMLInputElement | null;
-        const transcription = document.getElementByID('transcription') as HTMLInputElement | null;
-        const flag = document.getElementByID('') as HTMLInputElement | null;
-        const containsSpeech = document.getElementByID('') as HTMLInputElement | null;
-        const backgroundSpeech = document.getElementByID('') as HTMLInputElement | null;
-        const fillerSpeech = document.getElementByID('') as HTMLInputElement | null;
-        const cutOff = document.getElementByID('') as HTMLInputElement | null;
-        const backgroundNoise = document.getElementByID('') as HTMLInputElement | null;
-        const invalidAudio = document.getElementByID('') as HTMLInputElement | null;
-        const unintelligibleWords = document.getElementByID('') as HTMLInputElement | null;
-        const throatSounds = document.getElementByID('') as HTMLInputElement | null;
-        const otherSpeakers = document.getElementByID('') as HTMLInputElement | null;
-        const Notes = document.getElementByID('') as HTMLInputElement | null;
+        //User transcribes and labels the audio file. User submits the transcriptions and expects the data to be saved in the database. 
+        const NextInQueue: any = document.getElementById('NextInQueue') as HTMLInputElement | null;
 
-        NextInQueue?.addEventListener('click', () => {
-            set({
-            audio = , //get name of the audio file
-            
-            transcription = .value
+        NextInQueue.addEventListener('click', () => {
+                set(reference, {
+                //audio: , //get name of the audio file
+                transcription: transcription.value,
+                flagForReview: flag.value,
+                containsSpeech: containsSpeech.value,
+                backgroundSpeech: backgroundSpeech.value,
+                fillerSpeech: fillerSpeech.value,
+                cutOff: cutOff.value,
+                backgroundNoise: backgroundNoise.value,
+                invalidAudio: invalidAudio.value,
+                unintelligibleWords: unintelligibleWords.value,
+                throatSounds: throatSounds.value,
+                otherSpeakers: otherSpeakers.value,
+                Notes: Notes.value
+                });
 
-            flagForReview = flag.value
-            
-            containsSpeech = .value
-            backgroundSpeech =
-            fillerSpeech =
-            
-            cutOff =
-            backgroundNoise = 
-            invalidAudio =
-
-            unintelligibleWords =
-            throatSounds =
-            otherSpeakers =
-
-            Notes = 
-            });
-
-        }); */
-
+        });
 
     });
