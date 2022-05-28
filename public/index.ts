@@ -76,8 +76,29 @@ window.addEventListener('DOMContentLoaded', ()=> {
                         }else{
                             console.error(`Uncaught error from Firebase.signInWithEmailAndPassword error code: ${errorCode} and error message: ${errorMessage}`)
                         }
+                        window.location.href = "transcribe.html";
                 });
         });
+    // Story: After the user has signed in, the page should redirect to the transcribe page.
+        // onAuthStateChanged(auth, (user) => {
+        //     if (user) {
+                
+        //         window.location.href = "transcribe.html";
+        //     } else {
+        //         console.log("No user signed in")
+        //     }
+        // });
+            
+    //Function to redirect to the transcribe page
+    //     function redirectToTranscribe() {
+    //         window.location.href = "transcribe.html";
+    //     };
+    
+    // //login and redirect 
+    //     function loginAndRedirect() {
+    //         console.log("login and redirect")
+    //         setTimeout(redirectToTranscribe, 1000);
+    //     };
 
     // Sign Out User
         document.getElementById('signout-bt')?.addEventListener("click", () => {
