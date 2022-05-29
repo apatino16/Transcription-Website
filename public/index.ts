@@ -31,8 +31,9 @@ window.addEventListener('DOMContentLoaded', ()=> {
 // ------------------registration.html------------------//
     // Create a Password based account
         document?.getElementById("signup")?.addEventListener("click", () => {
-            const signupEmail = document.getElementById('signup-email') as HTMLInputElement | null;
+            const signupEmail: any = document.getElementById('signup-email') as HTMLInputElement | null;
             const signupPassword = document.getElementById('signup-password')as HTMLInputElement | null;
+            const name: any = document.getElementById('name') as HTMLInputElement | null;
 
             createUserWithEmailAndPassword(auth, signupEmail!.value, signupPassword!.value)
                 .then((userCredential) => {
@@ -40,6 +41,10 @@ window.addEventListener('DOMContentLoaded', ()=> {
                     const user = userCredential.user;
                     // ...
                     console.log(user)
+                    set(reference, {
+                        username: name.value,
+                        email: signupEmail.value
+                    })
                     })
                 .catch((error) => {
                     const errorCode = error.code;
@@ -76,14 +81,15 @@ window.addEventListener('DOMContentLoaded', ()=> {
                         }else{
                             console.error(`Uncaught error from Firebase.signInWithEmailAndPassword error code: ${errorCode} and error message: ${errorMessage}`)
                         }
-                        window.location.href = "transcribe.html";
                 });
         });
+
     // Story: After the user has signed in, the page should redirect to the transcribe page.
+    // Does not work how I expected; it keeps redirecting the user to the transcribe page and refreshing a lot. Makes sense, because this states that 
+    // while the user is logged in it should do that.
         // onAuthStateChanged(auth, (user) => {
         //     if (user) {
-                
-        //         window.location.href = "transcribe.html";
+        //         redirectToTranscribePage(user)
         //     } else {
         //         console.log("No user signed in")
         //     }
@@ -129,18 +135,19 @@ window.addEventListener('DOMContentLoaded', ()=> {
         // Story: User registers; saves id, name, and email on a user profile database 
         /* This is the code that is supposed to save the user's name and email to the database. */
         //Doesnt work yet
-        document.getElementById("register-bt")?.addEventListener("click", () => {
-            const email = document.getElementById('signup-email') as HTMLInputElement | null;
-            const name = document.getElementById('name') as HTMLInputElement | null;;
+        // 
+        // document.getElementById("register-bt")?.addEventListener("click", () => {
+        //     const email = document.getElementById('signup-email') as HTMLInputElement | null;
+        //     const name = document.getElementById('name') as HTMLInputElement | null;
 
-            function writeUserData(userId: any, name: any , email:any) {
-                set(reference, {
-                    username: name.value,
-                    email: email.value
-                })
-            };
-            writeUserData(userId, name, email);
-        });
+        //     function writeUserData(userId: any, name: any , email:any) {
+        //         set(reference, {
+        //             username: name.value,
+        //             email: email.value
+        //         })
+        //     };
+        //     writeUserData(userId, name, email);
+        // });
     
 //------------------Transcribe.html-------------//
         //Story: User wants to be notified if they miss labeling a transcription upon clickling submit and wants to be alerted so they can cancel
