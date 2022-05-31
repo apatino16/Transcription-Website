@@ -25,11 +25,11 @@ window.addEventListener('DOMContentLoaded', ()=> {
         const auth = getAuth(app);
         // Get a reference to the database service
         const db = getDatabase(app);
-        const userId = auth.currentUser?.uid;
-        const reference = ref(db, 'users/' + userId);
+        
 
 // ------------------registration.html------------------//
     // Create a Password based account
+    // Story: User registers; saves id, name, and email on a user profile database 
         document?.getElementById("signup")?.addEventListener("click", () => {
             const signupEmail: any = document.getElementById('signup-email') as HTMLInputElement | null;
             const signupPassword = document.getElementById('signup-password')as HTMLInputElement | null;
@@ -41,6 +41,9 @@ window.addEventListener('DOMContentLoaded', ()=> {
                     const user = userCredential.user;
                     // ...
                     console.log(user)
+                    /* Saves the user's name and email to the database. */
+                    const userId = auth.currentUser?.uid;
+                    const reference = ref(db, 'users/' + userId);
                     set(reference, {
                         username: name.value,
                         email: signupEmail.value
@@ -130,74 +133,53 @@ window.addEventListener('DOMContentLoaded', ()=> {
               console.log("No user is logged in")
             }
           });
-
-// ----------------- Realtime Dabase ---------------//
-        // Story: User registers; saves id, name, and email on a user profile database 
-        /* This is the code that is supposed to save the user's name and email to the database. */
-        //Doesnt work yet
-        // 
-        // document.getElementById("register-bt")?.addEventListener("click", () => {
-        //     const email = document.getElementById('signup-email') as HTMLInputElement | null;
-        //     const name = document.getElementById('name') as HTMLInputElement | null;
-
-        //     function writeUserData(userId: any, name: any , email:any) {
-        //         set(reference, {
-        //             username: name.value,
-        //             email: email.value
-        //         })
-        //     };
-        //     writeUserData(userId, name, email);
-        // });
-    
+            
 //------------------Transcribe.html-------------//
+        //Submit Transcription
         //Story: User wants to be notified if they miss labeling a transcription upon clickling submit and wants to be alerted so they can cancel
         //the submission and go back and label it properly before submitting it again.
+        //User transcribes and labels the audio file. User submits the transcriptions and expects the data to be saved in the database. 
         const submitCheck: any = document.getElementById('NextInQueue') as HTMLInputElement | null;
-        const transcription: any = document.getElementById('transcription') as HTMLInputElement | null;
-        const flag:any = document.querySelector('input[name="Flag"]:checked') as HTMLInputElement | null;
-        const containsSpeech: any = document.querySelector('input[name="ContainsSpeech"]:checked') as HTMLInputElement | null;
-        const backgroundSpeech: any = document.querySelector('input[name="BackgroundSpeech"]:checked') as HTMLInputElement | null;
-        const fillerSpeech: any = document.querySelector('input[name="FillerSpeech"]:checked') as HTMLInputElement | null;
-        const cutOff: any = document.querySelector('input[name="CutOff"]:checked') as HTMLInputElement | null;
-        const backgroundNoise: any = document.querySelector('input[name="BackgroundNoise"]:checked') as HTMLInputElement | null;
-        const invalidAudio: any = document.querySelector('input[name="Invalid"]:checked') as HTMLInputElement | null;
-        const unintelligibleWords: any = document.querySelector('input[name="Unintelligible"]:checked') as HTMLInputElement | null;
-        const throatSounds: any = document.querySelector('input[name="ThroatSounds"]:checked') as HTMLInputElement | null;
-        const otherSpeakers: any = document.querySelector('input[name="OtherSpeakers"]:checked') as HTMLInputElement | null;
-        const Notes: any = document.getElementsByClassName('Notes-text-area') as HTMLCollectionOf<Element> | null;
         
         submitCheck.addEventListener('click', () => {
-            if (flag.checked == false) {
-                alert("Please make sure to mark whether this transcription has to be flagged for review before submitting.")
-            }else if (containsSpeech.checked == false) {
-                alert("Please make sure to mark whether this transcription has to speech before submitting.")
-            }else if (backgroundSpeech.checked == false) {
-                alert ("Please make sure to mark wether this transcription has background speech before submitting.")
-            }else if(fillerSpeech.checked == false) {
-                alert ("Please make sure to mark whether this transcription has filler speech before submitting.")
-            }else if(cutOff.checked == false) {
-                alert ("Please make sure to mark whether this transcription has cut off speech before submitting.")
-            }else if(backgroundNoise.checked == false) {
-                alert ("Please make sure to mark whether this transcription has background noise before submitting.")
-            }else if(invalidAudio.checked == false) {
-                alert ("Please make sure to mark whether this transcription has invalid audio before submitting.")
-            }else if(unintelligibleWords.checked == false) {
-                alert ("Please make sure to mark whether this transcription has unintelligible words before submitting.")
-            }else if(throatSounds.checked == false) {
-                alert ("Please make sure to mark whether this transcription has throat sounds before submitting.")
-            }else if(otherSpeakers.checked == false) {
-                alert ("Please make sure to mark whether this transcription has other speakers before submitting.")
-            }else{
-                alert("Your transcription has been submitted")
-            }
-        });
+            const transcription: any = document.getElementById('transcription') as HTMLInputElement | null;
+            const flag:any = document.querySelector('input[name="Flag"]:checked') as HTMLInputElement;
+            const containsSpeech: any = document.querySelector('input[name="ContainsSpeech"]:checked') as HTMLInputElement;
+            const backgroundSpeech: any = document.querySelector('input[name="BackgroundSpeech"]:checked') as HTMLInputElement;
+            const fillerSpeech: any = document.querySelector('input[name="FillerSpeech"]:checked') as HTMLInputElement;
+            const cutOff: any = document.querySelector('input[name="CutOff"]:checked') as HTMLInputElement;
+            const backgroundNoise: any = document.querySelector('input[name="BackgroundNoise"]:checked') as HTMLInputElement;
+            const invalidAudio: any = document.querySelector('input[name="Invalid"]:checked') as HTMLInputElement;
+            const unintelligibleWords: any = document.querySelector('input[name="Unintelligible"]:checked') as HTMLInputElement;
+            const throatSounds: any = document.querySelector('input[name="ThroatSounds"]:checked') as HTMLInputElement;
+            const otherSpeakers: any = document.querySelector('input[name="OtherSpeakers"]:checked') as HTMLInputElement;
+            const Notes: any = document.getElementById('Notes-text-area') as HTMLInputElement | null;
 
-        //Submit Transcription
-        //User transcribes and labels the audio file. User submits the transcriptions and expects the data to be saved in the database. 
-        const NextInQueue: any = document.getElementById('NextInQueue') as HTMLInputElement | null;
-
-        NextInQueue.addEventListener('click', () => {
-                set(reference, {
+            // if (flag != null) {
+            //     alert("Please make sure to mark whether this transcription has to be flagged for review before submitting.")
+            // // }else if (containsSpeech.checked == false) {
+            // //     alert("Please make sure to mark whether this transcription has to speech before submitting.")
+            // }else if (backgroundSpeech.checked == false) {
+            //     alert ("Please make sure to mark wether this transcription has background speech before submitting.")
+            // }else if(fillerSpeech.checked == false) {
+            //     alert ("Please make sure to mark whether this transcription has filler speech before submitting.")
+            // }else if(cutOff.checked == false) {
+            //     alert ("Please make sure to mark whether this transcription has cut off speech before submitting.")
+            // }else if(backgroundNoise.checked == false) {
+            //     alert ("Please make sure to mark whether this transcription has background noise before submitting.")
+            // }else if(invalidAudio.checked == false) {
+            //     alert ("Please make sure to mark whether this transcription has invalid audio before submitting.")
+            // }else if(unintelligibleWords.checked == false) {
+            //     alert ("Please make sure to mark whether this transcription has unintelligible words before submitting.")
+            // }else if(throatSounds.checked == false) {
+            //     alert ("Please make sure to mark whether this transcription has throat sounds before submitting.")
+            // }else if(otherSpeakers.checked == false) {
+            //     alert ("Please make sure to mark whether this transcription has other speakers before submitting.")
+            // }else{
+            //     alert("Your transcription has been submitted")
+            // }
+            const reference = ref(db, 'transcriptions/' + 1);
+            set(reference, {
                 //audio: , //get name of the audio file
                 transcription: transcription.value,
                 flagForReview: flag.value,
@@ -212,7 +194,6 @@ window.addEventListener('DOMContentLoaded', ()=> {
                 otherSpeakers: otherSpeakers.value,
                 Notes: Notes.value
                 });
-
         });
 
-    });
+     });
