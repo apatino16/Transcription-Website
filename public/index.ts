@@ -178,7 +178,8 @@ window.addEventListener('DOMContentLoaded', ()=> {
             // }else{
             //     alert("Your transcription has been submitted")
             // }
-            const reference = ref(db, 'transcriptions/' + 1);
+            const reference = ref(db, 'transcriptions/' + 2);
+
             set(reference, {
                 //audio: , //get name of the audio file
                 transcription: transcription.value,
