@@ -4,7 +4,7 @@ import { getAnalytics } from "firebase/analytics";
 // Authentication 
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, setPersistence, browserSessionPersistence, onAuthStateChanged} from "firebase/auth";
 // Realtime Database
-import { getDatabase, ref, set} from "firebase/database";
+import { getDatabase, ref, set, onValue, child, get} from "firebase/database";
 const firebaseConfig = {
 apiKey: "AIzaSyD4ziKkzq2Bv2VjLeg7LvBNC1eZUB0yQh0",
 authDomain: "transcription-website-55f1b.firebaseapp.com",
@@ -197,4 +197,86 @@ window.addEventListener('DOMContentLoaded', ()=> {
                 });
         });
 
-     });
+//------------------LIST.html-------------//        
+// The user expects to have a list of all the transcribed audio files.
+// We need a function that retrieves all the data from the database and displays it on the page.
+        
+        //Filling the table with our data
+        let id: any = 0;
+        const table: any = document.getElementById('table') as HTMLTableElement | null;
+
+        function addItemToTable(transcription:any, flag: any, containsSpeech: any, backgroundSpeech: any, fillerSpeech: any, cutOff: any, backgroundNoise: any, invalidAudio: any, unintelligibleWords: any, throatSounds: any, otherSpeakers: any, Notes: any) {
+            let tRow = document.createElement('tr');
+            let td1 = document.createElement('td');
+            let td2 = document.createElement('td');
+            let td3 = document.createElement('td');
+            let td4 = document.createElement('td');
+            let td5 = document.createElement('td');
+            let td6 = document.createElement('td');
+            let td7 = document.createElement('td');
+            let td8 = document.createElement('td');
+            let td9 = document.createElement('td');
+            let td10 = document.createElement('td');
+            let td11 = document.createElement('td');
+            let td12 = document.createElement('td');
+            let td13 = document.createElement('td');
+
+            td1.innerHTML = ++id;
+            td2.innerHTML = transcription;
+            td3.innerHTML = flag;
+            td4.innerHTML = containsSpeech;
+            td5.innerHTML = backgroundSpeech;
+            td6.innerHTML = fillerSpeech;
+            td7.innerHTML = cutOff;
+            td8.innerHTML = backgroundNoise;
+            td9.innerHTML = invalidAudio;
+            td10.innerHTML = unintelligibleWords;
+            td11.innerHTML = throatSounds;
+            td12.innerHTML = otherSpeakers;
+            td13.innerHTML = Notes;
+
+            tRow.appendChild(td1);
+            tRow.appendChild(td2);
+            tRow.appendChild(td3);
+            tRow.appendChild(td4);
+            tRow.appendChild(td5);
+            tRow.appendChild(td6);
+            tRow.appendChild(td7);
+            tRow.appendChild(td8);
+            tRow.appendChild(td9);
+            tRow.appendChild(td10);
+            tRow.appendChild(td11);
+            tRow.appendChild(td12);
+            tRow.appendChild(td13);
+
+            table.appendChild(tRow);
+        }
+
+        //Adding all the data to the table
+
+        function addAllItemsToTable(transcriptionData: any) {
+            id = 0;   
+            table.innerHTML = '';
+            transcriptionData.forEach(Element => {
+                    addItemToTable(Element.transcription, Element.flagForReview, Element.containsSpeech, Element.backgroundSpeech, Element.fillerSpeech, Element.cutOff, Element.backgroundNoise, Element.invalidAudio, Element.unintelligibleWords, Element.throatSounds, Element.otherSpeakers, Element.Notes);
+                });
+            };
+
+        //Retrieving all the data from the database
+        
+        function getAllDataRealTime() {
+            const reference = ref(db, 'transcriptions/');
+            
+            onValue(reference, (snapshot) => {
+                const transcriptions: any = [];
+
+                snapshot.forEach((childSnapshot) => {
+                    transcriptions.push(childSnapshot.val());
+                });
+                
+                addAllItemsToTable(transcriptions);
+            });
+        };
+        window.onload = getAllDataRealTime;
+        
+});
