@@ -831,6 +831,11 @@ q{
     margin: 0.5rem;
 }
 
+.About-Us-Layout p{
+    font-size: 16px;
+    align-self: center;
+}
+
 .Title{
     display: flex;
     flex-direction: column;
@@ -844,7 +849,15 @@ q{
     box-align: center;
 }
 
-.History{
+.Title h1{
+    font-size: 40px;
+    font-weight: 600;
+    color: white;
+    align-self: center;
+    filter: drop-shadow(2px 1px 2px black);
+}
+
+.Mission {
     display: flex;
     flex-direction: column;
     -webkit-box-pack: center;
@@ -857,17 +870,61 @@ q{
     box-align: center;
 }
 
-.Values{
+.Mission h2{
+    font-size: 20px;
+    font-weight: 600;
+    align-self: center;
+}
+
+.Story{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     -webkit-box-pack: center;
-    justify-content: space-evenly;
+    justify-content: center;
     width: 100%;
     background: #b2cddf;
     border-radius: 1rem;
     margin: 1rem;
     padding: 1em;
     box-align: center;
+}
+
+.Story img{
+    width: 100%;
+}
+
+.Story h2{
+    font-size: 20px;
+    font-weight: 600;
+    align-self: center;
+}
+
+.Values{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background: #b2cddf;
+    border-radius: 1rem;
+    margin: 1rem;
+    padding: 1em;
+}
+
+.Values div h3{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.Values a img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    filter: drop-shadow(10px 2px 2px black);
+}
+
+.Values div{
+    width: 100%;
+    margin: 5px;
+    padding: 10px;
 }
 
 .Location{

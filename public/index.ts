@@ -202,7 +202,7 @@ window.addEventListener('DOMContentLoaded', ()=> {
 // We need a function that retrieves all the data from the database and displays it on the page.
         
         //Filling the table with our data
-        let id: any = 0;
+        //let id: any = 0;
         const table: any = document.getElementById('table') as HTMLTableElement | null;
 
         function addItemToTable(transcription:any, flag: any, containsSpeech: any, backgroundSpeech: any, fillerSpeech: any, cutOff: any, backgroundNoise: any, invalidAudio: any, unintelligibleWords: any, throatSounds: any, otherSpeakers: any, Notes: any) {
@@ -221,7 +221,7 @@ window.addEventListener('DOMContentLoaded', ()=> {
             let td12 = document.createElement('td');
             let td13 = document.createElement('td');
 
-            td1.innerHTML = ++id;
+            //td1.innerHTML = id++;
             td2.innerHTML = transcription;
             td3.innerHTML = flag;
             td4.innerHTML = containsSpeech;
@@ -255,10 +255,10 @@ window.addEventListener('DOMContentLoaded', ()=> {
         //Adding all the data to the table
 
         function addAllItemsToTable(transcriptionData: any) {
-            id = 0;   
+            //id = 0;   
             table.innerHTML = '';
-            transcriptionData.forEach(Element => {
-                    addItemToTable(Element.transcription, Element.flagForReview, Element.containsSpeech, Element.backgroundSpeech, Element.fillerSpeech, Element.cutOff, Element.backgroundNoise, Element.invalidAudio, Element.unintelligibleWords, Element.throatSounds, Element.otherSpeakers, Element.Notes);
+            transcriptionData.forEach(element => {
+                    addItemToTable(element.transcription, element.flagForReview, element.containsSpeech, element.backgroundSpeech, element.fillerSpeech, element.cutOff, element.backgroundNoise, element.invalidAudio, element.unintelligibleWords, element.throatSounds, element.otherSpeakers, element.Notes);
                 });
             };
 
@@ -277,6 +277,7 @@ window.addEventListener('DOMContentLoaded', ()=> {
                 addAllItemsToTable(transcriptions);
             });
         };
+        // should I add this inside a script tag on the list file?? I tried it but it gave me a reference error.
         window.onload = getAllDataRealTime;
-        
+
 });
