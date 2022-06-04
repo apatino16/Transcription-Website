@@ -178,10 +178,13 @@ window.addEventListener('DOMContentLoaded', ()=> {
             // }else{
             //     alert("Your transcription has been submitted")
             // }
-            const reference = ref(db, 'transcriptions/' + 2);
+
+            //Changed 1,2 to the userId so that I can track what user did what transcription
+            const userId = auth.currentUser?.uid;
+            const reference = ref(db, 'transcriptions/' + userId);
 
             set(reference, {
-                //audio: , //get name of the audio file
+                // audio: "./audioSample/LJ001-001.wav", //get name of the audio file
                 transcription: transcription.value,
                 flagForReview: flag.value,
                 containsSpeech: containsSpeech.value,
@@ -202,10 +205,10 @@ window.addEventListener('DOMContentLoaded', ()=> {
 // We need a function that retrieves all the data from the database and displays it on the page.
         
         //Filling the table with our data
-        //let id: any = 0;
-        const table: any = document.getElementById('table') as HTMLTableElement | null;
+        let id: any = 0;
+        const table: any = document.getElementById('table') as HTMLTableElement;
 
-        function addItemToTable(transcription:any, flag: any, containsSpeech: any, backgroundSpeech: any, fillerSpeech: any, cutOff: any, backgroundNoise: any, invalidAudio: any, unintelligibleWords: any, throatSounds: any, otherSpeakers: any, Notes: any) {
+        function addItemToTable(transcription:string, flag: string, containsSpeech: string, backgroundSpeech: string, fillerSpeech: string, cutOff: string, backgroundNoise: string, invalidAudio: string, unintelligibleWords: string, throatSounds: string, otherSpeakers: string, Notes: string) {
             let tRow = document.createElement('tr');
             let td1 = document.createElement('td');
             let td2 = document.createElement('td');
@@ -221,7 +224,7 @@ window.addEventListener('DOMContentLoaded', ()=> {
             let td12 = document.createElement('td');
             let td13 = document.createElement('td');
 
-            //td1.innerHTML = id++;
+            td1.innerHTML = id;
             td2.innerHTML = transcription;
             td3.innerHTML = flag;
             td4.innerHTML = containsSpeech;
@@ -255,9 +258,9 @@ window.addEventListener('DOMContentLoaded', ()=> {
         //Adding all the data to the table
 
         function addAllItemsToTable(transcriptionData: any) {
-            //id = 0;   
+            id = 0;   
             table.innerHTML = '';
-            transcriptionData.forEach(element => {
+            transcriptionData.forEach((element: any) => {
                     addItemToTable(element.transcription, element.flagForReview, element.containsSpeech, element.backgroundSpeech, element.fillerSpeech, element.cutOff, element.backgroundNoise, element.invalidAudio, element.unintelligibleWords, element.throatSounds, element.otherSpeakers, element.Notes);
                 });
             };

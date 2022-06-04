@@ -49,15 +49,15 @@
                                 <span id="totalTime">00:00</span>
                             </span>
                             <span id='playPause' class="button-group">
-                                <i class="fa fa-play-circle-o"></i>
-                                <i class="fa fa-pause-circle-o"></i>
+                                <i class="fa fa-play-circle-o fa-2x"></i>
+                                <i class="fa fa-pause-circle-o fa-2x"></i>
                             </span>
                             <span id='stop' class="button-group">
-                                <i class="fa fa-stop-circle-o"></i>
+                                <i class="fa fa-stop-circle-o fa-2x"></i>
                             </span>
                             <span id='mute' class="button-group">
-                                <i class="fa fa-volume-up"></i>
-                                <i class="fa fa-volume-off"></i>
+                                <i class="fa fa-volume-up fa-2x"></i>
+                                <i class="fa fa-volume-off fa-2x"></i>
                             </span>
                             <input type="range" min="0" max="1" step="0.1" value="0.5" class="volume-Slider" id="volume-Slider"/>
                         </span>
@@ -88,18 +88,6 @@
 <!--Form Panel-->
             <form action="#" class="Form-style">
 
-                <!--Submission Controls-->
-                <div class="Flag">
-                    <p>
-                        Flag For Review
-                    </p>
-                    <label>Yes</label>
-                    <input type="radio" name="Flag" id="YesFlag" value="True">
-                    <label>No</label>
-                    <input type="radio" name="Flag" id="NoFlag" value="False">
-                    <button id="NextInQueue" type="Submit">Next in Queue</button>
-                </div>
-
                 <!--Transcription Box-->
                 <div class="Transcription-box">
                     <p>
@@ -116,6 +104,7 @@
                         <p>
                             Task Completion
                         </p>
+                        <br> </br>
                         <div>
                             <p>
                                 Contains Speech
@@ -148,6 +137,7 @@
                         <p>
                             Technical Problems
                         </p>
+                        <br> </br>
                         <div>
                             <p>
                                 Cut Off
@@ -182,6 +172,7 @@
                         <p>
                             Vocal Problems
                         </p>
+                        <br> </br>
                         <div>
                             <p>
                                 Unintelligible Words
@@ -211,13 +202,31 @@
                         </div>
                     </div>
                 </div>
-
+                <!--Flag For Review-->
+                <div class="Flag">
+                    <div>
+                        <p>
+                            Flag For Review
+                        </p>  
+                    </div>
+                    <div>
+                        <label>Yes</label>
+                        <input type="radio" name="Flag" id="YesFlag" value="True">
+                        <label>No</label>
+                        <input type="radio" name="Flag" id="NoFlag" value="False">
+                    </div>
+                </div>  
                 <!--Notes --->
                 <div class="Notes">
                     <p>
                         Notes
                     </p>
                     <textarea class="Notes-text-area" id="Notes-text-area" title="Notes"></textarea>
+                </div>
+
+                <!--Submit Button-->
+                <div class="Submit">
+                    <button id="NextInQueue" type="Submit">Submit</button>
                 </div>
             </form>
         </main>

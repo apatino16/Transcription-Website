@@ -204,251 +204,6 @@ footer{
     padding: 1em;
 }
 
-/* ------------------ TRANSCRIBE -----------------------*/
-/* */
-.main{
-    display: block;
-    box-align: center;
-    position: relative;
-    left: 20%;
-    height: 150vh;
-    width: 70vw;
-}
-
-/* Audio player container*/
-.Layout-Container{
-    display: flex;
-    flex-flow: row wrap;
-    -webkit-box-pack: start;
-    justify-content: flex-start;
-    background: lightgrey;
-    box-align: center;
-    margin: 0.5rem;
-}
-
-/*Audio Player main background*/
-.waveform-player{
-    display: flex;
-    flex-direction: column;
-    -webkit-box-pack: center;
-    justify-content: center;
-    width: 100%;
-    background: #b2cddf;
-    border-radius: 1rem;
-    margin: 1rem;
-    padding: 1em;
-    box-align: center;
-}
-
-/* This is where the voice frequency shows*/
-#waveform{
-    position: relative;
-    box-align: center;
-    height: auto;
-}
-
-/* This is the area where the time and controls show */
-.waveform-controls{
-    display: flex;
-    -webkit-box-pack: justify;
-    justify-content: space-between;
-    height: 6em;
-    padding: 2em;
-    box-align: center;
-    color: black;
-    box-shadow: -1px 1px 4px 2px black;
-    border-radius: 200px;
-    margin-top: 15px;
-}
-
-/*Time and Controls */
-.waveform-controls .controls{
-    display: flex;
-    font-size: 20px;
-    font-weight: bold;
-    -webkit-box-align: center;
-    align-items: center;
-    padding-left: 1em;
-    width: 15em;
-    box-align: center;
-    width: 100%;
-}
-
-/*Current Time and Total Time */
-.waveform-controls .time-label{
-    display: flex;
-    flex-direction: column;
-    -webkit-box-pack: start;
-    justify-content: flex-start;
-    margin: 10px;
-    width: auto;
-}
-
-/*Time */
-.waveform-controls .time-value{
-    display: flex;
-    flex-direction: column;
-    -webkit-box-pack: start;
-    justify-content: flex-start;
-    padding: 0px 100px 2px 10px;
-}
-
-/*Play/Pause/Stop/ Voulem Up and off */
-.waveform-controls .button-group{
-    padding: 16px;
-    display: inline-block;
-    flex-direction: row;
-    -webkit-box-pack: justify;
-    justify-content: space-between;
-    -webkit-box-align: center;
-    align-items: center;
-    cursor: pointer;
-    width: 24px;
-}
-
-/*Pause Button*/
-.button-group .fa-pause-circle-o{
-    display: none;
-}
-
-/*Pause Button appears when audio is playing*/
-.button-group.playing .fa-pause-circle-o{
-    display: inline-block;
-}
-
-/*Play Button*/
-.button-group.playing .fa-play-circle-o{
-    display: none;
-}
-
-/*Hide the mute icon*/
-.button-group .fa-volume-off{
-    display: none;
-}
-
-/*Will now show that it's muted*/
-.button-group.muted .fa-volume-off{
-    display: inline-block;
-}
-
-/*Hide the volume icon*/
-.button-group.muted .fa-volume-up{
-    display: none;
-}
-
-
-/* Recording Prompt */
-.Prompt-Container{
-    display: flex;
-    flex-flow: row wrap;
-    -webkit-box-pack: start;
-    justify-content: flex-start;
-    background: lightgrey;
-    box-align: center;
-    margin: 0.5rem;
-}
-
-.Prompt-Label{
-    font-size: 25px;
-    font-weight: bold;
-    margin: 1em;
-}
-
-.Prompt-Textbox{
-    display: flex;
-    flex-direction: column;
-    -webkit-box-pack: center;
-    justify-content: center;
-    width: 100%;
-    background: #b2cddf;
-    border-radius: 1rem;
-    margin: 1rem;
-    padding: 1em;
-    box-align: center;
-}
-
-q{
-    display: inline;
-}
-
-/* Form Submission Controls */
-
-.Form-style{
-    display: flex;
-    flex-flow: row wrap;
-    -webkit-box-pack: start;
-    justify-content: flex-start;
-    background: lightgrey;
-    box-align: center;
-    margin: 0.5rem;
-}
-
-.Flag{
-    width: 100%;
-    display: flex;
-    flex-flow: row;
-    -wedkit-box-align: center;
-    align-items: center;
-    justify-content: space-evenly;
-    background: #b2cddf;
-    padding: 1em;
-    margin: 1rem;
-    border-radius: 0.5rem;
-}
-
-.Transcription-box{
-    width: 100%;
-    display: flex;
-    flex-flow: row;
-    -wedkit-box-align: center;
-    align-items: center;
-    justify-content: space-evenly;
-    background: #b2cddf;
-    padding: 1em;
-    margin: 1rem;
-    border-radius: 0.5rem;
-}
-
-/* Transcription Text area*/
-.Text-area{
-    width:100%;
-    padding: 1em;
-    height: 100px;;
-}
-
-.Tags{
-    width: 100%;
-    display: flex;
-    flex-flow: row;
-    -wedkit-box-align: center;
-    align-items: center;
-    justify-content: space-evenly;
-    background: #b2cddf;
-    padding: 1em;
-    margin: 1rem;
-    border-radius: 0.5rem;
-}
-
-.Notes{
-    width: 100%;
-    display: flex;
-    flex-flow: row;
-    -wedkit-box-align: center;
-    align-items: center;
-    justify-content: space-evenly;
-    background: #b2cddf;
-    padding: 1em;
-    margin: 1rem;
-    border-radius: 0.5rem;
-}
-
-/* Notes Text area*/
-.Notes-text-area{
-    width:100%;
-    padding: 1em;
-    height: 50px;;
-}
-
 /* ---------------------Log-In-------------------- --------------*/
 
 /* Grey Container Where the login form shows up */
@@ -939,6 +694,300 @@ q{
     padding: 1em;
     box-align: center;
 }
+/* ------------------ TRANSCRIBE -----------------------*/
+/* */
+.main{
+    display: block;
+    box-align: center;
+    position: relative;
+    left: 20%;
+    height: 150vh;
+    width: 70vw;
+}
+
+/* Audio player container*/
+.Layout-Container{
+    display: flex;
+    flex-flow: row wrap;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    background: lightgrey;
+    box-align: center;
+    margin: 0.5rem;
+}
+
+/*Audio Player main background*/
+.waveform-player{
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: 100%;
+    background: #b2cddf;
+    border-radius: 1rem;
+    margin: 1rem;
+    padding: 1em;
+    box-align: center;
+}
+
+/* This is where the voice frequency shows*/
+#waveform{
+    position: relative;
+    box-align: center;
+    height: auto;
+}
+
+/* This is the area where the time and controls show */
+.waveform-controls{
+    height: 6em;
+    padding: 2em;
+    color: black;
+    box-shadow: -1px 1px 4px 2px black;
+    border-radius: 200px;
+    margin-top: 15px;
+}
+
+/*Time and Controls */
+.waveform-controls .controls{
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 1em;
+    width: 15em;
+    width: 100%;
+}
+
+/*Current Time and Total Time */
+.waveform-controls .time-label{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    width: auto;
+    padding-left: 1em;
+}
+
+/*Time */
+.waveform-controls .time-value{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 100px 5px 10px;
+}
+
+/*Play/Pause/Stop/ Voulem Up and off */
+.waveform-controls .button-group{
+    padding: 16px;
+    display: inline-block;
+    cursor: pointer;
+    width: 24px;
+}
+
+/*Pause Button*/
+.button-group .fa-pause-circle-o{
+    display: none;
+}
+
+/*Pause Button appears when audio is playing*/
+.button-group.playing .fa-pause-circle-o{
+    display: inline-block;
+}
+
+/*Play Button*/
+.button-group.playing .fa-play-circle-o{
+    display: none;
+}
+
+/*Hide the mute icon*/
+.button-group .fa-volume-off{
+    display: none;
+}
+
+/*Will now show that it's muted*/
+.button-group.muted .fa-volume-off{
+    display: inline-block;
+}
+
+/*Hide the volume icon*/
+.button-group.muted .fa-volume-up{
+    display: none;
+}
+
+
+/* Recording Prompt */
+.Prompt-Container{
+    display: flex;
+    flex-flow: row wrap;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    background: lightgrey;
+    box-align: center;
+    margin: 0.5rem;
+}
+
+.Prompt-Label{
+    font-size: 25px;
+    font-weight: bold;
+    margin: 1em;
+}
+
+.Prompt-Textbox{
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: 100%;
+    background: #b2cddf;
+    border-radius: 1rem;
+    margin: 1rem;
+    padding: 1em;
+}
+
+q{
+    display: inline;
+}
+
+/* Form Submission Controls */
+
+.Form-style{
+    display: flex;
+    flex-flow: row wrap;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    background: lightgrey;
+    box-align: center;
+    margin: 0.5rem;
+}
+
+/* Checkboxes */
+input[type=radio] {
+    border: 2px solid #fff;
+    padding: .75em;
+    -webkit-appearance: none;
+  }
+
+  input[type=radio]:checked {
+    background: url(data:image/gif;base64,R0lGODlhAQABAPAAAP///////yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==) no-repeat center center;
+    background-size: 15px 15px;
+  }
+  
+  input[type=radio]:focus {
+    outline-color: transparent;
+  }
+
+.Transcription-box{
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    -wedkit-box-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+    background: #b2cddf;
+    padding: 1em;
+    margin: 1rem;
+    border-radius: 0.5rem;
+}
+
+.Transcription-box p{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 1em;
+}
+
+/* Transcription Text area*/
+.Text-area{
+    width:98%;
+    padding: 1em;
+    height: 100px;;
+}
+
+.Tags{
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    -wedkit-box-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+    background: #b2cddf;
+    padding: 1em;
+    margin: 1rem;
+    border-radius: 0.5rem;
+}
+
+.Flag{
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    -wedkit-box-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+    background: #b2cddf;
+    padding: 1em;
+    margin: 1rem;
+    border-radius: 0.5rem;
+}
+
+.Flag label{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 1em;
+}
+
+.Notes{
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    -wedkit-box-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+    background: #b2cddf;
+    padding: 1em;
+    margin: 1rem;
+    border-radius: 0.5rem;
+}
+
+.Notes p{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 1em;
+}
+
+/* Notes Text area*/
+.Notes-text-area{
+    width: 98%;
+    padding: 1em;
+    height: 50px;;
+}
+
+.Submit {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    -wedkit-box-align: center;padding: 1em;
+    margin: 1em;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 1rem;
+    border-radius: 0.5rem;
+}
+
+.Submit button{
+    width: 100%;
+    padding: 1em;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #b2cddf;
+    border-radius: 0.5rem;
+    border-color: white;
+    
+}
+
+.Submit button:hover{
+    color:white;
+    background-color: #209CEE;
+    cursor: pointer;
+}
+
+
 
 /*-----------------LIST ----------------------- */ 
 .listContainer {
