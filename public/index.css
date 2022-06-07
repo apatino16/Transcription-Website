@@ -817,17 +817,15 @@ footer{
 .Prompt-Container{
     display: flex;
     flex-flow: row wrap;
-    -webkit-box-pack: start;
-    justify-content: flex-start;
     background: lightgrey;
     box-align: center;
     margin: 0.5rem;
 }
 
-.Prompt-Label{
+.Prompt-Container h2{
     font-size: 25px;
     font-weight: bold;
-    margin: 1em;
+    align-self: center;
 }
 
 .Prompt-Textbox{
@@ -840,10 +838,6 @@ footer{
     border-radius: 1rem;
     margin: 1rem;
     padding: 1em;
-}
-
-q{
-    display: inline;
 }
 
 /* Form Submission Controls */
@@ -863,6 +857,7 @@ input[type=radio] {
     border: 2px solid #fff;
     padding: .75em;
     -webkit-appearance: none;
+    cursor: pointer;
   }
 
   input[type=radio]:checked {
@@ -903,14 +898,24 @@ input[type=radio] {
 .Tags{
     width: 100%;
     display: flex;
-    flex-flow: row;
-    -wedkit-box-align: center;
-    align-items: center;
+    flex-direction: row;
     justify-content: space-evenly;
     background: #b2cddf;
     padding: 1em;
     margin: 1rem;
     border-radius: 0.5rem;
+}
+
+.Tags h3{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 1em;
+}
+
+.Tags p{
+    font-size: 18px;
+    margin: 10px;
+    padding: 4px;
 }
 
 .Flag{
@@ -926,7 +931,7 @@ input[type=radio] {
     border-radius: 0.5rem;
 }
 
-.Flag label{
+.Flag h3{
     font-size: 20px;
     font-weight: bold;
     margin: 1em;
