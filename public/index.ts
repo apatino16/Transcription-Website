@@ -4,7 +4,7 @@ import { getAnalytics } from "firebase/analytics";
 // Authentication 
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, setPersistence, browserSessionPersistence, onAuthStateChanged} from "firebase/auth";
 // Realtime Database
-import { getDatabase, ref, set, onValue, child, get} from "firebase/database";
+import { getDatabase, ref, set, onValue, child, get, push} from "firebase/database";
 const firebaseConfig = {
 apiKey: "AIzaSyD4ziKkzq2Bv2VjLeg7LvBNC1eZUB0yQh0",
 authDomain: "transcription-website-55f1b.firebaseapp.com",
@@ -140,7 +140,9 @@ window.addEventListener('DOMContentLoaded', ()=> {
         //the submission and go back and label it properly before submitting it again.
         //User transcribes and labels the audio file. User submits the transcriptions and expects the data to be saved in the database. 
         const submitCheck: any = document.getElementById('NextInQueue') as HTMLInputElement | null;
-        
+        // Get a key for a new transcription
+        const transcriptionID = push(child(ref(db), 'transcriptions/')).key;
+
         submitCheck.addEventListener('click', () => {
             const transcription: any = document.getElementById('transcription') as HTMLInputElement | null;
             const flag:any = document.querySelector('input[name="Flag"]:checked') as HTMLInputElement;
@@ -180,11 +182,10 @@ window.addEventListener('DOMContentLoaded', ()=> {
             // }
 
             //Changed 1,2 to the userId so that I can track what user did what transcription
-            const userId = auth.currentUser?.uid;
-            const reference = ref(db, 'transcriptions/' + userId);
+            const reference = ref(db, 'transcriptions/' + transcriptionID);
 
             set(reference, {
-                // audio: "./audioSample/LJ001-001.wav", //get name of the audio file
+                //Audio:  //get name of the audio file
                 transcription: transcription.value,
                 flagForReview: flag.value,
                 containsSpeech: containsSpeech.value,
@@ -204,83 +205,109 @@ window.addEventListener('DOMContentLoaded', ()=> {
 // The user expects to have a list of all the transcribed audio files.
 // We need a function that retrieves all the data from the database and displays it on the page.
         
-        //Filling the table with our data
-        let id: any = 0;
-        const table: any = document.getElementById('table') as HTMLTableElement;
+        // submitCheck.addEventListener("click", (e:any) => {
+        //     const reference = ref(db, 'transcriptions/');
 
-        function addItemToTable(transcription:string, flag: string, containsSpeech: string, backgroundSpeech: string, fillerSpeech: string, cutOff: string, backgroundNoise: string, invalidAudio: string, unintelligibleWords: string, throatSounds: string, otherSpeakers: string, Notes: string) {
-            let tRow = document.createElement('tr');
-            let td1 = document.createElement('td');
-            let td2 = document.createElement('td');
-            let td3 = document.createElement('td');
-            let td4 = document.createElement('td');
-            let td5 = document.createElement('td');
-            let td6 = document.createElement('td');
-            let td7 = document.createElement('td');
-            let td8 = document.createElement('td');
-            let td9 = document.createElement('td');
-            let td10 = document.createElement('td');
-            let td11 = document.createElement('td');
-            let td12 = document.createElement('td');
-            let td13 = document.createElement('td');
-
-            td1.innerHTML = id;
-            td2.innerHTML = transcription;
-            td3.innerHTML = flag;
-            td4.innerHTML = containsSpeech;
-            td5.innerHTML = backgroundSpeech;
-            td6.innerHTML = fillerSpeech;
-            td7.innerHTML = cutOff;
-            td8.innerHTML = backgroundNoise;
-            td9.innerHTML = invalidAudio;
-            td10.innerHTML = unintelligibleWords;
-            td11.innerHTML = throatSounds;
-            td12.innerHTML = otherSpeakers;
-            td13.innerHTML = Notes;
-
-            tRow.appendChild(td1);
-            tRow.appendChild(td2);
-            tRow.appendChild(td3);
-            tRow.appendChild(td4);
-            tRow.appendChild(td5);
-            tRow.appendChild(td6);
-            tRow.appendChild(td7);
-            tRow.appendChild(td8);
-            tRow.appendChild(td9);
-            tRow.appendChild(td10);
-            tRow.appendChild(td11);
-            tRow.appendChild(td12);
-            tRow.appendChild(td13);
-
-            table.appendChild(tRow);
-        }
-
-        //Adding all the data to the table
-
-        function addAllItemsToTable(transcriptionData: any) {
-            id = 0;   
-            table.innerHTML = '';
-            transcriptionData.forEach((element: any) => {
-                    addItemToTable(element.transcription, element.flagForReview, element.containsSpeech, element.backgroundSpeech, element.fillerSpeech, element.cutOff, element.backgroundNoise, element.invalidAudio, element.unintelligibleWords, element.throatSounds, element.otherSpeakers, element.Notes);
-                });
-            };
-
-        //Retrieving all the data from the database
-        
-        function getAllDataRealTime() {
-            const reference = ref(db, 'transcriptions/');
-            
-            onValue(reference, (snapshot) => {
-                const transcriptions: any = [];
-
-                snapshot.forEach((childSnapshot) => {
-                    transcriptions.push(childSnapshot.val());
-                });
+        //     onValue(reference, (snapshot) => {
+        //     snapshot.forEach((childSnapshot) => {
+        //         const childKey = childSnapshot.key;
+        //         const childData = childSnapshot.val();
+        //         console.log(childData);
                 
-                addAllItemsToTable(transcriptions);
-            });
-        };
-        // should I add this inside a script tag on the list file?? I tried it but it gave me a reference error.
-        window.onload = getAllDataRealTime;
+        //         const row = 
+        //             childData.transcription +
+        //             "</td><td>" +
+        //             childData.flagForReview
+        //             "</td></tr>";
+
+        //             $(row).appendTo("dataTable");
+        //     });
+        //     }, {
+        //     onlyOnce: true
+        //     });
+        // });
+
+        //Function to get the audio file name from wavesurfer.load('audioSample/LJ001-0001.wav')
+        // const audioFileName = wavesurfer.load('audioSample/LJ001-0001.wav').value ;
+
+
+        // //Filling the table with our data
+        // let id: any = 0;
+        // const table: any = document.getElementById('table') as HTMLTableElement;
+
+        // function addItemToTable(transcription:string, flag: string, containsSpeech: string, backgroundSpeech: string, fillerSpeech: string, cutOff: string, backgroundNoise: string, invalidAudio: string, unintelligibleWords: string, throatSounds: string, otherSpeakers: string, Notes: string) {
+        //     let tRow = document.createElement('tr');
+        //     let td1 = document.createElement('td');
+        //     let td2 = document.createElement('td');
+        //     let td3 = document.createElement('td');
+        //     let td4 = document.createElement('td');
+        //     let td5 = document.createElement('td');
+        //     let td6 = document.createElement('td');
+        //     let td7 = document.createElement('td');
+        //     let td8 = document.createElement('td');
+        //     let td9 = document.createElement('td');
+        //     let td10 = document.createElement('td');
+        //     let td11 = document.createElement('td');
+        //     let td12 = document.createElement('td');
+        //     let td13 = document.createElement('td');
+
+        //     td1.innerHTML = id;
+        //     td2.innerHTML = transcription;
+        //     td3.innerHTML = flag;
+        //     td4.innerHTML = containsSpeech;
+        //     td5.innerHTML = backgroundSpeech;
+        //     td6.innerHTML = fillerSpeech;
+        //     td7.innerHTML = cutOff;
+        //     td8.innerHTML = backgroundNoise;
+        //     td9.innerHTML = invalidAudio;
+        //     td10.innerHTML = unintelligibleWords;
+        //     td11.innerHTML = throatSounds;
+        //     td12.innerHTML = otherSpeakers;
+        //     td13.innerHTML = Notes;
+
+        //     tRow.appendChild(td1);
+        //     tRow.appendChild(td2);
+        //     tRow.appendChild(td3);
+        //     tRow.appendChild(td4);
+        //     tRow.appendChild(td5);
+        //     tRow.appendChild(td6);
+        //     tRow.appendChild(td7);
+        //     tRow.appendChild(td8);
+        //     tRow.appendChild(td9);
+        //     tRow.appendChild(td10);
+        //     tRow.appendChild(td11);
+        //     tRow.appendChild(td12);
+        //     tRow.appendChild(td13);
+
+        //     table.appendChild(tRow);
+        // }
+
+        // //Adding all the data to the table
+
+        // function addAllItemsToTable(transcriptionData: any) {
+        //     id = 0;   
+        //     table.innerHTML = '';
+        //     transcriptionData.forEach((element: any) => {
+        //             addItemToTable(element.transcription, element.flagForReview, element.containsSpeech, element.backgroundSpeech, element.fillerSpeech, element.cutOff, element.backgroundNoise, element.invalidAudio, element.unintelligibleWords, element.throatSounds, element.otherSpeakers, element.Notes);
+        //         });
+        //     };
+
+        // //Retrieving all the data from the database
+        
+        // function getAllDataRealTime() {
+        //     const reference = ref(db, 'transcriptions/');
+            
+        //     onValue(reference, (snapshot) => {
+        //         const transcriptions: any = [];
+
+        //         snapshot.forEach((childSnapshot) => {
+        //             transcriptions.push(childSnapshot.val());
+        //         });
+                
+        //         addAllItemsToTable(transcriptions);
+        //     });
+        // };
+        // // should I add this inside a script tag on the list file?? I tried it but it gave me a reference error.
+        // window.onload = getAllDataRealTime;
 
 });
