@@ -10,8 +10,9 @@
         <link rel="stylesheet" href="index.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://unpkg.com/wavesurfer.js"></script>
-        <script type="text/javascript" src="index.js"></script>
+        <script type="application/javascript" src="app.js"></script>
     </head>
+
     <body>
 <!--Header-->
         <header>
@@ -21,16 +22,37 @@
                 <div class="nav-links">
                     <ul>
                         <li><a href="./index.html">HOME</a></li>
-                        <li><a href="./log-in.html">LOG-IN</a></li>
+                        <li><a href="./log-in.html">LOG IN</a></li>
+                        <li><a href="./registration.html"> SIGN UP</a></li>
                         <li><a href="./about.html">ABOUT</a></li>
-                        <li><a href="./trascribe.html">TRANSCRIBE</a></li>
-                        <li> <input type="button" value="Log Out" id="signout-bt"> </li>
+                        <li><a href="./transcribe.html">TRANSCRIBE</a></li>
+                        <li><a href="./list.html">LIST</a></li>
+                        <li> <input type="button" value="LOG OUT" id="signout-bt"> </li>
                     </ul>
                 </div>
             </nav>
         </header>
 
         <main>
+<!--Prompt-->
+<div class="Prompt-Container">
+    <dd class="Prompt-Textbox">
+        <h2 class="Prompt-Label">
+            Welcome to Transcription.Inc
+        </h2>
+        <br></br>
+        <p class="Prompt-quote">
+            In the Transcribe page you can play any of the sample audios
+            and transcribe it's content in the Transcription box. Annotate the file 
+            with any of the tags you see fit.
+            If there's a bug or the audio doesn't work please Flag it for review.
+            At the bottom you will also find a text box field to take notes.
+            <br> </br>
+            Once you are done, hit submit to save your work. Thank you for using Transcription.Inc
+        </p>
+    </dd>
+</div>
+
 <!--Voice Recording Panel-->
             <div class="Layout-Container">
                 <div class="waveform-player">
@@ -42,75 +64,45 @@
                                 <span>Total Time:</span>
                             </span>
                             <span class="time-value">
-                                <span>00:00.000</span>
-                                <span>00:00.000</span>
+                                <span id="currentTime">00:00</span>
+                                <span id="totalTime">00:00</span>
                             </span>
                             <span id='playPause' class="button-group">
-                                <i class="fa fa-play-circle-o"></i>
-                                <i class="fa fa-pause-circle-o"></i>
+                                <i class="fa fa-play-circle-o fa-2x"></i>
+                                <i class="fa fa-pause-circle-o fa-2x"></i>
                             </span>
                             <span id='stop' class="button-group">
-                                <i class="fa fa-stop-circle-o"></i>
+                                <i class="fa fa-stop-circle-o fa-2x"></i>
                             </span>
                             <span id='mute' class="button-group">
-                                <i class="fa fa-volume-up"></i>
-                                <i class="fa fa-volume-off"></i>
+                                <i class="fa fa-volume-up fa-2x"></i>
+                                <i class="fa fa-volume-off fa-2x"></i>
                             </span>
                             <input type="range" min="0" max="1" step="0.1" value="0.5" class="volume-Slider" id="volume-Slider"/>
                         </span>
                     </div>
                 </div>
             </div>
-<!--Prompt-->
-            <div class="Prompt-Container">
-                <h2 class="Prompt-Label">
-                    Recording Prompt
-                </h2>
-                <dd class="Prompt-Textbox">
-                    <q class="Prompt-quote">
-                        Welcome to Transcription.Inc!<br>
-                        <br>
-                        In the Transcribe page you can play any of the sample audios 
-                        and transcribe it's content in the Transcription box. Please feel free 
-                        to annotate the file with any of the tags you see fit whether there was any technical or vocal problems. 
-                        At the bottom you will find a text box field to take notes.
-                        <br>
-                        If there's a bug or the audio doesn't work please Flag it for review. <br>
-                        <br>
-                        I hope you find it useful!
-                    </q>
 
-                </dd>
-
-
-            </div>
 <!--Form Panel-->
             <form action="#" class="Form-style">
-                <!--Submission Controls-->
-                <div class="Flag">
-                    <p>
-                        Flag For Review
-                    </p>
-                    <label>Yes</label>
-                    <input type="radio" name="Flag" id="YesFlag" value="True">
-                    <label>No</label>
-                    <input type="radio" name="Flag" id="NoFlag" value="False">
-                    <button id="NextInQueue" onclick="SubmitTranscription()" type="Submit">Next in Queue</button>
-                </div>
+
                 <!--Transcription Box-->
                 <div class="Transcription-box">
                     <p>
                         Transcription
                     </p>
-                    <textarea class="Text-area" tittle="Transcript"></textarea>
+                    <textarea class="Text-area" id="transcription" title="Transcript"></textarea>
                 </div>
+
                 <!--Task Tags-->
                 <div class="Tags">
+
                     <!--Task Completion-->
-                    <div>
-                        <p>
+                    <div class="tagsContainer">
+                        <h3>
                             Task Completion
-                        </p>
+                        </h3>
                         <div>
                             <p>
                                 Contains Speech
@@ -121,12 +113,12 @@
                             <input type="radio" name="ContainsSpeech" value="False">
                         </div>
                             <p>
-                                Non-Task Speech
+                                Background Speech
                             </p>
                             <label>Yes</label>
-                            <input type="radio" name="NonTaskSpeech" value="True">
+                            <input type="radio" name="BackgroundSpeech" value="True">
                              <label>No</label>
-                            <input type="radio" name="NonTaskSpeech" value="False">
+                            <input type="radio" name="BackgroundSpeech" value="False">
                         <div>
                             <p>
                                 Filler Speech
@@ -137,11 +129,12 @@
                             <input type="radio" name="FillerSpeech" value="False">
                         </div>
                     </div>
+
                     <!--Technical Problems-->
-                    <div>
-                        <p>
+                    <div class="tagsContainer">
+                        <h3>
                             Technical Problems
-                        </p>
+                        </h3>
                         <div>
                             <p>
                                 Cut Off
@@ -153,7 +146,7 @@
                         </div>
                         <div>
                             <p>
-                                Background Noise 
+                                Background Noise
                             </p>
                             <label>Yes</label>
                             <input type="radio" name="BackgroundNoise" value="True">
@@ -162,7 +155,7 @@
                         </div>
                         <div>
                             <p>
-                               Invalid Audio File 
+                               Invalid Audio File
                             </p>
                             <label>Yes</label>
                             <input type="radio" name="Invalid" value="True">
@@ -170,11 +163,12 @@
                             <input type="radio" name="Invalid" value="False">
                         </div>
                     </div>
+
                     <!--Vocal Problems-->
-                    <div>
-                        <p>
+                    <div class="tagsContainer">
+                        <h3>
                             Vocal Problems
-                        </p>
+                        </h3>
                         <div>
                             <p>
                                 Unintelligible Words
@@ -204,68 +198,126 @@
                         </div>
                     </div>
                 </div>
+                <!--Flag For Review-->
+                <div class="Flag">
+                    <div>
+                        <h3>
+                            Flag For Review
+                        </h3>  
+                    </div>
+                    <div>
+                        <label>Yes</label>
+                        <input type="radio" name="Flag" id="YesFlag" value="True">
+                        <label>No</label>
+                        <input type="radio" name="Flag" id="NoFlag" value="False">
+                    </div>
+                </div>  
                 <!--Notes --->
                 <div class="Notes">
                     <p>
                         Notes
                     </p>
-                    <textarea class="Notes-text-area" tittle="Notes"></textarea>
+                    <textarea class="Notes-text-area" id="Notes-text-area" title="Notes"></textarea>
+                </div>
+
+                <!--Submit Button-->
+                <div class="Submit">
+                    <button id="NextInQueue" type="Submit">Submit</button>
                 </div>
             </form>
-            <pre id="log">
-
-            </pre>
-            
         </main>
-         
+
 
 <!-- Footer-->
         <footer>
-            <h4 class="footer-tittle">2022 Transcription Inc.</h4>
+            <h4 class="footer-title">2022 Transcription Inc.</h4>
             <div class="icons">
-                <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a> 
+                <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
                 <a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
                 <a href="https://www.instagram.com/"><i class="fa fa-instagram" ></i></a>
                 <a href="https://www.linkedin.com/"><i class="fa fa-linkedin" ></i></a>
             </div>
             <p>Made by Anny Patino</p>
         </footer>
-        <script type="module">
-            // Import the functions you need from the SDKs you need
-            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
-            import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-analytics.js";
-            import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/9.8.0/firebase-auth.js";
-            // TODO: Add SDKs for Firebase products that you want to use
-            // https://firebase.google.com/docs/web/setup#available-libraries
-          
-            // Your web app's Firebase configuration
-            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-            const firebaseConfig = {
-              apiKey: "AIzaSyD4ziKkzq2Bv2VjLeg7LvBNC1eZUB0yQh0",
-              authDomain: "transcription-website-55f1b.firebaseapp.com",
-              databaseURL: "https://transcription-website-55f1b-default-rtdb.firebaseio.com",
-              projectId: "transcription-website-55f1b",
-              storageBucket: "transcription-website-55f1b.appspot.com",
-              messagingSenderId: "357514451132",
-              appId: "1:357514451132:web:13a0af8d3f9569eb6d18b9",
-              measurementId: "G-07Q0DWGX8G"
-            };
-          
-            // Initialize Firebase
-            const app = initializeApp(firebaseConfig);
-            const analytics = getAnalytics(app);
-            const auth = getAuth(app);
 
-            // Sign Out User
-            document.getElementById('signout-bt').addEventListener("click", () => {
-                signOut(auth).then(() => {
-                // Sign-out successful.
-                console.log("Sign-out successful.")
-                }).catch((error) => {
-                // An error happened.
-                });
-          </script>
     </body>
+
+    <script type="module">
+        //wavesurfer.js
+        /* This is a function that is called when the DOM is loaded. It creates a new instance of the
+        WaveSurfer object and loads the audio file. */
+        window.addEventListener('DOMContentLoaded', ()=> {
+            var wavesurfer = WaveSurfer.create({
+                container: '#waveform',
+                scrollParent: true,
+                backgroundColor: 'white',
+                cursorColor: '#333',
+                progressColor: 'lightblue',
+                waveColor: 'lightgrey',
+                barWidth: 3,
+                barRadius: 3,
+            });
+
+            /* Loading the audio file into the waveform. */
+            wavesurfer.load('audioSample/LJ001-0001.wav');
+
+            const playPause = document.getElementById('playPause');
+            const stop = document.getElementById('stop');
+            const mute = document.getElementById('mute');
+            const volumeSlider = document.getElementById('volume-Slider');
+
+            /* This is an event listener that listens for a click on the playPause button. When the button is
+            clicked, the playPause function is called. If the audio is playing, the playPause button is
+            given the class "playing". If the audio is not playing, the playPause button is given the class
+            "playing". In other words, I can click play to start listening to the audio, and symoultanously
+            the icon will change into the pause button allowing me to click pause at anytime. If pause is clicked,
+            the icon will chenge into the play button for when the user is ready to continue playing
+            the audio. This will hopefully help with an intuitive use of the audio controls.*/
+
+            playPause.addEventListener('click', () => {
+                wavesurfer.playPause();
+                if (wavesurfer.isPlaying()){
+                    playPause.classList.add("playing");
+                } else{
+                    playPause.classList.remove("playing");
+                }
+                });
+
+            stop.addEventListener('click', () => {
+                wavesurfer.stop();
+                playPause?.classList.remove("playing");
+            });
+
+            volumeSlider.addEventListener("mouseup", () => {
+                changeVolume(volumeSlider.value);
+            });
+
+            const changeVolume = (volume) => {
+                if (volume == 0){
+                    mute?.classList.add("muted");
+                }else{
+                    mute?.classList.remove("muted");
+                }
+
+                wavesurfer.setVolume(volume);
+            };
+
+            mute.addEventListener('click', () => {
+            if (mute.classList.contains("muted")){
+                mute.classList.remove("muted");
+                wavesurfer.setVolume(0.5);
+                volumeSlider.value = 0.5;
+            } else{
+                wavesurfer.setVolume(0);
+                mute.classList.add("muted");
+                volumeSlider.value = 0;
+            }
+
+            });
+
+            });
+    </script>
+
 </html>
 
 

@@ -12,7 +12,6 @@
         <script type="application/javascript" src="app.js"></script>
     </head>
 
-<!--Body Section-->
     <body>
 <!--Header-->
         <header>
@@ -33,23 +32,39 @@
             </nav>
         </header>
 
-        <div class="SpacerRow-SpacerContainer" ></div>
-<!--Content Section-->
-        <div class="HomepageBody-OuterContainer">
-            <div class="HomepageBody-InnerContainer">
-                <div class="text-box-cotainer">
-                    <div class="text-box">
-                        <h1 href="./about.html">Transcription Inc.</h1>
-                        <p>Website Description</p>
-                        <a href="./log-in.html"class="hero-btn">Try Us Now!</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!--Table-->
+        <div class="listContainer">
+            <h2 class="listTitle">List of Transcriptions </h2>
+            <table id="dataTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Transcription</th>
+                        <th>Flag for Review</th>
+                        <th>Contains Speech</th>
+                        <th>Background Speech</th>
+                        <th>Filler Speech</th>
+                        <th>Cut Off</th>
+                        <th>Background Noise</th>
+                        <th>Invalid Audio File</th>
+                        <th>Unintelligible Words</th>
+                        <th>Other Throat Sounds</th>
+                        <th>Other Speakers</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tbody id="table">
+                        <tr>
+                            <td> </td>
+                        </tr>
+                    </tbody>
+                </thead>  
+            </table>
+        </div>        
+
 
 <!-- Footer-->
         <footer>
-            <h4 class="footer-tittle">2022 Transcription Inc.</h4>
+            <h4 class="footer-title">2022 Transcription Inc.</h4>
             <div class="icons">
                 <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
                 <a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
@@ -58,7 +73,6 @@
             </div>
             <p>Made by Anny Patino</p>
         </footer>
-
     </body>
-
+    
 </html>
